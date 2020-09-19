@@ -9,6 +9,7 @@ const theme = {
 
 	// Colors
 	primary: '#F76868',
+	white: '#f1f2f2',
 
 	// Fonts
 	lustria: 'Lustria, serif',
@@ -21,6 +22,7 @@ const theme = {
 
 // Global styles
 export const globalStyles = {
+	// Text styles.
 	titles1: css`
 		font-family: 'Lustria';
 		font-size: 50px;
