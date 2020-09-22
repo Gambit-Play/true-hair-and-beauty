@@ -14,9 +14,9 @@ const HeaderSection = () => {
 				<img src={logoText} alt='' className='header-logo' />
 			</div>
 			<div className='header-text-wrapper'>
-				<div className='header-text-top'>Haar Specialst</div>
+				<h1 className='header-text-top'>Haar Specialst</h1>
 				<div className='header-divider'></div>
-				<div className='header-text-bottom'>Voor alle haar type</div>
+				<h2 className='header-text-bottom'>Voor alle haar type</h2>
 				<ButtonContained className='button'>
 					Afspraak Maken
 				</ButtonContained>

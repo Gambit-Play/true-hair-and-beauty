@@ -4,7 +4,6 @@ import styled from 'styled-components';
 import headerImage from '../../../assets/header.jpg';
 
 export const Header = styled.div`
-	width: 100vw;
 	height: 100vh;
 	background-image: linear-gradient(
 			180deg,
@@ -83,6 +82,7 @@ export const Header = styled.div`
 		.header-text-wrapper {
 			.header-text-top {
 				font-size: 52px;
+				line-height: 64px;
 			}
 		}
 

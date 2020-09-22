@@ -1,11 +1,16 @@
 import React from 'react';
 
 // Component
-import { Title1, Body1 } from '../../components/atoms/text/text.styles';
 import HeaderSection from '../../components/organisms/header-section/header-section.component';
+import AboutUsSection from '../../components/organisms/about-us-section/about-us-section.component';
 
 const HomePage = () => {
-	return <HeaderSection />;
+	return (
+		<React.Fragment>
+			<HeaderSection />
+			<AboutUsSection />
+		</React.Fragment>
+	);
 };
 
 export default HomePage;
