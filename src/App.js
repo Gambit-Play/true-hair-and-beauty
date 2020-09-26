@@ -6,6 +6,10 @@ import * as ROUTES from './routes/routes';
 
 // Components
 import HomePage from './pages/home-page/home-page.component';
+import {
+	MainContainer,
+	MainWrapper,
+} from './components/atoms/container/container.styles';
 
 // Styles
 import { ThemeProvider as StyledThemeProvider } from 'styled-components';
@@ -16,7 +20,11 @@ function App() {
 	return (
 		<Switch>
 			<StyledThemeProvider theme={styledComponentsTheme}>
-				<Route exact path={ROUTES.HOME} component={HomePage} />
+				<MainContainer>
+					<MainWrapper>
+						<Route exact path={ROUTES.HOME} component={HomePage} />
+					</MainWrapper>
+				</MainContainer>
 			</StyledThemeProvider>
 		</Switch>
 	);

@@ -21,13 +21,13 @@ export const AboutUs = styled.div`
 
 		.about-us-title {
 			margin-bottom: 40px;
-			font-family: Lustria, sans-serif;
+			font-family: ${props => props.theme.lustria};
 			font-size: 48px;
 			line-height: 64px;
 			text-align: center;
 
 			.pink-char {
-				color: #f76868;
+				color: ${props => props.theme.primary};
 			}
 		}
 	}
