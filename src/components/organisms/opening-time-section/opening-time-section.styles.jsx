@@ -27,13 +27,6 @@ export const OpeningTime = styled.div`
 		line-height: 1.25;
 	}
 
-	.pink-divider {
-		width: 115px;
-		height: 4px;
-		margin-bottom: 54px;
-		background-color: ${props => props.theme.primary};
-	}
-
 	.time-card-wrapper {
 		display: flex;
 		justify-content: center;
@@ -93,12 +86,6 @@ export const OpeningTime = styled.div`
 				text-transform: uppercase;
 			}
 		}
-	}
-
-	@media screen and (max-width: 991px) {
-	}
-
-	@media screen and (max-width: 767px) {
 	}
 
 	@media screen and (max-width: 479px) {

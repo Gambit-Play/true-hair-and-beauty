@@ -10,4 +10,5 @@ export const MainContainer = styled.div`
 export const MainWrapper = styled.div`
 	width: 100%;
 	max-width: 1920px;
+	background-color: #fff;
 `;

@@ -2,12 +2,13 @@ import React from 'react';
 
 // Components
 import { OpeningTime } from './opening-time-section.styles';
+import { PinkDivider } from '../../atoms/divider/divider.styles';
 
 const OpeningTimeSection = () => {
 	return (
 		<OpeningTime>
 			<div className='opening-title'>Openingstijden</div>
-			<div className='pink-divider'></div>
+			<PinkDivider />
 			<div className='time-card-wrapper'>
 				<div className='day-card-pink'>
 					<div className='box-day-white'>Zon</div>

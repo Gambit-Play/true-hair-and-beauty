@@ -4,6 +4,7 @@ import React from 'react';
 import HeaderSection from '../../components/organisms/header-section/header-section.component';
 import AboutUsSection from '../../components/organisms/about-us-section/about-us-section.component';
 import OpeningTimeSection from '../../components/organisms/opening-time-section/opening-time-section.component';
+import ServicesSection from '../../components/organisms/services-section/services-section.component';
 
 const HomePage = () => {
 	return (
@@ -11,6 +12,7 @@ const HomePage = () => {
 			<HeaderSection />
 			<AboutUsSection />
 			<OpeningTimeSection />
+			<ServicesSection />
 		</React.Fragment>
 	);
 };

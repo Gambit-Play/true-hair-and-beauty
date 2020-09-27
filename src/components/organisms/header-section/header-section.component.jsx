@@ -1,7 +1,7 @@
 import React from 'react';
 
 // Components
-import { Header } from './header-section.style';
+import { Header } from './header-section.styles';
 import { ButtonContained } from '../../atoms/button/button.styles';
 
 // Images
