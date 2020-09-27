@@ -1,41 +1,26 @@
 import React from 'react';
 
 // Components
+import ServiceCard from './service-card/service-card.component';
 import { Services } from './services-section.styles';
 import { PinkDivider } from '../../atoms/divider/divider.styles';
+import { BgImage } from '../../atoms/image/image.styles';
+
+import { data } from '../../../data/data.schema';
+
+// Images
+import serviceImage1 from '../../../assets/service-bg-1.jpg';
+import serviceImage2 from '../../../assets/service-bg-2.jpg';
 
 const ServicesSection = () => {
+	// Background images
+	const images = [serviceImage1, serviceImage2];
+
 	return (
-		<Services reverse={false}>
+		<Services>
 			<div className='section-title-dark'>Onze Service</div>
 			<PinkDivider />
-			<div className='service-card'>
-				<div className='service-card-price'>
-					<div className='service-card-title'>KNIPPEN</div>
-					<div className='service-text-price'>
-						<div>
-							Heren knippen -{' '}
-							<span className='text-span'>€ 17,-</span>
-						</div>
-					</div>
-					<div className='service-text-price'>
-						<div>
-							Heren knippen -{' '}
-							<span className='text-span'>€ 17,-</span>
-						</div>
-					</div>
-					<div className='service-text-price'>
-						<div>
-							Heren knippen -{' '}
-							<span className='text-span'>€ 17,-</span>
-						</div>
-					</div>
-					<button href='#' className='service-more-button w-button'>
-						Alle Prijzen
-					</button>
-				</div>
-				<div className='service-card-img'></div>
-			</div>
+			<ServiceCard data={data} images={images} />
 		</Services>
 	);
 };

@@ -14,25 +14,25 @@ const OpeningTimeSection = () => {
 					<div className='box-day-white'>Zon</div>
 					<div className='box-text-white'>gesloten</div>
 				</div>
-				<div class='day-card-white'>
-					<div class='box-day-dark'>ma</div>
-					<div class='box-text-dark'>11:00 - 18:00</div>
+				<div className='day-card-white'>
+					<div className='box-day-dark'>ma</div>
+					<div className='box-text-dark'>11:00 - 18:00</div>
 				</div>
-				<div class='day-card-white'>
-					<div class='box-day-dark'>din</div>
-					<div class='box-text-dark'>11:00 - 18:00</div>
+				<div className='day-card-white'>
+					<div className='box-day-dark'>din</div>
+					<div className='box-text-dark'>11:00 - 18:00</div>
 				</div>
-				<div class='day-card-white'>
-					<div class='box-day-dark'>woe</div>
-					<div class='box-text-dark'>11:00 - 18:00</div>
+				<div className='day-card-white'>
+					<div className='box-day-dark'>woe</div>
+					<div className='box-text-dark'>11:00 - 18:00</div>
 				</div>
-				<div class='day-card-white'>
-					<div class='box-day-dark'>don</div>
-					<div class='box-text-dark'>11:00 - 18:00</div>
+				<div className='day-card-white'>
+					<div className='box-day-dark'>don</div>
+					<div className='box-text-dark'>11:00 - 18:00</div>
 				</div>
-				<div class='day-card-white'>
-					<div class='box-day-dark'>vrij</div>
-					<div class='box-text-dark'>11:00 - 18:00</div>
+				<div className='day-card-white'>
+					<div className='box-day-dark'>vrij</div>
+					<div className='box-text-dark'>11:00 - 18:00</div>
 				</div>
 				<div className='day-card-pink'>
 					<div className='box-day-white'>Zat</div>
