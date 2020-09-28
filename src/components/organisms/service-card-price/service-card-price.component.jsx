@@ -16,7 +16,7 @@ const ServiceCardPrice = ({
 	};
 
 	return (
-		<Card>
+		<Card isModal={isModal}>
 			<div className='service-card-title'>{item.typeOfService}</div>
 			{isSmall
 				? item.services.slice(0, 3).map((service, serviceIndex) => (

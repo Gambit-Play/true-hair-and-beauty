@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Card = styled.div`
 	display: flex;
-	width: 50%;
+	width: ${props => (props.isModal ? 'unset' : '50%')};
 	padding: 20px 20px;
 	flex-direction: column;
 	justify-content: center;
