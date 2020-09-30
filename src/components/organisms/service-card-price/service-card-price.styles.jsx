@@ -71,6 +71,10 @@ export const Card = styled.div`
 	}
 
 	@media screen and (max-width: 479px) {
+		.service-card-title {
+			font-size: 32px;
+		}
+
 		.service-text-price {
 			width: 100%;
 			font-size: 18px;

@@ -9,7 +9,7 @@ import ServiceCardPrice from '../service-card-price/service-card-price.component
 
 const Modal = () => {
 	return (
-		<ModalContainer>
+		<ModalContainer show={false}>
 			<div className='modal'>
 				<ServiceCardPrice buttonText='Sluiten' isModal item={data[0]} />
 			</div>

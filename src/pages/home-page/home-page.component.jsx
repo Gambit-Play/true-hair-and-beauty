@@ -5,6 +5,7 @@ import HeaderSection from '../../components/organisms/header-section/header-sect
 import AboutUsSection from '../../components/organisms/about-us-section/about-us-section.component';
 import OpeningTimeSection from '../../components/organisms/opening-time-section/opening-time-section.component';
 import ServicesSection from '../../components/organisms/services-section/services-section.component';
+import FooterSection from '../../components/organisms/footer-section/footer-section.component';
 import Modal from '../../components/organisms/modal/modal.component';
 
 const HomePage = () => {
@@ -15,6 +16,7 @@ const HomePage = () => {
 			<AboutUsSection />
 			<OpeningTimeSection />
 			<ServicesSection />
+			<FooterSection />
 		</React.Fragment>
 	);
 };
