@@ -1,20 +1,19 @@
-import ServicesDetailActionTypes from './services-detail.types';
+import ServicesDetailTypes from './services-detail.types';
 
 /* ================================================================ */
 /*  Process Start  	                                                */
 /* ================================================================ */
 
 export const createServicesStart = () => ({
-	type: ServicesDetailActionTypes.CREATE_SERVICES_START,
+	type: ServicesDetailTypes.CREATE_SERVICES_START,
 });
 
 /* ================================================================ */
 /*  Process Success	                                                */
 /* ================================================================ */
 
-export const createServicesSuccess = services => ({
-	type: ServicesDetailActionTypes.CREATE_SERVICES_SUCCESS,
-	payload: services,
+export const createServicesSuccess = () => ({
+	type: ServicesDetailTypes.CREATE_SERVICES_SUCCESS,
 });
 
 /* ================================================================ */
@@ -22,6 +21,6 @@ export const createServicesSuccess = services => ({
 /* ================================================================ */
 
 export const createServicesFailure = errorMessage => ({
-	type: ServicesDetailActionTypes.CREATE_SERVICES_FAILURE,
+	type: ServicesDetailTypes.CREATE_SERVICES_FAILURE,
 	payload: errorMessage,
 });

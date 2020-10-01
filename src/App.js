@@ -1,5 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+// Redux
+import {
+	fetchServicesCollectionStart,
+	removeServicesCollectionListener,
+} from './redux/services/services.actions';
 
 // Routes
 import * as ROUTES from './routes/routes';
@@ -16,7 +23,17 @@ import { ThemeProvider as StyledThemeProvider } from 'styled-components';
 import styledComponentsTheme from './themes/styled-components.theme';
 import './App.css';
 
-function App() {
+function App({
+	fetchServicesCollectionStart,
+	removeServicesCollectionListener,
+}) {
+	useEffect(() => {
+		fetchServicesCollectionStart();
+		return () => {
+			removeServicesCollectionListener();
+		};
+	}, [fetchServicesCollectionStart, removeServicesCollectionListener]);
+
 	return (
 		<Switch>
 			<StyledThemeProvider theme={styledComponentsTheme}>
@@ -30,4 +47,11 @@ function App() {
 	);
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+	fetchServicesCollectionStart: () =>
+		dispatch(fetchServicesCollectionStart()),
+	removeServicesCollectionListener: () =>
+		dispatch(removeServicesCollectionListener()),
+});
+
+export default connect(null, mapDispatchToProps)(App);

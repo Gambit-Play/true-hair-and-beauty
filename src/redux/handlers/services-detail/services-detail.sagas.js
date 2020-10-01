@@ -14,7 +14,7 @@ import {
 } from './services-detail.actions';
 
 // Selectors
-import { selectCurrenServices } from './services-detail.selectors';
+import { selectServicesDetail } from './services-detail.selectors';
 
 // Data
 import { data } from '../../../data/data.schema';
@@ -25,10 +25,11 @@ import { data } from '../../../data/data.schema';
 
 export function* createServicesStart() {
 	try {
-		yield call(createCollectionAndDocuments, COLLECTION_IDS.SERVICES, data);
+		// yield call(createCollectionAndDocuments, COLLECTION_IDS.SERVICES, /* data */);
 		yield put(createServicesSuccess());
 	} catch (error) {
 		console.log(error);
+		yield put(createServicesFailure(error));
 	}
 }
 

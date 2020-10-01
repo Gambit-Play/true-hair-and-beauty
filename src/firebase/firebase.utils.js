@@ -51,6 +51,14 @@ export const createCollectionAndDocuments = async (collectionId, documents) => {
 	return await batch.commit();
 };
 
+export const getCollection = async collectionId => {
+	if (!collectionId) console.error('There is no "collectionId"');
+
+	const collectionRef = firestore.collection(collectionId);
+
+	return collectionRef;
+};
+
 /* ================================================================ */
 /*  Firestore & Auth                                                */
 /* ================================================================ */

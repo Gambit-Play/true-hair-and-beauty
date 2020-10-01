@@ -1,7 +1,7 @@
-const ServicesDetailActionTypes = {
+const ServicesDetailTypes = {
 	CREATE_SERVICES_START: 'CREATE_SERVICES_START',
 	CREATE_SERVICES_SUCCESS: 'CREATE_SERVICES_SUCCESS',
 	CREATE_SERVICES_FAILURE: 'CREATE_SERVICES_FAILURE',
 };
 
-export default ServicesDetailActionTypes;
+export default ServicesDetailTypes;
