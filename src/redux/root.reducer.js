@@ -3,18 +3,16 @@ import { persistReducer } from 'redux-persist';
 import storage from 'redux-persist/lib/storage';
 
 // Reducers
-// import uiReducer from './ui/ui.reducer';
+import servicesDetailReducer from './handlers/services-detail/services-detail.reducer';
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: [
-		// 'ui',
-	],
+	whitelist: ['servicesDetail'],
 };
 
 const rootReducer = combineReducers({
-	// ui: uiReducer,
+	servicesDetail: servicesDetailReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
