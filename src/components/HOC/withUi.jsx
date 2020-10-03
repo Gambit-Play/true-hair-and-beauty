@@ -3,27 +3,26 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
 // Redux: Selectors
-import { selectCurrenServices } from '../../redux/services/services.selectors';
+import { selectIsModalOpen } from '../../redux/ui/ui.selectors';
 // Redux: Actions
-import {} from '../../redux/services/services.actions';
+import { toggleModal } from '../../redux/ui/ui.actions';
 
-const WithServices = WrappedComponent => {
+const WithUi = WrappedComponent => {
 	const WithData = props => {
 		return <WrappedComponent {...props} />;
 	};
 
 	// Redux: Selectors
 	const mapStateToProps = createStructuredSelector({
-		currentServices: selectCurrenServices,
+		isModalOpen: selectIsModalOpen,
 	});
 
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
-		// removeServicesListener: () =>
-		// 	dispatch(removeServicesCollectionListener()),
+		toggleModal: serviceId => dispatch(toggleModal(serviceId)),
 	});
 
 	return connect(mapStateToProps, mapDispatchToProps)(WithData);
 };
 
-export default WithServices;
+export default WithUi;

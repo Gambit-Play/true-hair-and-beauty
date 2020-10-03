@@ -1,5 +1,8 @@
 import React from 'react';
 
+// HOC
+import WithUi from '../../HOC/withUi';
+
 // Components
 import { Card } from './service-card-price.styles';
 
@@ -8,11 +11,12 @@ const ServiceCardPrice = ({
 	isSmall,
 	isModal,
 	buttonText,
-	dispatchStart,
 	itemIndex,
+	isModalOpen,
+	toggleModal,
 }) => {
 	const handleClick = () => {
-		isModal ? dispatchStart() : dispatchStart(itemIndex);
+		isModal ? toggleModal(null) : toggleModal(itemIndex);
 	};
 
 	return (
@@ -49,4 +53,4 @@ const ServiceCardPrice = ({
 	);
 };
 
-export default ServiceCardPrice;
+export default WithUi(ServiceCardPrice);
