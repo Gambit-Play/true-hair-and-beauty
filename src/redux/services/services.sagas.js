@@ -16,6 +16,9 @@ import {
 	fetchServicesCollectionFailure,
 } from './services.actions';
 
+// Selectors
+import { selectCurrenServices } from './services.selectors';
+
 /* ================================================================ */
 /*  Actions                                                         */
 /* ================================================================ */
