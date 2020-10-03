@@ -14,7 +14,6 @@ const servicesReducer = (state = INITIAL_STATE, action) => {
 		case ServicesTypes.FETCH_SERVICES_COLLECTION_START:
 			return {
 				...state,
-				currentServices: action.payload,
 				isFetching: true,
 			};
 		/* ================================================================ */

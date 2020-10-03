@@ -1,20 +1,24 @@
 import React from 'react';
 
-// Data
-import { data } from '../../../data/data.schema';
+// HOC
+import WithServices from '../../HOC/withServices';
 
 // Components
 import { ModalContainer } from './modal.styles';
 import ServiceCardPrice from '../service-card-price/service-card-price.component';
 
-const Modal = () => {
+const Modal = ({ currenServices }) => {
 	return (
-		<ModalContainer show={false}>
+		<ModalContainer show={true}>
 			<div className='modal'>
-				<ServiceCardPrice buttonText='Sluiten' isModal item={data[0]} />
+				<ServiceCardPrice
+					buttonText='Sluiten'
+					isModal
+					item={currenServices[1]}
+				/>
 			</div>
 		</ModalContainer>
 	);
 };
 
-export default Modal;
+export default WithServices(Modal);
