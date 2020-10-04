@@ -6,7 +6,10 @@ import { connect } from 'react-redux';
 import { selectServiceDetail } from '../../redux/handlers/service-detail/service-detail.selectors';
 
 // Redux: Actions
-import { fetchServiceStart } from '../../redux/handlers/service-detail/service-detail.actions';
+import {
+	fetchServiceStart,
+	createServicesStart,
+} from '../../redux/handlers/service-detail/service-detail.actions';
 
 const WithServiceDetail = WrappedComponent => {
 	const WithData = props => {
@@ -22,6 +25,8 @@ const WithServiceDetail = WrappedComponent => {
 	const mapDispatchToProps = dispatch => ({
 		fetchServiceStart: serviceIndex =>
 			dispatch(fetchServiceStart(serviceIndex)),
+		createServicesStart: serviceIndex =>
+			dispatch(createServicesStart(serviceIndex)),
 	});
 
 	return connect(mapStateToProps, mapDispatchToProps)(WithData);

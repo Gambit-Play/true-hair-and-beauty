@@ -59,6 +59,17 @@ export const getCollection = async collectionId => {
 	return collectionRef;
 };
 
+export const getCollectionOrderBy = async (collectionId, orderBy, order) => {
+	if (!(collectionId, orderBy, order))
+		console.error('There is no "collectionId"');
+
+	const collectionRef = firestore
+		.collection(collectionId)
+		.orderBy(orderBy, order);
+
+	return collectionRef;
+};
+
 /* ================================================================ */
 /*  Firestore & Auth                                                */
 /* ================================================================ */

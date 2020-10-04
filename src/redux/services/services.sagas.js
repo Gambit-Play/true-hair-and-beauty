@@ -1,10 +1,10 @@
-import { takeLatest, put, all, call, select } from 'redux-saga/effects';
+import { takeLatest, put, all, call } from 'redux-saga/effects';
 
 // Redux
 import { sagaMiddleware } from '../store';
 
 // Firebase
-import { getCollection } from '../../firebase/firebase.utils';
+import { getCollectionOrderBy } from '../../firebase/firebase.utils';
 import * as COLLECTION_IDS from '../../firebase/collections.ids';
 
 // Types
@@ -16,9 +16,6 @@ import {
 	fetchServicesCollectionFailure,
 } from './services.actions';
 
-// Selectors
-import { selectCurrenServices } from './services.selectors';
-
 /* ================================================================ */
 /*  Actions                                                         */
 /* ================================================================ */
@@ -28,8 +25,10 @@ let unsubscribe;
 export function* fetchServicesCollectionStart() {
 	try {
 		const collectionRef = yield call(
-			getCollection,
-			COLLECTION_IDS.SERVICES
+			getCollectionOrderBy,
+			COLLECTION_IDS.SERVICES,
+			'order',
+			'asc'
 		);
 
 		unsubscribe = yield collectionRef.onSnapshot(snapshot => {

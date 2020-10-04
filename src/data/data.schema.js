@@ -1,6 +1,7 @@
 export const data = [
 	{
 		typeOfService: 'Knippen',
+		order: 0,
 		services: [
 			{
 				title: 'Baard knippen',
@@ -34,6 +35,7 @@ export const data = [
 	},
 	{
 		typeOfService: 'Verven',
+		order: 1,
 		services: [
 			{
 				title: 'Verf uitgroei',
@@ -67,6 +69,7 @@ export const data = [
 	},
 	{
 		typeOfService: 'Modelleren',
+		order: 2,
 		services: [
 			{
 				title: 'Wassen, knippen, model föhnen',
@@ -84,6 +87,7 @@ export const data = [
 	},
 	{
 		typeOfService: 'Vlechten & Dreads',
+		order: 3,
 		services: [
 			{
 				title: 'Invlechten eigen haar vanaf',
@@ -125,6 +129,7 @@ export const data = [
 	},
 	{
 		typeOfService: 'Andere Services',
+		order: 4,
 		services: [
 			{
 				title: 'Relax vanaf',

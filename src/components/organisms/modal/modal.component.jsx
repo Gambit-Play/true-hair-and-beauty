@@ -10,7 +10,6 @@ import { ModalContainer } from './modal.styles';
 import ServiceCardPrice from '../service-card-price/service-card-price.component';
 
 const Modal = ({ serviceDetail, isModalOpen, toggleModal }) => {
-	console.log('@@@@@ Modal - serviceDetail:', serviceDetail);
 	return (
 		<ModalContainer show={isModalOpen}>
 			<div className='modal'>
