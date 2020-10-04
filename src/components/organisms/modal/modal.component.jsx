@@ -9,7 +9,7 @@ import WithUi from '../../HOC/with-ui.hoc';
 import { ModalContainer } from './modal.styles';
 import ServiceCardPrice from '../service-card-price/service-card-price.component';
 
-const Modal = ({ serviceDetail, isModalOpen }) => {
+const Modal = ({ serviceDetail, isModalOpen, toggleModal }) => {
 	console.log('@@@@@ Modal - serviceDetail:', serviceDetail);
 	return (
 		<ModalContainer show={isModalOpen}>
@@ -17,6 +17,7 @@ const Modal = ({ serviceDetail, isModalOpen }) => {
 				<ServiceCardPrice
 					buttonText='Sluiten'
 					isModal
+					dispatchAction={toggleModal}
 					item={serviceDetail}
 				/>
 			</div>

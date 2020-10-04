@@ -1,9 +1,4 @@
 import React from 'react';
-import { compose } from 'redux';
-
-// HOC
-import WithUi from '../../HOC/with-ui.hoc';
-import WithServiceDetail from '../../HOC/with-service-detail.hoc';
 
 // Components
 import { Card } from './service-card-price.styles';
@@ -14,11 +9,10 @@ const ServiceCardPrice = ({
 	isModal,
 	buttonText,
 	itemIndex,
-	fetchServiceStart,
-	toggleModal,
+	dispatchAction,
 }) => {
 	const handleClick = () => {
-		isModal ? toggleModal() : fetchServiceStart(itemIndex);
+		isModal ? dispatchAction() : dispatchAction(itemIndex);
 	};
 
 	return (
@@ -55,4 +49,4 @@ const ServiceCardPrice = ({
 	);
 };
 
-export default compose(WithServiceDetail, WithUi)(ServiceCardPrice);
+export default ServiceCardPrice;
