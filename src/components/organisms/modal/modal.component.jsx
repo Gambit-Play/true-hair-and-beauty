@@ -2,25 +2,26 @@ import React from 'react';
 import { compose } from 'redux';
 
 // HOC
-import WithServices from '../../HOC/withServices';
-import WithUi from '../../HOC/withUi';
+import WithServiceDetail from '../../HOC/with-service-detail.hoc';
+import WithUi from '../../HOC/with-ui.hoc';
 
 // Components
 import { ModalContainer } from './modal.styles';
 import ServiceCardPrice from '../service-card-price/service-card-price.component';
 
-const Modal = ({ currentServices, isModalOpen }) => {
+const Modal = ({ serviceDetail, isModalOpen }) => {
+	console.log('@@@@@ Modal - serviceDetail:', serviceDetail);
 	return (
 		<ModalContainer show={isModalOpen}>
 			<div className='modal'>
 				<ServiceCardPrice
 					buttonText='Sluiten'
 					isModal
-					item={currentServices[1]}
+					item={serviceDetail}
 				/>
 			</div>
 		</ModalContainer>
 	);
 };
 
-export default compose(WithUi, WithServices)(Modal);
+export default compose(WithUi, WithServiceDetail)(Modal);

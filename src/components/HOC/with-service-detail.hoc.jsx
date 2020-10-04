@@ -3,27 +3,28 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
 // Redux: Selectors
-import { selectCurrenServices } from '../../redux/services/services.selectors';
-// Redux: Actions
-import {} from '../../redux/services/services.actions';
+import { selectServiceDetail } from '../../redux/handlers/service-detail/service-detail.selectors';
 
-const WithServices = WrappedComponent => {
+// Redux: Actions
+import { fetchServiceStart } from '../../redux/handlers/service-detail/service-detail.actions';
+
+const WithServiceDetail = WrappedComponent => {
 	const WithData = props => {
 		return <WrappedComponent {...props} />;
 	};
 
 	// Redux: Selectors
 	const mapStateToProps = createStructuredSelector({
-		currentServices: selectCurrenServices,
+		serviceDetail: selectServiceDetail,
 	});
 
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
-		// removeServicesListener: () =>
-		// 	dispatch(removeServicesCollectionListener()),
+		fetchServiceStart: serviceIndex =>
+			dispatch(fetchServiceStart(serviceIndex)),
 	});
 
 	return connect(mapStateToProps, mapDispatchToProps)(WithData);
 };
 
-export default WithServices;
+export default WithServiceDetail;

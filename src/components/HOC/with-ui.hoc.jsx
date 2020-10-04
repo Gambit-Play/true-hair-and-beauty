@@ -19,7 +19,7 @@ const WithUi = WrappedComponent => {
 
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
-		toggleModal: serviceId => dispatch(toggleModal(serviceId)),
+		toggleModal: serviceIndex => dispatch(toggleModal(serviceIndex)),
 	});
 
 	return connect(mapStateToProps, mapDispatchToProps)(WithData);

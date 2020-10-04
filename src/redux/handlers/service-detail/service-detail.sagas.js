@@ -5,16 +5,19 @@ import { createCollectionAndDocuments } from '../../../firebase/firebase.utils';
 import * as COLLECTION_IDS from '../../../firebase/collections.ids';
 
 // Types
-import ServicesDetailTypes from './services-detail.types';
+import ServiceDetailTypes from './service-detail.types';
 
 // Actions
 import {
 	createServicesSuccess,
 	createServicesFailure,
-} from './services-detail.actions';
+	fetchServiceSuccess,
+	fetchServiceFailure,
+} from './service-detail.actions';
+import { toggleModal } from '../../ui/ui.actions';
 
 // Selectors
-import { selectServicesDetail } from './services-detail.selectors';
+import { selectCurrenServices } from '../../services/services.selectors';
 
 // Data
 import { data } from '../../../data/data.schema';
@@ -33,15 +36,35 @@ export function* createServicesStart() {
 	}
 }
 
+export function* fetchServiceStart({ payload: serviceIndex }) {
+	try {
+		const arr = yield select(selectCurrenServices);
+		const currentService = arr[serviceIndex];
+		console.log(
+			'@@@@@ fetchServiceStart - currentService:',
+			currentService
+		);
+		yield put(fetchServiceSuccess(currentService));
+		yield put(toggleModal());
+	} catch (error) {
+		console.log(error);
+		yield put(createServicesFailure(error));
+	}
+}
+
 /* ================================================================ */
 /*  Listeners                                                       */
 /* ================================================================ */
 
 export function* onCreateServicesStart() {
 	yield takeLatest(
-		ServicesDetailTypes.CREATE_SERVICES_START,
+		ServiceDetailTypes.CREATE_SERVICES_START,
 		createServicesStart
 	);
+}
+
+export function* onFetchServiceStart() {
+	yield takeLatest(ServiceDetailTypes.FETCH_SERVICE_START, fetchServiceStart);
 }
 
 /* ================================================================ */
@@ -49,5 +72,5 @@ export function* onCreateServicesStart() {
 /* ================================================================ */
 
 export default function* servicesDetailSagas() {
-	yield all([call(onCreateServicesStart)]);
+	yield all([call(onCreateServicesStart), call(onFetchServiceStart)]);
 }

@@ -4,9 +4,8 @@ import UiActionTypes from './ui.types';
 /*  Process Start  	                                                */
 /* ================================================================ */
 
-export const toggleModal = serviceId => ({
+export const toggleModal = () => ({
 	type: UiActionTypes.TOGGLE_MODAL,
-	payload: serviceId,
 });
 
 /* ================================================================ */

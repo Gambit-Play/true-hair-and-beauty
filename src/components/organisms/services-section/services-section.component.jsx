@@ -2,7 +2,7 @@ import React from 'react';
 import { compose } from 'redux';
 
 // HOC
-import WithServices from '../../HOC/withServices';
+import WithServices from '../../HOC/with-services.hoc';
 
 // Components
 import ServiceCard from './service-card/service-card.component';

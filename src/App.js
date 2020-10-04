@@ -1,12 +1,9 @@
 import React, { useEffect } from 'react';
 import { Switch, Route } from 'react-router-dom';
-import { connect } from 'react-redux';
+import { compose } from 'redux';
 
-// Redux
-import {
-	fetchServicesCollectionStart,
-	removeServicesCollectionListener,
-} from './redux/services/services.actions';
+// HOC
+import WithServices from './components/HOC/with-services.hoc';
 
 // Routes
 import * as ROUTES from './routes/routes';
@@ -47,11 +44,4 @@ function App({
 	);
 }
 
-const mapDispatchToProps = dispatch => ({
-	fetchServicesCollectionStart: () =>
-		dispatch(fetchServicesCollectionStart()),
-	removeServicesCollectionListener: () =>
-		dispatch(removeServicesCollectionListener()),
-});
-
-export default connect(null, mapDispatchToProps)(App);
+export default compose(WithServices)(App);

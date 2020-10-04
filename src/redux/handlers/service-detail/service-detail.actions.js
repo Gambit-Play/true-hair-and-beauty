@@ -1,11 +1,16 @@
-import ServicesDetailTypes from './services-detail.types';
+import ServiceDetailTypes from './service-detail.types';
 
 /* ================================================================ */
 /*  Process Start  	                                                */
 /* ================================================================ */
 
 export const createServicesStart = () => ({
-	type: ServicesDetailTypes.CREATE_SERVICES_START,
+	type: ServiceDetailTypes.CREATE_SERVICES_START,
+});
+
+export const fetchServiceStart = serviceIndex => ({
+	type: ServiceDetailTypes.FETCH_SERVICE_START,
+	payload: serviceIndex,
 });
 
 /* ================================================================ */
@@ -13,7 +18,12 @@ export const createServicesStart = () => ({
 /* ================================================================ */
 
 export const createServicesSuccess = () => ({
-	type: ServicesDetailTypes.CREATE_SERVICES_SUCCESS,
+	type: ServiceDetailTypes.CREATE_SERVICES_SUCCESS,
+});
+
+export const fetchServiceSuccess = service => ({
+	type: ServiceDetailTypes.FETCH_SERVICE_SUCCESS,
+	payload: service,
 });
 
 /* ================================================================ */
@@ -21,6 +31,11 @@ export const createServicesSuccess = () => ({
 /* ================================================================ */
 
 export const createServicesFailure = errorMessage => ({
-	type: ServicesDetailTypes.CREATE_SERVICES_FAILURE,
+	type: ServiceDetailTypes.CREATE_SERVICES_FAILURE,
+	payload: errorMessage,
+});
+
+export const fetchServiceFailure = errorMessage => ({
+	type: ServiceDetailTypes.FETCH_SERVICE_FAILURE,
 	payload: errorMessage,
 });
