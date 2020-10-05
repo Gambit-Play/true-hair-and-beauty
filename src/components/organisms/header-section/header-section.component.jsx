@@ -8,6 +8,14 @@ import { ButtonContained } from '../../atoms/button/button.styles';
 // Images
 import logoText from '../../../assets/logo-plus-text.svg';
 
+// Animation
+import {
+	headerTopText,
+	headerBottomText,
+	divider,
+	button,
+} from './header-section.animation';
+
 const HeaderSection = () => {
 	return (
 		<Header>
@@ -22,31 +30,27 @@ const HeaderSection = () => {
 			<div className='header-text-wrapper'>
 				<motion.h1
 					className='header-text-top'
-					initial={{ y: '5vh', opacity: 0 }}
-					animate={{ y: 0, opacity: 1 }}
-					transition={{ duration: 0.7 }}
+					variants={headerTopText}
+					initial='start'
+					animate='end'
 				>
 					Haar Specialst
 				</motion.h1>
 				<motion.div
 					className='header-divider'
-					initial={{ width: 0 }}
-					animate={{ width: 200 }}
-					transition={{ delay: 1, duration: 0.7 }}
+					variants={divider}
+					initial='start'
+					animate='end'
 				></motion.div>
 				<motion.h2
 					className='header-text-bottom'
-					initial={{ y: '-5vh', opacity: 0 }}
-					animate={{ y: 0, opacity: 1 }}
-					transition={{ delay: 0.3, duration: 0.7 }}
+					variants={headerBottomText}
+					initial='start'
+					animate='end'
 				>
 					Voor alle haar type
 				</motion.h2>
-				<motion.div
-					initial={{ y: '5vh', opacity: 0 }}
-					animate={{ y: 0, opacity: 1 }}
-					transition={{ delay: 1, duration: 0.7 }}
-				>
+				<motion.div variants={button} initial='start' animate='end'>
 					<ButtonContained className='button'>
 						Afspraak Maken
 					</ButtonContained>

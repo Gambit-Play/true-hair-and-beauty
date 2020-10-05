@@ -36,7 +36,9 @@ function App({
 			<StyledThemeProvider theme={styledComponentsTheme}>
 				<MainContainer>
 					<MainWrapper>
-						<Route exact path={ROUTES.HOME} component={HomePage} />
+						<Route exact path={ROUTES.HOME}>
+							<HomePage />
+						</Route>
 					</MainWrapper>
 				</MainContainer>
 			</StyledThemeProvider>

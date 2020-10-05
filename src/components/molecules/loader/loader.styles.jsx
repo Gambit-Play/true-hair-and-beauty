@@ -7,7 +7,7 @@ export const LoaderContainer = styled.div`
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	background-color: #333;
+	background-color: ${props => props.theme.primary};
 
 	.loader-text {
 		margin-top: 5vh;
