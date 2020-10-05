@@ -45,6 +45,7 @@ const ServiceCard = ({ currentServices, fetchServiceStart }) => {
 			/>
 			<BgImage
 				className={'service-card-img'}
+				loading='lazy'
 				image={images[serviceIndex]}
 			/>
 		</Card>

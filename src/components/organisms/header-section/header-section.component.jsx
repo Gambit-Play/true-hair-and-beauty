@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 
 // Components
 import { Header } from './header-section.styles';
@@ -11,10 +12,17 @@ const HeaderSection = () => {
 	return (
 		<Header>
 			<div className='header-logo-wrapper'>
-				<img src={logoText} alt='' className='header-logo' />
+				<img
+					src={logoText}
+					alt=''
+					className='header-logo'
+					loading='lazy'
+				/>
 			</div>
 			<div className='header-text-wrapper'>
-				<h1 className='header-text-top'>Haar Specialst</h1>
+				<motion.h1 className='header-text-top' animate={{}}>
+					Haar Specialst
+				</motion.h1>
 				<div className='header-divider'></div>
 				<h2 className='header-text-bottom'>Voor alle haar type</h2>
 				<ButtonContained className='button'>

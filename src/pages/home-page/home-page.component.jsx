@@ -1,4 +1,8 @@
 import React from 'react';
+import { compose } from 'redux';
+
+// HOC
+import WithServices from '../../components/HOC/with-services.hoc';
 
 // Component
 import HeaderSection from '../../components/organisms/header-section/header-section.component';
@@ -7,9 +11,12 @@ import OpeningTimeSection from '../../components/organisms/opening-time-section/
 import ServicesSection from '../../components/organisms/services-section/services-section.component';
 import FooterSection from '../../components/organisms/footer-section/footer-section.component';
 import Modal from '../../components/organisms/modal/modal.component';
+import Loader from '../../components/molecules/loader/loader.component';
 
-const HomePage = () => {
-	return (
+const HomePage = ({ isServicesFetching }) => {
+	return isServicesFetching ? (
+		<Loader />
+	) : (
 		<React.Fragment>
 			<Modal />
 			<HeaderSection />
@@ -21,4 +28,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default compose(WithServices)(HomePage);

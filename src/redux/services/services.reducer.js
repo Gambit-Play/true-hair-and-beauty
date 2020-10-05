@@ -2,7 +2,7 @@ import ServicesTypes from './services.types';
 
 const INITIAL_STATE = {
 	currentServices: [],
-	isFetching: false,
+	isFetching: true,
 	errorMessage: '',
 };
 
