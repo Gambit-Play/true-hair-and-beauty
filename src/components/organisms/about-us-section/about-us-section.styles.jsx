@@ -25,10 +25,6 @@ export const AboutUs = styled.div`
 			font-size: 48px;
 			line-height: 64px;
 			text-align: center;
-
-			.pink-char {
-				color: ${props => props.theme.primary};
-			}
 		}
 	}
 
