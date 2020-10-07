@@ -1,4 +1,11 @@
 import React from 'react';
+import { compose } from 'redux';
+
+// Content ids
+import { FOOTER_SECTION } from '../../../redux/content/content.ids';
+
+// HOC
+import WithContent from '../../HOC/with-content.hoc';
 
 // Component
 import { Footer } from './footer-section.styles';
@@ -7,7 +14,9 @@ import { ButtonOutlinedLight } from '../../atoms/button/button.styles';
 // Images
 import logoImage from '../../../assets/small-logo-light.svg';
 
-const FooterSection = () => {
+const FooterSection = ({ currentContent }) => {
+	const { adres, email, tel } = currentContent[FOOTER_SECTION];
+
 	return (
 		<Footer>
 			<div className='footer-img-wrapper'>
@@ -17,13 +26,9 @@ const FooterSection = () => {
 				<div className='footer-left-section'>
 					<div className='footer-title'>Contact:</div>
 					<div className='footer-pink-divider'></div>
-					<div className='footer-body'>Tel: (024)785-2122</div>
-					<div className='footer-body'>
-						Adres: In de Betouwstraat 9, Nijmegen
-					</div>
-					<div className='footer-body'>
-						Email: truehairbeauty@info.nl
-					</div>
+					<div className='footer-body'>{`Tel: ${tel}`}</div>
+					<div className='footer-body'>{`Adres: ${adres}`}</div>
+					<div className='footer-body'>{`Email: ${email}`}</div>
 				</div>
 				<div className='footer-divider'></div>
 				<div className='footer-right-section'>
@@ -34,4 +39,4 @@ const FooterSection = () => {
 	);
 };
 
-export default FooterSection;
+export default compose(WithContent)(FooterSection);
