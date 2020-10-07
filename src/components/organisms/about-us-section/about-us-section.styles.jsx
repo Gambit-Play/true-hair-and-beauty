@@ -18,12 +18,15 @@ export const AboutUs = styled.div`
 		max-width: 580px;
 		margin-top: 24px;
 		margin-right: 12vw;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 
 		.about-us-title {
-			margin-bottom: 40px;
+			margin-bottom: 20px;
 			font-family: ${props => props.theme.lustria};
-			font-size: 48px;
-			line-height: 64px;
+			font-size: 36px;
+			line-height: 1.25;
 			text-align: center;
 		}
 	}
@@ -52,13 +55,6 @@ export const AboutUs = styled.div`
 	@media screen and (max-width: 767px) {
 		background-position: 80% 50%;
 
-		.about-us-text-block {
-			.about-us-title {
-				font-size: 40px;
-				line-height: 52px;
-			}
-		}
-
 		.about-us-body {
 			font-size: 18px;
 			line-height: 24px;
@@ -67,12 +63,6 @@ export const AboutUs = styled.div`
 
 	@media screen and (max-width: 479px) {
 		background-position: 64% 50%;
-
-		.about-us-text-block {
-			.about-us-title {
-				margin-bottom: 24px;
-			}
-		}
 
 		.about-us-body {
 			font-size: 18px;
