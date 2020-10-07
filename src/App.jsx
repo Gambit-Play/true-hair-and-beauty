@@ -4,6 +4,7 @@ import { compose } from 'redux';
 
 // HOC
 import WithServices from './components/HOC/with-services.hoc';
+import WithContent from './components/HOC/with-content.hoc';
 
 // Routes
 import * as ROUTES from './routes/routes';
@@ -22,14 +23,25 @@ import './App.css';
 
 function App({
 	fetchServicesCollectionStart,
+	fetchContentCollectionStart,
 	removeServicesCollectionListener,
+	removeContentCollectionListener
 }) {
 	useEffect(() => {
+		// Start collection listeners
 		fetchServicesCollectionStart();
+		fetchContentCollectionStart();
 		return () => {
+			// Remove collection listeners
 			removeServicesCollectionListener();
+			removeContentCollectionListener();
 		};
-	}, [fetchServicesCollectionStart, removeServicesCollectionListener]);
+	}, [
+		fetchServicesCollectionStart,
+		fetchContentCollectionStart,
+		removeServicesCollectionListener,
+		removeContentCollectionListener,
+	]);
 
 	return (
 		<Switch>
@@ -46,4 +58,4 @@ function App({
 	);
 }
 
-export default compose(WithServices)(App);
+export default compose(WithContent, WithServices)(App);

@@ -23,6 +23,7 @@ export const Header = styled.div`
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		margin-top: 8vh;
 
 		.header-text-top {
 			font-family: ${props => props.theme.lustria};

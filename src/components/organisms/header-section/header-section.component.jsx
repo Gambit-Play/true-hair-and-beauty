@@ -20,12 +20,7 @@ const HeaderSection = () => {
 	return (
 		<Header>
 			<div className='header-logo-wrapper'>
-				<img
-					src={logoText}
-					alt=''
-					className='header-logo'
-					loading='lazy'
-				/>
+				<img src={logoText} alt='' className='header-logo' />
 			</div>
 			<div className='header-text-wrapper'>
 				<motion.h1

@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // HOC
-import WithServices from '../../components/HOC/with-services.hoc';
+import WithContent from '../../components/HOC/with-content.hoc';
 import WithUi from '../../components/HOC/with-ui.hoc';
 
 // Component
@@ -15,8 +15,8 @@ import FooterSection from '../../components/organisms/footer-section/footer-sect
 import Modal from '../../components/organisms/modal/modal.component';
 import Loader from '../../components/molecules/loader/loader.component';
 
-const HomePage = ({ isServicesFetching, isModalOpen }) => {
-	return isServicesFetching ? (
+const HomePage = ({ isContentFetching, isModalOpen }) => {
+	return isContentFetching ? (
 		<Loader />
 	) : (
 		<Fragment>
@@ -41,4 +41,4 @@ const HomePage = ({ isServicesFetching, isModalOpen }) => {
 	);
 };
 
-export default compose(WithUi, WithServices)(HomePage);
+export default compose(WithUi, WithContent)(HomePage);
