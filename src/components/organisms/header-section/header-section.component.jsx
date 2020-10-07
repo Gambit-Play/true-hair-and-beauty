@@ -1,5 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
+import { compose } from 'redux';
+
+// Content ids
+import { HEADER_SECTION } from '../../../redux/content/content.ids';
+
+// HOC
+import WithContent from '../../HOC/with-content.hoc';
 
 // Components
 import { Header } from './header-section.styles';
@@ -16,7 +23,9 @@ import {
 	button,
 } from './header-section.animation';
 
-const HeaderSection = () => {
+const HeaderSection = ({ currentContent }) => {
+	const { bottomText, topText } = currentContent[HEADER_SECTION];
+
 	return (
 		<Header>
 			<div className='header-logo-wrapper'>
@@ -29,7 +38,7 @@ const HeaderSection = () => {
 					initial='start'
 					animate='end'
 				>
-					Haar Specialst
+					{topText}
 				</motion.h1>
 				<motion.div
 					className='header-divider'
@@ -43,7 +52,7 @@ const HeaderSection = () => {
 					initial='start'
 					animate='end'
 				>
-					Voor alle haar type
+					{bottomText}
 				</motion.h2>
 				<motion.div variants={button} initial='start' animate='end'>
 					<ButtonContained className='button'>
@@ -55,4 +64,4 @@ const HeaderSection = () => {
 	);
 };
 
-export default HeaderSection;
+export default compose(WithContent)(HeaderSection);
