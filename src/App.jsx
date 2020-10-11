@@ -11,6 +11,7 @@ import * as ROUTES from './routes/routes';
 
 // Components
 import HomePage from './pages/home-page/home-page.component';
+import AdminPage from './pages/admin-page/admin-page.component';
 import {
 	MainContainer,
 	MainWrapper,
@@ -25,7 +26,7 @@ function App({
 	fetchServicesCollectionStart,
 	fetchContentCollectionStart,
 	removeServicesCollectionListener,
-	removeContentCollectionListener
+	removeContentCollectionListener,
 }) {
 	useEffect(() => {
 		// Start collection listeners
@@ -50,6 +51,9 @@ function App({
 					<MainWrapper>
 						<Route exact path={ROUTES.HOME}>
 							<HomePage />
+						</Route>
+						<Route exact path={ROUTES.ADMIN}>
+							<AdminPage />
 						</Route>
 					</MainWrapper>
 				</MainContainer>
