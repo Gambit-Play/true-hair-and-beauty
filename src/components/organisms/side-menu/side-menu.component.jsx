@@ -1,27 +1,18 @@
-import React, { useState } from 'react';
+import React from 'react';
 
 // Component
 import { MainWrapper } from './side-menu.styles';
+import MenuLink from './menu-links/menu-links.component';
 
 const SideMenu = () => {
-	const [isHover, setIsHover] = useState(false);
 	return (
 		<MainWrapper>
-			<div
-				className='link-block'
-				onMouseOver={() => setIsHover(true)}
-				onMouseLeave={() => setIsHover(false)}
-			>
-				<div
-					className={isHover ? 'menu-link on-hover' : 'menu-link'}
-				></div>
-				<div
-					className={
-						isHover ? 'menu-link-text on-hover' : 'menu-link-text'
-					}
-				>
-					Header Section
-				</div>
+			<div className='links-wrapper'>
+				<MenuLink linkText='Header Section' />
+				<MenuLink linkText='About Us Section' />
+				<MenuLink linkText='Time Section' />
+				<MenuLink linkText='Services Section' />
+				<MenuLink linkText='Footer Section' />
 			</div>
 		</MainWrapper>
 	);
