@@ -18,8 +18,13 @@ export const LinkBlock = styled.div`
 		align-items: center;
 		border-radius: 20px;
 		background-color: rgba(247, 104, 104, 0.1);
+		background-image: url(${props => props.inactiveImage});
+		background-position: 50% 50%;
+		background-size: 46px 46px;
+		background-repeat: no-repeat;
 		transition: transform 100ms ease-in-out, box-shadow 200ms ease-in-out,
-			background-color 200ms ease-in-out;
+			background-color 200ms ease-in-out,
+			background-image 200ms ease-in-out;
 
 		&:active {
 			transform: scale(0.9);
@@ -28,6 +33,7 @@ export const LinkBlock = styled.div`
 
 	.menu-link.on-hover {
 		background-color: #f76868;
+		background-image: url(${props => props.activeImage});
 		box-shadow: 0 15px 24px 0 rgba(247, 104, 104, 0.3);
 	}
 
