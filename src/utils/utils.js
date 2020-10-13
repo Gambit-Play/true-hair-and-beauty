@@ -29,3 +29,12 @@ export function move(array, fromPosition, toPosition) {
 
 	return array;
 }
+
+// Is current url/location.
+export const isCurrent = (toLocation, pathname) => {
+	let currentLocation = pathname.split('/')[2];
+	currentLocation = currentLocation ? currentLocation : '/';
+
+	if (toLocation === currentLocation) return true;
+	return false;
+};
