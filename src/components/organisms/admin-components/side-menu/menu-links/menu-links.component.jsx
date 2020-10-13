@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 // Component
 import { LinkBlock } from './menu-links.styles';
 
-const MenuLinks = ({ linkText, inactiveImage, activeImage }) => {
+const MenuLinks = ({ linkText, inactiveImage, activeImage, handleClick }) => {
 	const [isHover, setIsHover] = useState(false);
 
 	return (
@@ -12,6 +12,7 @@ const MenuLinks = ({ linkText, inactiveImage, activeImage }) => {
 			onMouseLeave={() => setIsHover(false)}
 			inactiveImage={inactiveImage}
 			activeImage={activeImage}
+			onClick={handleClick}
 		>
 			<div className={isHover ? 'menu-link on-hover' : 'menu-link'}></div>
 			<div

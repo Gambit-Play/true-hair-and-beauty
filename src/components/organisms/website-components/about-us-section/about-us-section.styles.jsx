@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // Images
-import aboutUsImage from '../../../assets/about-us-bg.jpg';
+import aboutUsImage from '../../../../assets/about-us-bg.jpg';
 
 export const AboutUs = styled.div`
 	display: flex;

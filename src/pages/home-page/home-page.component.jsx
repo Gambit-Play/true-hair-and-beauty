@@ -7,12 +7,12 @@ import WithContent from '../../components/HOC/with-content.hoc';
 import WithUi from '../../components/HOC/with-ui.hoc';
 
 // Component
-import HeaderSection from '../../components/organisms/header-section/header-section.component';
-import AboutUsSection from '../../components/organisms/about-us-section/about-us-section.component';
-import OpeningTimeSection from '../../components/organisms/opening-time-section/opening-time-section.component';
-import ServicesSection from '../../components/organisms/services-section/services-section.component';
-import FooterSection from '../../components/organisms/footer-section/footer-section.component';
-import Modal from '../../components/organisms/modal/modal.component';
+import HeaderSection from '../../components/organisms/website-components/header-section/header-section.component';
+import AboutUsSection from '../../components/organisms/website-components/about-us-section/about-us-section.component';
+import OpeningTimeSection from '../../components/organisms/website-components/opening-time-section/opening-time-section.component';
+import ServicesSection from '../../components/organisms/website-components/services-section/services-section.component';
+import FooterSection from '../../components/organisms/website-components/footer-section/footer-section.component';
+import Modal from '../../components/organisms/website-components/modal/modal.component';
 import Loader from '../../components/molecules/loader/loader.component';
 
 const HomePage = ({ isContentFetching, isModalOpen }) => {

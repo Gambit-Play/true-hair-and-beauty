@@ -52,7 +52,7 @@ function App({
 						<Route exact path={ROUTES.HOME}>
 							<HomePage />
 						</Route>
-						<Route exact path={ROUTES.ADMIN}>
+						<Route path={ROUTES.ADMIN}>
 							<AdminPage />
 						</Route>
 					</MainWrapper>

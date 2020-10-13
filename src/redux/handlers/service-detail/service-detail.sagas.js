@@ -1,8 +1,8 @@
 import { takeLatest, put, all, call, select } from 'redux-saga/effects';
 
 // Firebase
-import { createCollectionAndDocuments } from '../../../firebase/firebase.utils';
-import * as COLLECTION_IDS from '../../../firebase/collections.ids';
+// import { createCollectionAndDocuments } from '../../../firebase/firebase.utils';
+// import * as COLLECTION_IDS from '../../../firebase/collections.ids';
 
 // Types
 import ServiceDetailTypes from './service-detail.types';
@@ -20,7 +20,7 @@ import { toggleModal } from '../../ui/ui.actions';
 import { selectCurrenServices } from '../../services/services.selectors';
 
 // Data
-import { data } from '../../../data/data.schema';
+// import { data } from '../../../data/data.schema';
 
 /* ================================================================ */
 /*  Actions                                                         */
@@ -40,15 +40,12 @@ export function* fetchServiceStart({ payload: serviceIndex }) {
 	try {
 		const arr = yield select(selectCurrenServices);
 		const currentService = arr[serviceIndex];
-		console.log(
-			'@@@@@ fetchServiceStart - currentService:',
-			currentService
-		);
+
 		yield put(fetchServiceSuccess(currentService));
 		yield put(toggleModal());
 	} catch (error) {
 		console.log(error);
-		yield put(createServicesFailure(error));
+		yield put(fetchServiceFailure(error));
 	}
 }
 

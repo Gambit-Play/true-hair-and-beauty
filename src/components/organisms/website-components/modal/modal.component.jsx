@@ -2,16 +2,20 @@ import React from 'react';
 import { compose } from 'redux';
 
 // HOC
-import WithServiceDetail from '../../HOC/with-service-detail.hoc';
-import WithUi from '../../HOC/with-ui.hoc';
+import WithServiceDetail from '../../../HOC/with-service-detail.hoc';
+import WithUi from '../../../HOC/with-ui.hoc';
 
 // Components
 import { ModalContainer } from './modal.styles';
 import ServiceCardPrice from '../service-card-price/service-card-price.component';
 
 const Modal = ({ serviceDetail, toggleModal }) => {
+	const handleClick = event => {
+		event.persist();
+		console.log('@@@@@ handleClick - event:', event);
+	};
 	return (
-		<ModalContainer>
+		<ModalContainer onClick={handleClick}>
 			<div className='modal'>
 				<ServiceCardPrice
 					buttonText='Sluiten'

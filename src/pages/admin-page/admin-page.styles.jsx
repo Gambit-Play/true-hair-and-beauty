@@ -8,3 +8,8 @@ export const MainWrapper = styled.div`
 	grid-template-rows: auto;
 	background-color: #f8fbff;
 `;
+
+export const AdminView = styled.div`
+	padding: 40px;
+	flex: 1;
+`;

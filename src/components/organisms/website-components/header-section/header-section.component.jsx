@@ -3,17 +3,17 @@ import { motion } from 'framer-motion';
 import { compose } from 'redux';
 
 // Content ids
-import { HEADER_SECTION } from '../../../redux/content/content.ids';
+import { HEADER_SECTION } from '../../../../redux/content/content.ids';
 
 // HOC
-import WithContent from '../../HOC/with-content.hoc';
+import WithContent from '../../../HOC/with-content.hoc';
 
 // Components
 import { Header } from './header-section.styles';
-import { ButtonContained } from '../../atoms/button/button.styles';
+import { ButtonContained } from '../../../atoms/button/button.styles';
 
 // Images
-import logoText from '../../../assets/logo-plus-text.svg';
+import logoText from '../../../../assets/logo-plus-text.svg';
 
 // Animation
 import {

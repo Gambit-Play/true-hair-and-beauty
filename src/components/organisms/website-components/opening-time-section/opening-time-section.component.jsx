@@ -2,14 +2,14 @@ import React from 'react';
 import { compose } from 'redux';
 
 // Content ids
-import { TIME_SECTION } from '../../../redux/content/content.ids';
+import { TIME_SECTION } from '../../../../redux/content/content.ids';
 
 // HOC
-import WithContent from '../../HOC/with-content.hoc';
+import WithContent from '../../../HOC/with-content.hoc';
 
 // Components
 import { OpeningTime } from './opening-time-section.styles';
-import { PinkDivider } from '../../atoms/divider/divider.styles';
+import { PinkDivider } from '../../../atoms/divider/divider.styles';
 
 const OpeningTimeSection = ({ currentContent }) => {
 	const {

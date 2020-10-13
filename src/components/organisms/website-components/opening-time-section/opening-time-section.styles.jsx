@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // Images
-import openingTimeImage from '../../../assets/opening-time-bg.jpg';
+import openingTimeImage from '../../../../assets/opening-time-bg.jpg';
 
 export const OpeningTime = styled.div`
 	display: flex;

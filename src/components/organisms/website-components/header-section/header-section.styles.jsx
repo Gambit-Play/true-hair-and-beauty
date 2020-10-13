@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 // Images
-import headerImage from '../../../assets/header.jpg';
+import headerImage from '../../../../assets/header.jpg';
 
 export const Header = styled.div`
 	height: 100vh;

@@ -2,17 +2,17 @@ import React from 'react';
 import { compose } from 'redux';
 
 // Content ids
-import { FOOTER_SECTION } from '../../../redux/content/content.ids';
+import { FOOTER_SECTION } from '../../../../redux/content/content.ids';
 
 // HOC
-import WithContent from '../../HOC/with-content.hoc';
+import WithContent from '../../../HOC/with-content.hoc';
 
 // Component
 import { Footer } from './footer-section.styles';
-import { ButtonOutlinedLight } from '../../atoms/button/button.styles';
+import { ButtonOutlinedLight } from '../../../atoms/button/button.styles';
 
 // Images
-import logoImage from '../../../assets/small-logo-light.svg';
+import logoImage from '../../../../assets/small-logo-light.svg';
 
 const FooterSection = ({ currentContent }) => {
 	const { adres, email, tel } = currentContent[FOOTER_SECTION];
