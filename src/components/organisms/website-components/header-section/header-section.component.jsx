@@ -54,8 +54,16 @@ const HeaderSection = ({ currentContent }) => {
 				>
 					{bottomText}
 				</motion.h2>
-				<motion.div variants={button} initial='start' animate='end'>
-					<ButtonContained className='button'>
+				<motion.div
+					variants={button}
+					initial='start'
+					animate='end'
+					className='button'
+				>
+					<ButtonContained
+						href='http://my.setmore.com/bookingpage/16c8ffb3-3ea8-4d41-8353-237ab9d3d6ca'
+						target='_blank'
+					>
 						Afspraak Maken
 					</ButtonContained>
 				</motion.div>

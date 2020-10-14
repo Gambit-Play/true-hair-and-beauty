@@ -27,7 +27,7 @@ export const Header = styled.div`
 
 		.header-text-top {
 			font-family: ${props => props.theme.lustria};
-			margin-top: 12vh;
+			margin-top: 8vh;
 			color: ${props => props.theme.white};
 			font-size: 72px;
 			text-align: center;
@@ -48,6 +48,11 @@ export const Header = styled.div`
 			font-size: 36px;
 			text-align: center;
 			padding: 0 5vw 0 5vw;
+		}
+
+		.button {
+			display: flex;
+			margin-top: 16vh;
 		}
 	}
 

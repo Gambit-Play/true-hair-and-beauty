@@ -2,6 +2,7 @@ import React from 'react';
 
 // Components
 import { Card } from './service-card-price.styles';
+import { ButtonOutlinedLight } from '../../../atoms/button/button.styles';
 
 const ServiceCardPrice = ({
 	item,
@@ -11,10 +12,6 @@ const ServiceCardPrice = ({
 	itemIndex,
 	dispatchAction,
 }) => {
-	const handleClick = () => {
-		isModal ? dispatchAction() : dispatchAction(itemIndex);
-	};
-
 	return (
 		<Card isModal={isModal}>
 			<div className='service-card-title'>{item.typeOfService}</div>
@@ -39,12 +36,14 @@ const ServiceCardPrice = ({
 							</div>
 						</Card>
 				  ))}
-			<button
-				className='service-more-button w-button'
-				onClick={handleClick}
-			>
-				{buttonText}
-			</button>
+			{!isModal && (
+				<ButtonOutlinedLight
+					className='service-more-button'
+					onClick={() => dispatchAction(itemIndex)}
+				>
+					{buttonText}
+				</ButtonOutlinedLight>
+			)}
 		</Card>
 	);
 };

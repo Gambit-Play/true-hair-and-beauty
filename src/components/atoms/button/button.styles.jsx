@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
-export const ButtonContained = styled.button`
-	margin-top: 16vh;
+export const ButtonContained = styled.a`
 	padding: 16px 32px;
 	background-color: #f76868;
 	font-size: 18px;
@@ -9,7 +8,7 @@ export const ButtonContained = styled.button`
 	color: ${props => props.theme.white};
 `;
 
-export const ButtonOutlinedLight = styled.button`
+export const ButtonOutlinedLight = styled.a`
 	display: flex;
 	width: 200px;
 	height: 60px;

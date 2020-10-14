@@ -31,6 +31,13 @@ export const globalStyles = {
 		font-family: 'Raleway, sans-serif';
 		font-size: 14px;
 	`,
+	animationScale: css`
+		transition: transform 100ms ease-in-out;
+
+		&:active {
+			transform: scale(0.9);
+		}
+	`,
 };
 
 export default theme;

@@ -1,5 +1,8 @@
 import styled from 'styled-components';
 
+// Styles
+import { globalStyles } from '../../../../../themes/styled-components.theme';
+
 export const LinkBlock = styled.div`
 	display: flex;
 	margin-top: 40px;
@@ -22,13 +25,11 @@ export const LinkBlock = styled.div`
 		background-position: 50% 50%;
 		background-size: 46px 46px;
 		background-repeat: no-repeat;
-		transition: transform 100ms ease-in-out, box-shadow 200ms ease-in-out,
+		transition: box-shadow 200ms ease-in-out,
 			background-color 200ms ease-in-out,
 			background-image 200ms ease-in-out;
 
-		&:active {
-			transform: scale(0.9);
-		}
+		${globalStyles.animationScale}
 	}
 
 	.menu-link.on-hover {
