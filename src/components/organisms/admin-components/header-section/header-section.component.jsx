@@ -1,5 +1,4 @@
-import React, { useState } from 'react';
-import NumberFormat from 'react-number-format';
+import React from 'react';
 
 // Component
 import {
@@ -17,7 +16,6 @@ import {
 import headerImage from '../../../../assets/header-screenshot.png';
 
 const HeaderSection = () => {
-	const [number, setNumber] = useState(255);
 	return (
 		<Card>
 			<CardImage image={headerImage} />
@@ -37,14 +35,3 @@ const HeaderSection = () => {
 };
 
 export default HeaderSection;
-
-// FIXME:
-// <CardNumberInput
-// value={number}
-// onValueChange={({ floatValue }) => {
-// 	console.log(
-// 		'@@@@@ NumberFormat - floatValue:',
-// 		floatValue
-// 	);
-// }}
-// />

@@ -12,4 +12,5 @@ export const MainWrapper = styled.div`
 export const AdminView = styled.div`
 	padding: 40px;
 	flex: 1;
+	overflow: scroll;
 `;
