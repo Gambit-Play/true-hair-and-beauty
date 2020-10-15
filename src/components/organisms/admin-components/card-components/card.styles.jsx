@@ -19,6 +19,16 @@ export const CardContentWrapper = styled.div`
 	padding: 20px;
 `;
 
+export const CardServiceTitle = styled.div`
+	padding: 10px 20px;
+	background-color: #f76868;
+	color: #fff;
+	font-size: 28px;
+	line-height: 1.25;
+	font-weight: 700;
+	text-align: center;
+`;
+
 export const CardImage = styled.div`
 	height: 175px;
 	background-image: url(${props => props.image});

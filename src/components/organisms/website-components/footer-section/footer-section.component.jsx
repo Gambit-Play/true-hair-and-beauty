@@ -32,7 +32,12 @@ const FooterSection = ({ currentContent }) => {
 				</div>
 				<div className='footer-divider'></div>
 				<div className='footer-right-section'>
-					<ButtonOutlinedLight>afspraak maken</ButtonOutlinedLight>
+					<ButtonOutlinedLight
+						href='http://my.setmore.com/bookingpage/16c8ffb3-3ea8-4d41-8353-237ab9d3d6ca'
+						target='_blank'
+					>
+						afspraak maken
+					</ButtonOutlinedLight>
 				</div>
 			</div>
 		</Footer>
