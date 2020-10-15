@@ -8,6 +8,7 @@ import * as ROUTES from '../../../../routes/routes';
 import { CardsWrapper } from './admin-routes.styles';
 import HeaderSection from '../header-section/header-section.component';
 import TimeSection from '../time-section/time-section.component';
+import ServicesSection from '../services-section/services-section.component';
 
 const AdminRoutes = () => {
 	const { path } = useRouteMatch();
@@ -20,6 +21,9 @@ const AdminRoutes = () => {
 				</Route>
 				<Route path={`${path}/${ROUTES.TIME_SECTION}`}>
 					<TimeSection />
+				</Route>
+				<Route path={`${path}/${ROUTES.SERVICES_SECTION}`}>
+					<ServicesSection />
 				</Route>
 			</CardsWrapper>
 		</Switch>
