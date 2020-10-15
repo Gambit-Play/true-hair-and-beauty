@@ -93,8 +93,9 @@ export const CardInput = styled.input`
 	}
 `;
 
-export const CardTextArea = styled.input`
+export const CardTextArea = styled.textarea`
 	width: 100%;
+	height: 200px;
 	padding: 8px 16px;
 	border-style: solid;
 	border-width: 1px;
