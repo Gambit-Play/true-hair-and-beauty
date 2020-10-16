@@ -1,4 +1,8 @@
 import React from 'react';
+import { compose } from 'redux';
+
+//HOC
+import WithContent from '../../../HOC/with-content.hoc';
 
 // Component
 import {
@@ -16,23 +20,23 @@ import {
 // Images
 import aboutUsImage from '../../../../assets/about-us-screenshot.png';
 
-const AboutUsSection = () => {
+const AboutUsSection = ({ currentContent }) => {
+	const { id, title, body } = currentContent.aboutUsSection;
+
 	return (
 		<Card>
 			<CardImage image={aboutUsImage} />
 			<CardContentWrapper>
 				<CardTitle>Title</CardTitle>
-				<CardInput
-					type='text'
-					id='about-us-title'
-					name='about-us-title'
-				/>
+				<CardInput value={title} type='text' id={id} name='title' />
 				<CardDivider />
 				<CardTitle>Body</CardTitle>
 				<CardTextArea
+					height={200}
+					value={body}
 					type='text'
-					id='about-us-body'
-					name='about-us-body'
+					id={id}
+					name='body'
 				/>
 			</CardContentWrapper>
 			<CardButtonBlock>
@@ -43,4 +47,4 @@ const AboutUsSection = () => {
 	);
 };
 
-export default AboutUsSection;
+export default compose(WithContent)(AboutUsSection);
