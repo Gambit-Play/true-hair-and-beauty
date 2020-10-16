@@ -23,11 +23,6 @@ import footerImage from '../../../../assets/footer-screenshot.png';
 const FooterSection = ({ currentContent }) => {
 	const { id, adres, email, tel } = currentContent.footerSection;
 
-	console.log(
-		'@@@@@ FooterSection - currentContent.footerSection:',
-		currentContent.footerSection
-	);
-
 	return (
 		<Card>
 			<CardImage image={footerImage} />
