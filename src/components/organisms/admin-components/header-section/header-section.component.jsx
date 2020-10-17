@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { compose } from 'redux';
 
 //HOC
 import WithContent from '../../../HOC/with-content.hoc';
+import WithHeaderDetail from '../../../HOC/with-header-detail.hoc';
 
 // Component
 import {
@@ -10,6 +11,7 @@ import {
 	CardImage,
 	CardContentWrapper,
 	CardTitle,
+	CardBody,
 	CardInput,
 	CardDivider,
 	CardButton,
@@ -19,7 +21,12 @@ import {
 // Images
 import headerImage from '../../../../assets/header-screenshot.png';
 
-const HeaderSection = ({ currentContent }) => {
+const HeaderSection = ({
+	currentContent,
+	fetchHeaderStart,
+	toggleEditStart,
+	isEdit,
+}) => {
 	const { id, topText, bottomText } = currentContent.headerSection;
 
 	return (
@@ -27,22 +34,43 @@ const HeaderSection = ({ currentContent }) => {
 			<CardImage image={headerImage} />
 			<CardContentWrapper>
 				<CardTitle>Top Title</CardTitle>
-				<CardInput value={topText} type='text' id={id} name='topText' />
+				{isEdit ? (
+					<CardInput
+						value={topText}
+						type='text'
+						id={id}
+						name='topText'
+					/>
+				) : (
+					<CardBody>{topText}</CardBody>
+				)}
 				<CardDivider />
 				<CardTitle>Bottom Title</CardTitle>
-				<CardInput
-					value={bottomText}
-					type='text'
-					id={id}
-					name='bottomText'
-				/>
+				{isEdit ? (
+					<CardInput
+						value={bottomText}
+						type='text'
+						id={id}
+						name='bottomText'
+					/>
+				) : (
+					<CardBody>{bottomText}</CardBody>
+				)}
 			</CardContentWrapper>
 			<CardButtonBlock>
-				<CardButton>Update</CardButton>
-				<CardButton outline>Cancel</CardButton>
+				{isEdit ? (
+					<Fragment>
+						<CardButton>Update</CardButton>
+						<CardButton outline onClick={toggleEditStart}>
+							Cancel
+						</CardButton>
+					</Fragment>
+				) : (
+					<CardButton onClick={fetchHeaderStart}>Edit</CardButton>
+				)}
 			</CardButtonBlock>
 		</Card>
 	);
 };
 
-export default compose(WithContent)(HeaderSection);
+export default compose(WithHeaderDetail, WithContent)(HeaderSection);

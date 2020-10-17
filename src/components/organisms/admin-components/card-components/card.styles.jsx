@@ -75,6 +75,13 @@ export const CardButton = styled.a`
 	${globalStyles.animationScale}
 `;
 
+export const CardBody = styled.div`
+	width: 100%;
+	font-size: 16px;
+	line-height: 1.25;
+	font-weight: 500;
+`;
+
 export const CardInput = styled.input`
 	width: 100%;
 	padding: 8px 16px;

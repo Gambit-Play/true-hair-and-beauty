@@ -19,16 +19,12 @@ import { toggleModal } from '../../ui/ui.actions';
 // Selectors
 import { selectCurrenServices } from '../../services/services.selectors';
 
-// Data
-// import { data } from '../../../data/data.schema';
-
 /* ================================================================ */
 /*  Actions                                                         */
 /* ================================================================ */
 
 export function* createServicesStart() {
 	try {
-		// yield call(createCollectionAndDocuments, COLLECTION_IDS.SERVICES, /* data */);
 		yield put(createServicesSuccess());
 	} catch (error) {
 		console.log(error);

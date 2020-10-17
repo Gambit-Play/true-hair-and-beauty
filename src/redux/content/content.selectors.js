@@ -13,3 +13,9 @@ export const selectIsFetching = createSelector(
 	[selectContentStore],
 	content => content.isFetching
 );
+
+// Selects currentContent.headerSection from the state
+export const selectHeaderSection = createSelector(
+	[selectCurrenContent],
+	currentContent => currentContent.headerSection
+);
