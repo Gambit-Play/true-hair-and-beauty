@@ -1,31 +1,31 @@
 import { takeLatest, put, all, call, select } from 'redux-saga/effects';
 
 // Types
-import HeaderDetailTypes from './header-detail.types';
+import AboutUsDetailTypes from './about-us-detail.types';
 
 // Actions
 import {
-	fetchHeaderSuccess,
-	fetchHeaderFailure,
+	fetchAboutUsSuccess,
+	fetchAboutUsFailure,
 	toggleEditStart,
-} from './header-detail.actions';
+} from './about-us-detail.actions';
 
 // Selectors
-import { selectHeaderSection } from '../../content/content.selectors';
+import { selectAboutUsSection } from '../../content/content.selectors';
 
 /* ================================================================ */
 /*  Actions                                                         */
 /* ================================================================ */
 
-export function* fetchServiceStart() {
+export function* fetchAboutUsStart() {
 	try {
-		const { id, bottomText, topText } = yield select(selectHeaderSection);
+		const { id, title, body } = yield select(selectAboutUsSection);
 
-		yield put(fetchHeaderSuccess({ id, bottomText, topText }));
+		yield put(fetchAboutUsSuccess({ id, title, body }));
 		yield put(toggleEditStart());
 	} catch (error) {
 		console.log(error);
-		yield put(fetchHeaderFailure(error));
+		yield put(fetchAboutUsFailure(error));
 	}
 }
 
@@ -33,14 +33,17 @@ export function* fetchServiceStart() {
 /*  Listeners                                                       */
 /* ================================================================ */
 
-export function* onFetchServiceStart() {
-	yield takeLatest(HeaderDetailTypes.FETCH_HEADER_START, fetchServiceStart);
+export function* onFetchAboutUsStart() {
+	yield takeLatest(
+		AboutUsDetailTypes.FETCH_ABOUT_US_START,
+		fetchAboutUsStart
+	);
 }
 
 /* ================================================================ */
 /*  Root Saga                                                       */
 /* ================================================================ */
 
-export default function* headerDetailSagas() {
-	yield all([call(onFetchServiceStart)]);
+export default function* aboutUsDetailSagas() {
+	yield all([call(onFetchAboutUsStart)]);
 }

@@ -1,23 +1,23 @@
-import HeaderDetailTypes from './header-detail.types';
+import AboutUsDetailTypes from './about-us-detail.types';
 
 const INITIAL_STATE = {
 	id: '',
-	bottomText: '',
-	topText: '',
+	title: '',
+	body: '',
 	isEdit: false,
 };
 
-const headerDetailReducer = (state = INITIAL_STATE, action) => {
+const aboutUsDetailReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
 		/* ================================================================ */
 		/*  Process Start                                                   */
 		/* ================================================================ */
-		case HeaderDetailTypes.SET_HEADER:
+		case AboutUsDetailTypes.SET_ABOUT_US:
 			return {
 				...state,
 				[action.payload.inputName]: action.payload.value,
 			};
-		case HeaderDetailTypes.EDIT_HEADER:
+		case AboutUsDetailTypes.EDIT_ABOUT_US:
 			return {
 				...state,
 				isEdit: true,
@@ -25,17 +25,17 @@ const headerDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Success                                                 */
 		/* ================================================================ */
-		case HeaderDetailTypes.FETCH_HEADER_SUCCESS:
+		case AboutUsDetailTypes.FETCH_ABOUT_US_SUCCESS:
 			return {
 				...state,
 				id: action.payload.id,
-				bottomText: action.payload.bottomText,
-				topText: action.payload.topText,
+				title: action.payload.title,
+				body: action.payload.topText,
 			};
 		/* ================================================================ */
 		/*  Process Failure                                                 */
 		/* ================================================================ */
-		case HeaderDetailTypes.CREATE_SERVICES_FAILURE:
+		case AboutUsDetailTypes.CREATE_ABOUT_US_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,
@@ -43,12 +43,12 @@ const headerDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Clear Data                                              */
 		/* ================================================================ */
-		case HeaderDetailTypes.CLEAR_HEADER:
+		case AboutUsDetailTypes.CLEAR_ABOUT_US:
 			return {
 				...state,
 				id: '',
-				bottomText: '',
-				topText: '',
+				title: '',
+				body: '',
 				isEdit: false,
 			};
 		default:
@@ -56,4 +56,4 @@ const headerDetailReducer = (state = INITIAL_STATE, action) => {
 	}
 };
 
-export default headerDetailReducer;
+export default aboutUsDetailReducer;

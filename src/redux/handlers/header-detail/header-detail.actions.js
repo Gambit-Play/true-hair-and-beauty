@@ -8,9 +8,8 @@ export const createHeaderStart = () => ({
 	type: HeaderDetailTypes.CREATE_HEADER_START,
 });
 
-export const fetchHeaderStart = headerContent => ({
+export const fetchHeaderStart = () => ({
 	type: HeaderDetailTypes.FETCH_HEADER_START,
-	payload: headerContent,
 });
 
 export const setHeaderStart = (inputName, value) => ({
@@ -19,7 +18,11 @@ export const setHeaderStart = (inputName, value) => ({
 });
 
 export const toggleEditStart = () => ({
-	type: HeaderDetailTypes.TOGGLE_EDIT,
+	type: HeaderDetailTypes.EDIT_HEADER,
+});
+
+export const clearHeader = () => ({
+	type: HeaderDetailTypes.CLEAR_HEADER,
 });
 
 /* ================================================================ */
@@ -30,9 +33,9 @@ export const createHeaderSuccess = () => ({
 	type: HeaderDetailTypes.CREATE_HEADER_SUCCESS,
 });
 
-export const fetchHeaderSuccess = (id, bottomText, topText) => ({
+export const fetchHeaderSuccess = headerContent => ({
 	type: HeaderDetailTypes.FETCH_HEADER_SUCCESS,
-	payload: { id, bottomText, topText },
+	payload: headerContent,
 });
 
 /* ================================================================ */

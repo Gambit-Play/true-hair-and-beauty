@@ -2,6 +2,10 @@ import ServiceDetailTypes from './service-detail.types';
 
 const INITIAL_STATE = {
 	id: '',
+	service1: '0',
+	service2: '',
+	service3: '',
+	image: '',
 	typeOfService: '',
 	services: [],
 	errorMessage: '',
@@ -16,6 +20,10 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				id: action.payload.id,
+				service1: action.payload.service1,
+				service2: action.payload.service2,
+				service3: action.payload.service3,
+				image: action.payload.image,
 				typeOfService: action.payload.typeOfService,
 				services: action.payload.services,
 			};

@@ -9,11 +9,19 @@ import contentReducer from './content/content.reducer';
 
 import serviceDetailReducer from './handlers/service-detail/service-detail.reducer';
 import headerDetailReducer from './handlers/header-detail/header-detail.reducer';
+import aboutUsDetailReducer from './handlers/about-us-detail/about-us-detail.reducer';
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['services', 'serviceDetail', 'ui', 'content', 'headerDetail'],
+	whitelist: [
+		'services',
+		'serviceDetail',
+		'ui',
+		'content',
+		'headerDetail',
+		'aboutUsDetail',
+	],
 };
 
 const rootReducer = combineReducers({
@@ -25,6 +33,7 @@ const rootReducer = combineReducers({
 	// Handlers Reducers
 	serviceDetail: serviceDetailReducer,
 	headerDetail: headerDetailReducer,
+	aboutUsDetail: aboutUsDetailReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

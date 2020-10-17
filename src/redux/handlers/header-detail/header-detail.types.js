@@ -17,7 +17,9 @@ const HeaderDetailTypes = {
 
 	SET_HEADER: 'SET_HEADER',
 
-	TOGGLE_EDIT: 'TOGGLE_EDIT',
+	EDIT_HEADER: 'EDIT_HEADER',
+
+	CLEAR_HEADER: 'CLEAR_HEADER',
 };
 
 export default HeaderDetailTypes;
