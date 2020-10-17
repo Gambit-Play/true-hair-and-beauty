@@ -10,6 +10,7 @@ import contentReducer from './content/content.reducer';
 import serviceDetailReducer from './handlers/service-detail/service-detail.reducer';
 import headerDetailReducer from './handlers/header-detail/header-detail.reducer';
 import aboutUsDetailReducer from './handlers/about-us-detail/about-us-detail.reducer';
+import timeDetailReducer from './handlers/time-detail/time-detail.reducer';
 
 const persistConfig = {
 	key: 'root',
@@ -21,6 +22,7 @@ const persistConfig = {
 		'content',
 		'headerDetail',
 		'aboutUsDetail',
+		'timeDetail',
 	],
 };
 
@@ -34,6 +36,7 @@ const rootReducer = combineReducers({
 	serviceDetail: serviceDetailReducer,
 	headerDetail: headerDetailReducer,
 	aboutUsDetail: aboutUsDetailReducer,
+	timeDetail: timeDetailReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

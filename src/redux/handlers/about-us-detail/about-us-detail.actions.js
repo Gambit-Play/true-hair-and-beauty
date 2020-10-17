@@ -33,9 +33,9 @@ export const createAboutUsSuccess = () => ({
 	type: AboutUsDetailTypes.CREATE_ABOUT_US_SUCCESS,
 });
 
-export const fetchAboutUsSuccess = (id, bottomText, topText) => ({
+export const fetchAboutUsSuccess = aboutUsSection => ({
 	type: AboutUsDetailTypes.FETCH_ABOUT_US_SUCCESS,
-	payload: { id, bottomText, topText },
+	payload: aboutUsSection,
 });
 
 /* ================================================================ */

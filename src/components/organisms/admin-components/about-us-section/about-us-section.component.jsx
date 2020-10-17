@@ -11,6 +11,7 @@ import {
 	CardImage,
 	CardContentWrapper,
 	CardTitle,
+	CardBody,
 	CardInput,
 	CardDivider,
 	CardButton,
@@ -34,16 +35,24 @@ const AboutUsSection = ({
 			<CardImage image={aboutUsImage} />
 			<CardContentWrapper>
 				<CardTitle>Title</CardTitle>
-				<CardInput value={title} type='text' id={id} name='title' />
+				{isEdit ? (
+					<CardInput value={title} type='text' id={id} name='title' />
+				) : (
+					<CardBody>{title}</CardBody>
+				)}
 				<CardDivider />
 				<CardTitle>Body</CardTitle>
-				<CardTextArea
-					height={200}
-					value={body}
-					type='text'
-					id={id}
-					name='body'
-				/>
+				{isEdit ? (
+					<CardTextArea
+						height={200}
+						value={body}
+						type='text'
+						id={id}
+						name='body'
+					/>
+				) : (
+					<CardBody>{body}</CardBody>
+				)}
 			</CardContentWrapper>
 			<CardButtonBlock>
 				{isEdit ? (

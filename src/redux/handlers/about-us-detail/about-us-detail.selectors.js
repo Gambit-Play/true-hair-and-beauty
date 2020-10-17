@@ -1,27 +1,27 @@
 import { createSelector } from 'reselect';
 
-const selectHeaderDetailStore = state => state.aboutUsDetail;
+const selectAboutUsDetailStore = state => state.aboutUsDetail;
 
 // Selects aboutUsDetail from the state
-export const selectHeaderDetail = createSelector(
-	[selectHeaderDetailStore],
+export const selectAboutUsDetail = createSelector(
+	[selectAboutUsDetailStore],
 	aboutUsDetail => aboutUsDetail
 );
 
 // Selects aboutUsDetail.title from the state
 export const selectTitle = createSelector(
-	[selectHeaderDetail],
+	[selectAboutUsDetail],
 	aboutUsDetail => aboutUsDetail.title
 );
 
 // Selects aboutUsDetail.body from the state
 export const selectBody = createSelector(
-	[selectHeaderDetail],
+	[selectAboutUsDetail],
 	aboutUsDetail => aboutUsDetail.body
 );
 
 // Selects aboutUsDetail.isEdit from the state
 export const selectIsEdit = createSelector(
-	[selectHeaderDetail],
+	[selectAboutUsDetail],
 	aboutUsDetail => aboutUsDetail.isEdit
 );

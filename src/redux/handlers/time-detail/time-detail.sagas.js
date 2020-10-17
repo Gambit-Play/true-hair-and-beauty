@@ -1,31 +1,31 @@
 import { takeLatest, put, all, call, select } from 'redux-saga/effects';
 
 // Types
-import AboutUsDetailTypes from './about-us-detail.types';
+import TimeDetailTypes from './time-detail.types';
 
 // Actions
 import {
-	fetchAboutUsSuccess,
-	fetchAboutUsFailure,
+	fetchTimeSuccess,
+	fetchTimeFailure,
 	toggleEditStart,
-} from './about-us-detail.actions';
+} from './time-detail.actions';
 
 // Selectors
-import { selectAboutUsSection } from '../../content/content.selectors';
+import { selectTimeSection } from '../../content/content.selectors';
 
 /* ================================================================ */
 /*  Actions                                                         */
 /* ================================================================ */
 
-export function* fetchAboutUsStart() {
+export function* fetchTimeStart() {
 	try {
-		const aboutSection = yield select(selectAboutUsSection);
+		const timeSection = yield select(selectTimeSection);
 
-		yield put(fetchAboutUsSuccess(aboutSection));
+		yield put(fetchTimeSuccess(timeSection));
 		yield put(toggleEditStart());
 	} catch (error) {
 		console.log(error);
-		yield put(fetchAboutUsFailure(error));
+		yield put(fetchTimeFailure(error));
 	}
 }
 
@@ -33,17 +33,14 @@ export function* fetchAboutUsStart() {
 /*  Listeners                                                       */
 /* ================================================================ */
 
-export function* onFetchAboutUsStart() {
-	yield takeLatest(
-		AboutUsDetailTypes.FETCH_ABOUT_US_START,
-		fetchAboutUsStart
-	);
+export function* onFetchTimeStart() {
+	yield takeLatest(TimeDetailTypes.FETCH_TIME_START, fetchTimeStart);
 }
 
 /* ================================================================ */
 /*  Root Saga                                                       */
 /* ================================================================ */
 
-export default function* aboutUsDetailSagas() {
-	yield all([call(onFetchAboutUsStart)]);
+export default function* timeDetailSagas() {
+	yield all([call(onFetchTimeStart)]);
 }

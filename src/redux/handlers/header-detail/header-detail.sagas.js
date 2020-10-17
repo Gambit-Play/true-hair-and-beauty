@@ -19,9 +19,9 @@ import { selectHeaderSection } from '../../content/content.selectors';
 
 export function* fetchServiceStart() {
 	try {
-		const { id, bottomText, topText } = yield select(selectHeaderSection);
+		const headerSection = yield select(selectHeaderSection);
 
-		yield put(fetchHeaderSuccess({ id, bottomText, topText }));
+		yield put(fetchHeaderSuccess(headerSection));
 		yield put(toggleEditStart());
 	} catch (error) {
 		console.log(error);
