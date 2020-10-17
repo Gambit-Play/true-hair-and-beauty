@@ -8,11 +8,12 @@ import uiReducer from './ui/ui.reducer';
 import contentReducer from './content/content.reducer';
 
 import serviceDetailReducer from './handlers/service-detail/service-detail.reducer';
+import headerDetailReducer from './handlers/header-detail/header-detail.reducer';
 
 const persistConfig = {
 	key: 'root',
 	storage,
-	whitelist: ['services', 'serviceDetail', 'ui', 'content'],
+	whitelist: ['services', 'serviceDetail', 'ui', 'content', 'headerDetail'],
 };
 
 const rootReducer = combineReducers({
@@ -23,6 +24,7 @@ const rootReducer = combineReducers({
 
 	// Handlers Reducers
 	serviceDetail: serviceDetailReducer,
+	headerDetail: headerDetailReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);
