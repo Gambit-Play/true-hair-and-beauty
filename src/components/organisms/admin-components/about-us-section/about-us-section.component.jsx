@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { compose } from 'redux';
 
 //HOC
 import WithContent from '../../../HOC/with-content.hoc';
+import WithAboutUsDetail from '../../../HOC/with-about-us-detail.hoc';
 
 // Component
 import {
@@ -20,7 +21,12 @@ import {
 // Images
 import aboutUsImage from '../../../../assets/about-us-screenshot.png';
 
-const AboutUsSection = ({ currentContent }) => {
+const AboutUsSection = ({
+	currentContent,
+	fetchAboutUsStart,
+	clearAboutUs,
+	isEdit,
+}) => {
 	const { id, title, body } = currentContent.aboutUsSection;
 
 	return (
@@ -40,11 +46,19 @@ const AboutUsSection = ({ currentContent }) => {
 				/>
 			</CardContentWrapper>
 			<CardButtonBlock>
-				<CardButton>Update</CardButton>
-				<CardButton outline>Cancel</CardButton>
+				{isEdit ? (
+					<Fragment>
+						<CardButton>Update</CardButton>
+						<CardButton outline onClick={clearAboutUs}>
+							Cancel
+						</CardButton>
+					</Fragment>
+				) : (
+					<CardButton onClick={fetchAboutUsStart}>Edit</CardButton>
+				)}
 			</CardButtonBlock>
 		</Card>
 	);
 };
 
-export default compose(WithContent)(AboutUsSection);
+export default compose(WithAboutUsDetail, WithContent)(AboutUsSection);

@@ -27,22 +27,26 @@ const ServiceCardPrice = ({
 							</span>
 						</div>
 					</Card>
-					<Card key='2' className='service-text-price'>
-						<div>
-							{services[service2].title} -{' '}
-							<span className='text-span'>
-								€{services[service2].price},-
-							</span>
-						</div>
-					</Card>
-					<Card key='3' className='service-text-price'>
-						<div>
-							{services[service3].title} -{' '}
-							<span className='text-span'>
-								€{services[service3].price},-
-							</span>
-						</div>
-					</Card>
+					{service2 && (
+						<Card key='2' className='service-text-price'>
+							<div>
+								{services[service2].title} -{' '}
+								<span className='text-span'>
+									€{services[service2].price},-
+								</span>
+							</div>
+						</Card>
+					)}
+					{service3 && (
+						<Card key='3' className='service-text-price'>
+							<div>
+								{services[service3].title} -{' '}
+								<span className='text-span'>
+									€{services[service3].price},-
+								</span>
+							</div>
+						</Card>
+					)}
 				</Fragment>
 			) : (
 				// All items are shown if it's a modal.

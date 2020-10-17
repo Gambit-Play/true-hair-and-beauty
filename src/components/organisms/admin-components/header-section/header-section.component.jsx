@@ -24,7 +24,7 @@ import headerImage from '../../../../assets/header-screenshot.png';
 const HeaderSection = ({
 	currentContent,
 	fetchHeaderStart,
-	toggleEditStart,
+	clearHeader,
 	isEdit,
 }) => {
 	const { id, topText, bottomText } = currentContent.headerSection;
@@ -61,7 +61,7 @@ const HeaderSection = ({
 				{isEdit ? (
 					<Fragment>
 						<CardButton>Update</CardButton>
-						<CardButton outline onClick={toggleEditStart}>
+						<CardButton outline onClick={clearHeader}>
 							Cancel
 						</CardButton>
 					</Fragment>

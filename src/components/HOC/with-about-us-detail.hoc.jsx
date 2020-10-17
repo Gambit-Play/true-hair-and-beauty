@@ -5,37 +5,37 @@ import { connect } from 'react-redux';
 // Redux: Selectors
 import {
 	selectIsEdit,
-	selectTopText,
-	selectBottomText,
-} from '../../redux/handlers/header-detail/header-detail.selectors';
+	selectBody,
+	selectTitle,
+} from '../../redux/handlers/about-us-detail/about-us-detail.selectors';
 
 // Redux: Actions
 import {
-	fetchHeaderStart,
+	fetchAboutUsStart,
 	toggleEditStart,
-	clearHeader,
-} from '../../redux/handlers/header-detail/header-detail.actions';
+	clearAboutUs,
+} from '../../redux/handlers/about-us-detail/about-us-detail.actions';
 
-const WithHeaderDetail = WrappedComponent => {
+const WithAboutUsDetail = WrappedComponent => {
 	const WithData = props => {
 		return <WrappedComponent {...props} />;
 	};
 
 	// Redux: Selectors
 	const mapStateToProps = createStructuredSelector({
-		topText: selectTopText,
-		bottomText: selectBottomText,
+		title: selectTitle,
+		body: selectBody,
 		isEdit: selectIsEdit,
 	});
 
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
-		fetchHeaderStart: () => dispatch(fetchHeaderStart()),
+		fetchAboutUsStart: () => dispatch(fetchAboutUsStart()),
 		toggleEditStart: () => dispatch(toggleEditStart()),
-		clearHeader: () => dispatch(clearHeader()),
+		clearAboutUs: () => dispatch(clearAboutUs()),
 	});
 
 	return connect(mapStateToProps, mapDispatchToProps)(WithData);
 };
 
-export default WithHeaderDetail;
+export default WithAboutUsDetail;
