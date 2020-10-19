@@ -6,7 +6,7 @@ const INITIAL_STATE = {
 	woensdag: '',
 	donderdag: '',
 	vrijdag: '',
-	zaterdage: '',
+	zaterdag: '',
 	zondag: '',
 	isEdit: false,
 };
@@ -37,7 +37,7 @@ const timeDetailReducer = (state = INITIAL_STATE, action) => {
 				woensdag: action.payload.woensdag,
 				donderdag: action.payload.donderdag,
 				vrijdag: action.payload.vrijdag,
-				zaterdage: action.payload.zaterdage,
+				zaterdag: action.payload.zaterdag,
 				zondag: action.payload.zondag,
 			};
 		/* ================================================================ */
@@ -54,9 +54,13 @@ const timeDetailReducer = (state = INITIAL_STATE, action) => {
 		case TimeDetailTypes.CLEAR_TIME:
 			return {
 				...state,
-				id: '',
-				title: '',
-				body: '',
+				maandag: '',
+				dinsdag: '',
+				woensdag: '',
+				donderdag: '',
+				vrijdag: '',
+				zaterdag: '',
+				zondag: '',
 				isEdit: false,
 			};
 		default:

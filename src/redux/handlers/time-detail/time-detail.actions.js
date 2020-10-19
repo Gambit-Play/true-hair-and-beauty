@@ -25,9 +25,9 @@ export const clearTime = () => ({
 /*  Process Success	                                                */
 /* ================================================================ */
 
-export const fetchTimeSuccess = (id, bottomText, topText) => ({
+export const fetchTimeSuccess = time => ({
 	type: TimeDetailTypes.FETCH_TIME_SUCCESS,
-	payload: { id, bottomText, topText },
+	payload: time,
 });
 
 /* ================================================================ */

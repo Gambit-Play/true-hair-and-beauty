@@ -21,7 +21,17 @@ export function* fetchTimeStart() {
 	try {
 		const timeSection = yield select(selectTimeSection);
 
-		yield put(fetchTimeSuccess(timeSection));
+		const newTimeSection = {
+			maandag: timeSection.maandag.time,
+			dinsdag: timeSection.dinsdag.time,
+			woensdag: timeSection.woensdag.time,
+			donderdag: timeSection.donderdag.time,
+			vrijdag: timeSection.vrijdag.time,
+			zaterdag: timeSection.zaterdag.time,
+			zondag: timeSection.zondag.time,
+		};
+
+		yield put(fetchTimeSuccess(newTimeSection));
 		yield put(toggleEditStart());
 	} catch (error) {
 		console.log(error);

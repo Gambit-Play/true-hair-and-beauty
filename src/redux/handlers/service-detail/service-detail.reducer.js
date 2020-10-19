@@ -9,10 +9,19 @@ const INITIAL_STATE = {
 	typeOfService: '',
 	services: [],
 	errorMessage: '',
+	isEdit: false,
 };
 
 const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 	switch (action.type) {
+		/* ================================================================ */
+		/*  Process Start                                                   */
+		/* ================================================================ */
+		case ServiceDetailTypes.EDIT_SERVICE:
+			return {
+				...state,
+				isEdit: true,
+			};
 		/* ================================================================ */
 		/*  Process Success                                                 */
 		/* ================================================================ */
@@ -30,10 +39,26 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Failure                                                 */
 		/* ================================================================ */
-		case ServiceDetailTypes.CREATE_SERVICES_FAILURE:
+		case ServiceDetailTypes.CREATE_SERVICE_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,
+			};
+		/* ================================================================ */
+		/*  Process Clear Data                                              */
+		/* ================================================================ */
+		case ServiceDetailTypes.CLEAR_SERVICE:
+			return {
+				...state,
+				id: '',
+				service1: '0',
+				service2: '',
+				service3: '',
+				image: '',
+				typeOfService: '',
+				services: [],
+				errorMessage: '',
+				isEdit: false,
 			};
 		default:
 			return state;

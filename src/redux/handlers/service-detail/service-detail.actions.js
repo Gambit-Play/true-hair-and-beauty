@@ -5,12 +5,20 @@ import ServiceDetailTypes from './service-detail.types';
 /* ================================================================ */
 
 export const createServicesStart = () => ({
-	type: ServiceDetailTypes.CREATE_SERVICES_START,
+	type: ServiceDetailTypes.CREATE_SERVICE_START,
 });
 
-export const fetchServiceStart = serviceIndex => ({
+export const fetchServiceStart = (serviceIndex, isAdminFetch) => ({
 	type: ServiceDetailTypes.FETCH_SERVICE_START,
-	payload: serviceIndex,
+	payload: { serviceIndex, isAdminFetch },
+});
+
+export const toggleEditStart = () => ({
+	type: ServiceDetailTypes.EDIT_SERVICE,
+});
+
+export const clearService = () => ({
+	type: ServiceDetailTypes.CLEAR_SERVICE,
 });
 
 /* ================================================================ */
@@ -18,7 +26,7 @@ export const fetchServiceStart = serviceIndex => ({
 /* ================================================================ */
 
 export const createServicesSuccess = () => ({
-	type: ServiceDetailTypes.CREATE_SERVICES_SUCCESS,
+	type: ServiceDetailTypes.CREATE_SERVICE_SUCCESS,
 });
 
 export const fetchServiceSuccess = service => ({
@@ -31,7 +39,7 @@ export const fetchServiceSuccess = service => ({
 /* ================================================================ */
 
 export const createServicesFailure = errorMessage => ({
-	type: ServiceDetailTypes.CREATE_SERVICES_FAILURE,
+	type: ServiceDetailTypes.CREATE_SERVICE_FAILURE,
 	payload: errorMessage,
 });
 

@@ -35,7 +35,7 @@ const headerDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Failure                                                 */
 		/* ================================================================ */
-		case HeaderDetailTypes.CREATE_SERVICES_FAILURE:
+		case HeaderDetailTypes.CREATE_SERVICE_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,

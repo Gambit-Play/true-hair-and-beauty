@@ -17,7 +17,7 @@ import { selectHeaderSection } from '../../content/content.selectors';
 /*  Actions                                                         */
 /* ================================================================ */
 
-export function* fetchServiceStart() {
+export function* fetchHeaderStart() {
 	try {
 		const headerSection = yield select(selectHeaderSection);
 
@@ -33,8 +33,8 @@ export function* fetchServiceStart() {
 /*  Listeners                                                       */
 /* ================================================================ */
 
-export function* onFetchServiceStart() {
-	yield takeLatest(HeaderDetailTypes.FETCH_HEADER_START, fetchServiceStart);
+export function* onFetchHeaderStart() {
+	yield takeLatest(HeaderDetailTypes.FETCH_HEADER_START, fetchHeaderStart);
 }
 
 /* ================================================================ */
@@ -42,5 +42,5 @@ export function* onFetchServiceStart() {
 /* ================================================================ */
 
 export default function* headerDetailSagas() {
-	yield all([call(onFetchServiceStart)]);
+	yield all([call(onFetchHeaderStart)]);
 }

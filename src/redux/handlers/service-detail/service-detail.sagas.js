@@ -13,6 +13,7 @@ import {
 	createServicesFailure,
 	fetchServiceSuccess,
 	fetchServiceFailure,
+	toggleEditStart,
 } from './service-detail.actions';
 import { toggleModal } from '../../ui/ui.actions';
 
@@ -32,13 +33,15 @@ export function* createServicesStart() {
 	}
 }
 
-export function* fetchServiceStart({ payload: serviceIndex }) {
+export function* fetchServiceStart({
+	payload: { serviceIndex, isAdminFetch },
+}) {
 	try {
 		const arr = yield select(selectCurrenServices);
 		const currentService = arr[serviceIndex];
 
 		yield put(fetchServiceSuccess(currentService));
-		yield put(toggleModal());
+		yield isAdminFetch ? put(toggleEditStart()) : put(toggleModal());
 	} catch (error) {
 		console.log(error);
 		yield put(fetchServiceFailure(error));
@@ -51,7 +54,7 @@ export function* fetchServiceStart({ payload: serviceIndex }) {
 
 export function* onCreateServicesStart() {
 	yield takeLatest(
-		ServiceDetailTypes.CREATE_SERVICES_START,
+		ServiceDetailTypes.CREATE_SERVICE_START,
 		createServicesStart
 	);
 }
