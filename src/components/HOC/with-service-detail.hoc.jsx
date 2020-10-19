@@ -9,6 +9,8 @@ import { selectServiceDetail } from '../../redux/handlers/service-detail/service
 import {
 	fetchServiceStart,
 	createServicesStart,
+	toggleEditStart,
+	clearService,
 } from '../../redux/handlers/service-detail/service-detail.actions';
 
 const WithServiceDetail = WrappedComponent => {
@@ -23,10 +25,12 @@ const WithServiceDetail = WrappedComponent => {
 
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
-		fetchServiceStart: serviceIndex =>
-			dispatch(fetchServiceStart(serviceIndex)),
+		fetchServiceStart: (serviceIndex, isAdminFetch) =>
+			dispatch(fetchServiceStart(serviceIndex, isAdminFetch)),
 		createServicesStart: serviceIndex =>
 			dispatch(createServicesStart(serviceIndex)),
+		toggleEditStart: () => dispatch(toggleEditStart()),
+		clearService: () => dispatch(clearService()),
 	});
 
 	return connect(mapStateToProps, mapDispatchToProps)(WithData);

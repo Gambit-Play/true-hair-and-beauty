@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { compose } from 'redux';
 
 //HOC
 import WithContent from '../../../HOC/with-content.hoc';
+import WithTimeDetail from '../../../HOC/with-time-detail.hoc';
 
 // Component
 import {
@@ -10,6 +11,7 @@ import {
 	CardImage,
 	CardContentWrapper,
 	CardTitle,
+	CardBody,
 	CardInput,
 	CardDivider,
 	CardButton,
@@ -19,9 +21,14 @@ import {
 // Images
 import headerImage from '../../../../assets/time-screenshot.png';
 
-const TimeSection = ({ currentContent }) => {
+const TimeSection = ({
+	currentContent,
+	timeDetail,
+	isEdit,
+	clearTime,
+	fetchTimeStart,
+}) => {
 	const {
-		id,
 		maandag,
 		dinsdag,
 		woensdag,
@@ -36,67 +43,107 @@ const TimeSection = ({ currentContent }) => {
 			<CardImage image={headerImage} />
 			<CardContentWrapper>
 				<CardTitle>Zondag</CardTitle>
-				<CardInput
-					type='text'
-					id={zondag}
-					name='zondag'
-					value={zondag.time}
-				/>
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={zondag}
+						name='zondag'
+						value={timeDetail.zondag}
+					/>
+				) : (
+					<CardBody>{zondag.time}</CardBody>
+				)}
+
 				<CardDivider />
 				<CardTitle>Maandag</CardTitle>
-				<CardInput
-					type='text'
-					id={maandag}
-					name='maandag'
-					value={maandag.time}
-				/>
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={maandag}
+						name='maandag'
+						value={timeDetail.maandag}
+					/>
+				) : (
+					<CardBody>{maandag.time}</CardBody>
+				)}
 				<CardDivider />
 				<CardTitle>Dinsdag</CardTitle>
-				<CardInput
-					type='text'
-					id={dinsdag}
-					name='dinsdag'
-					value={dinsdag.time}
-				/>
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={dinsdag}
+						name='dinsdag'
+						value={timeDetail.dinsdag}
+					/>
+				) : (
+					<CardBody>{dinsdag.time}</CardBody>
+				)}
 				<CardDivider />
 				<CardTitle>Woensdag</CardTitle>
-				<CardInput
-					type='text'
-					id={woensdag}
-					name='woensdag'
-					value={woensdag.time}
-				/>
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={woensdag}
+						name='woensdag'
+						value={timeDetail.woensdag}
+					/>
+				) : (
+					<CardBody>{woensdag.time}</CardBody>
+				)}
+
 				<CardDivider />
 				<CardTitle>Donderdag</CardTitle>
-				<CardInput
-					type='text'
-					id={donderdag}
-					name='dinsdag'
-					value={dinsdag.time}
-				/>
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={donderdag}
+						name='donderdag'
+						value={timeDetail.donderdag}
+					/>
+				) : (
+					<CardBody>{donderdag.time}</CardBody>
+				)}
+
 				<CardDivider />
 				<CardTitle>Vrijdag</CardTitle>
-				<CardInput
-					type='text'
-					id={vrijdag}
-					name='vrijdag'
-					value={vrijdag.time}
-				/>
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={vrijdag}
+						name='vrijdag'
+						value={timeDetail.vrijdag}
+					/>
+				) : (
+					<CardBody>{vrijdag.time}</CardBody>
+				)}
+
 				<CardDivider />
 				<CardTitle>Zaterdag</CardTitle>
-				<CardInput
-					type='text'
-					id={zaterdag}
-					name='zaterdag'
-					value={zaterdag.time}
-				/>
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={zaterdag}
+						name='zaterdag'
+						value={timeDetail.zaterdag}
+					/>
+				) : (
+					<CardBody>{zaterdag.time}</CardBody>
+				)}
 			</CardContentWrapper>
 			<CardButtonBlock>
-				<CardButton>Update</CardButton>
-				<CardButton outline>Cancel</CardButton>
+				{isEdit ? (
+					<Fragment>
+						<CardButton>Update</CardButton>
+						<CardButton outline onClick={clearTime}>
+							Cancel
+						</CardButton>
+					</Fragment>
+				) : (
+					<CardButton onClick={fetchTimeStart}>Edit</CardButton>
+				)}
 			</CardButtonBlock>
 		</Card>
 	);
 };
 
-export default compose(WithContent)(TimeSection);
+export default compose(WithTimeDetail, WithContent)(TimeSection);
