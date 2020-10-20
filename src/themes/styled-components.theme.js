@@ -31,6 +31,8 @@ export const globalStyles = {
 		font-family: 'Raleway, sans-serif';
 		font-size: 14px;
 	`,
+
+	// Animations
 	animationScale: css`
 		transition: transform 100ms ease-in-out;
 

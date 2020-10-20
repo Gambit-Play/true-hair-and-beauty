@@ -98,6 +98,15 @@ export const CardInput = styled.input`
 		outline-width: 0px;
 		border-color: ${props => props.theme.primary};
 	}
+
+	${props =>
+		props.titleInput &&
+		css`
+			line-height: 1.25;
+			font-weight: 700;
+			text-align: center;
+			margin: 20px 0px;
+		`}
 `;
 
 export const CardTextArea = styled.textarea`

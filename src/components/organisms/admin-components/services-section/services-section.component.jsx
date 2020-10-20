@@ -13,6 +13,7 @@ import {
 	CardContentWrapper,
 	CardTitle,
 	CardBody,
+	CardInput,
 	CardNumberInput,
 	CardDivider,
 	CardButton,
@@ -30,11 +31,23 @@ const ServicesSection = ({
 	return isEdit ? (
 		<Card>
 			<CardImage image={image} />
-			<CardServiceTitle>{typeOfService}</CardServiceTitle>
+			<CardInput value={image} type='text' id={id} name='image' />
+			<CardInput
+				titleInput
+				value={typeOfService}
+				type='text'
+				id={id}
+				name='typeOfService'
+			/>
 			<CardContentWrapper>
 				{services.map((service, serviceIndex) => (
 					<Fragment key={serviceIndex}>
-						<CardTitle>{service.title}</CardTitle>
+						<CardInput
+							value={service.title}
+							type='text'
+							id={id}
+							name='title'
+						/>
 						<CardNumberInput
 							value={service.price}
 							onValueChange={value => {

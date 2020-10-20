@@ -25,11 +25,13 @@ export const LinkBlock = styled.div`
 		background-position: 50% 50%;
 		background-size: 46px 46px;
 		background-repeat: no-repeat;
-		transition: box-shadow 200ms ease-in-out,
+		transition: transform 100ms ease-in-out, box-shadow 200ms ease-in-out,
 			background-color 200ms ease-in-out,
 			background-image 200ms ease-in-out;
 
-		${globalStyles.animationScale}
+		&:active {
+			transform: scale(0.9);
+		}
 	}
 
 	.menu-link.on-hover {
