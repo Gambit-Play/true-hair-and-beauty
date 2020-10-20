@@ -7,3 +7,9 @@ export const selectServiceDetail = createSelector(
 	[selectServiceDetailStore],
 	serviceDetail => serviceDetail
 );
+
+// Selects serviceDetail.isEdit from the state
+export const selectIsEdit = createSelector(
+	[selectServiceDetailStore],
+	serviceDetail => serviceDetail.isEdit
+);

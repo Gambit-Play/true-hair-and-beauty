@@ -11,25 +11,27 @@ import serviceDetailReducer from './handlers/service-detail/service-detail.reduc
 import headerDetailReducer from './handlers/header-detail/header-detail.reducer';
 import aboutUsDetailReducer from './handlers/about-us-detail/about-us-detail.reducer';
 import timeDetailReducer from './handlers/time-detail/time-detail.reducer';
+import footerDetailReducer from './handlers/footer-detail/footer-detail.reducer';
 
 const persistConfig = {
 	key: 'root',
 	storage,
 	whitelist: [
-		'services',
-		'serviceDetail',
 		'ui',
+		'services',
 		'content',
+		'serviceDetail',
 		'headerDetail',
 		'aboutUsDetail',
 		'timeDetail',
+		'footerDetail',
 	],
 };
 
 const rootReducer = combineReducers({
 	// Collections Reducers
-	services: servicesReducer,
 	ui: uiReducer,
+	services: servicesReducer,
 	content: contentReducer,
 
 	// Handlers Reducers
@@ -37,6 +39,7 @@ const rootReducer = combineReducers({
 	headerDetail: headerDetailReducer,
 	aboutUsDetail: aboutUsDetailReducer,
 	timeDetail: timeDetailReducer,
+	footerDetail: footerDetailReducer,
 });
 
 export default persistReducer(persistConfig, rootReducer);

@@ -3,7 +3,10 @@ import { createStructuredSelector } from 'reselect';
 import { connect } from 'react-redux';
 
 // Redux: Selectors
-import { selectServiceDetail } from '../../redux/handlers/service-detail/service-detail.selectors';
+import {
+	selectServiceDetail,
+	selectIsEdit,
+} from '../../redux/handlers/service-detail/service-detail.selectors';
 
 // Redux: Actions
 import {
@@ -21,6 +24,7 @@ const WithServiceDetail = WrappedComponent => {
 	// Redux: Selectors
 	const mapStateToProps = createStructuredSelector({
 		serviceDetail: selectServiceDetail,
+		isEdit: selectIsEdit,
 	});
 
 	// Redux: Actions

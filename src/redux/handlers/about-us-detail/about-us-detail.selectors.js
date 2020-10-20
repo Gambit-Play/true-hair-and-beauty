@@ -8,18 +8,6 @@ export const selectAboutUsDetail = createSelector(
 	aboutUsDetail => aboutUsDetail
 );
 
-// Selects aboutUsDetail.title from the state
-export const selectTitle = createSelector(
-	[selectAboutUsDetail],
-	aboutUsDetail => aboutUsDetail.title
-);
-
-// Selects aboutUsDetail.body from the state
-export const selectBody = createSelector(
-	[selectAboutUsDetail],
-	aboutUsDetail => aboutUsDetail.body
-);
-
 // Selects aboutUsDetail.isEdit from the state
 export const selectIsEdit = createSelector(
 	[selectAboutUsDetail],

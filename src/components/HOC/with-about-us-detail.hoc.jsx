@@ -5,8 +5,7 @@ import { connect } from 'react-redux';
 // Redux: Selectors
 import {
 	selectIsEdit,
-	selectBody,
-	selectTitle,
+	selectAboutUsDetail,
 } from '../../redux/handlers/about-us-detail/about-us-detail.selectors';
 
 // Redux: Actions
@@ -23,8 +22,7 @@ const WithAboutUsDetail = WrappedComponent => {
 
 	// Redux: Selectors
 	const mapStateToProps = createStructuredSelector({
-		title: selectTitle,
-		body: selectBody,
+		aboutUsDetail: selectAboutUsDetail,
 		isEdit: selectIsEdit,
 	});
 
