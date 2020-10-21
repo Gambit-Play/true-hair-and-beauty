@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { compose } from 'redux';
 
 //HOC
 import WithContent from '../../../HOC/with-content.hoc';
+import WithFooterDetail from '../../../HOC/with-footer-detail.hoc';
 
 // Component
 import {
@@ -10,6 +11,7 @@ import {
 	CardImage,
 	CardContentWrapper,
 	CardTitle,
+	CardBody,
 	CardInput,
 	CardDivider,
 	CardButton,
@@ -20,34 +22,70 @@ import {
 // Images
 import footerImage from '../../../../assets/footer-screenshot.png';
 
-const FooterSection = ({ footerSection }) => {
-	const { id, adres, email, tel } = footerSection;
+const FooterSection = ({
+	footerSection,
+	footerDetail,
+	fetchFooterStart,
+	clearFooter,
+	isEdit,
+}) => {
+	const { adres, email, tel } = footerSection;
 
 	return (
 		<Card>
 			<CardImage image={footerImage} />
 			<CardContentWrapper>
 				<CardTitle>Tel</CardTitle>
-				<CardInput type='text' id={id} name='tel' value={tel} />
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={footerDetail.id}
+						name='tel'
+						value={footerDetail.tel}
+					/>
+				) : (
+					<CardBody>{tel}</CardBody>
+				)}
 				<CardDivider />
 				<CardTitle>Email</CardTitle>
-				<CardInput type='text' id={id} name='email' value={email} />
+				{isEdit ? (
+					<CardInput
+						type='text'
+						id={footerDetail.id}
+						name='email'
+						value={footerDetail.email}
+					/>
+				) : (
+					<CardBody>{email}</CardBody>
+				)}
 				<CardDivider />
 				<CardTitle>Adres</CardTitle>
-				<CardTextArea
-					height={100}
-					type='text'
-					id={id}
-					name='adres'
-					value={adres}
-				/>
+				{isEdit ? (
+					<CardTextArea
+						height={100}
+						type='text'
+						id={footerDetail.id}
+						name='adres'
+						value={footerDetail.adres}
+					/>
+				) : (
+					<CardBody>{adres}</CardBody>
+				)}
 			</CardContentWrapper>
 			<CardButtonBlock>
-				<CardButton>Update</CardButton>
-				<CardButton outline>Cancel</CardButton>
+				{isEdit ? (
+					<Fragment>
+						<CardButton>Update</CardButton>
+						<CardButton onClick={clearFooter} outline>
+							Cancel
+						</CardButton>
+					</Fragment>
+				) : (
+					<CardButton onClick={fetchFooterStart}>Edit</CardButton>
+				)}
 			</CardButtonBlock>
 		</Card>
 	);
 };
 
-export default compose(WithContent)(FooterSection);
+export default compose(WithFooterDetail, WithContent)(FooterSection);
