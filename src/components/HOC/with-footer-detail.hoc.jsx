@@ -5,35 +5,35 @@ import { connect } from 'react-redux';
 // Redux: Selectors
 import {
 	selectIsEdit,
-	selectHeaderDetail,
-} from '../../redux/handlers/header-detail/header-detail.selectors';
+	selectFooterDetail,
+} from '../../redux/handlers/footer-detail/footer-detail.selectors';
 
 // Redux: Actions
 import {
-	fetchHeaderStart,
+	fetchFooterStart,
 	toggleEditStart,
-	clearHeader,
-} from '../../redux/handlers/header-detail/header-detail.actions';
+	clearFooter,
+} from '../../redux/handlers/footer-detail/footer-detail.actions';
 
-const WithHeaderDetail = WrappedComponent => {
+const WithFooterDetail = WrappedComponent => {
 	const WithData = props => {
 		return <WrappedComponent {...props} />;
 	};
 
 	// Redux: Selectors
 	const mapStateToProps = createStructuredSelector({
-		headerDetail: selectHeaderDetail,
+		footerDetail: selectFooterDetail,
 		isEdit: selectIsEdit,
 	});
 
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
-		fetchHeaderStart: () => dispatch(fetchHeaderStart()),
+		fetchFooterStart: () => dispatch(fetchFooterStart()),
 		toggleEditStart: () => dispatch(toggleEditStart()),
-		clearHeader: () => dispatch(clearHeader()),
+		clearFooter: () => dispatch(clearFooter()),
 	});
 
 	return connect(mapStateToProps, mapDispatchToProps)(WithData);
 };
 
-export default WithHeaderDetail;
+export default WithFooterDetail;

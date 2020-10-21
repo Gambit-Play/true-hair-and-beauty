@@ -22,7 +22,7 @@ import {
 import headerImage from '../../../../assets/time-screenshot.png';
 
 const TimeSection = ({
-	currentContent,
+	timeSection,
 	timeDetail,
 	isEdit,
 	clearTime,
@@ -36,7 +36,7 @@ const TimeSection = ({
 		vrijdag,
 		zaterdag,
 		zondag,
-	} = currentContent.timeSection;
+	} = timeSection;
 
 	return (
 		<Card>

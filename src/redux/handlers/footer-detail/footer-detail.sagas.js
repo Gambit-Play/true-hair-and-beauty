@@ -19,9 +19,9 @@ import { selectFooterSection } from '../../content/content.selectors';
 
 export function* fetchFooterStart() {
 	try {
-		const aboutSection = yield select(selectFooterSection);
+		const footerSection = yield select(selectFooterSection);
 
-		yield put(fetchFooterSuccess(aboutSection));
+		yield put(fetchFooterSuccess(footerSection));
 		yield put(toggleEditStart());
 	} catch (error) {
 		console.log(error);

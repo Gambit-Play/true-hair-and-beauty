@@ -22,12 +22,12 @@ import {
 import headerImage from '../../../../assets/header-screenshot.png';
 
 const HeaderSection = ({
-	currentContent,
+	headerSection,
 	fetchHeaderStart,
 	clearHeader,
 	isEdit,
 }) => {
-	const { id, topText, bottomText } = currentContent.headerSection;
+	const { id, topText, bottomText } = headerSection;
 
 	return (
 		<Card>

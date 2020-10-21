@@ -20,8 +20,8 @@ import {
 // Images
 import footerImage from '../../../../assets/footer-screenshot.png';
 
-const FooterSection = ({ currentContent }) => {
-	const { id, adres, email, tel } = currentContent.footerSection;
+const FooterSection = ({ footerSection }) => {
+	const { id, adres, email, tel } = footerSection;
 
 	return (
 		<Card>

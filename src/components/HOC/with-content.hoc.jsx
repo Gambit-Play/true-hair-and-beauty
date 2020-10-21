@@ -6,6 +6,10 @@ import { connect } from 'react-redux';
 import {
 	selectCurrenContent,
 	selectIsFetching,
+	selectAboutUsSection,
+	selectFooterSection,
+	selectHeaderSection,
+	selectTimeSection,
 } from '../../redux/content/content.selectors';
 
 // Redux: Actions
@@ -22,6 +26,10 @@ const WithContent = WrappedComponent => {
 	// Redux: Selectors
 	const mapStateToProps = createStructuredSelector({
 		currentContent: selectCurrenContent,
+		aboutUsSection: selectAboutUsSection,
+		footerSection: selectFooterSection,
+		headerSection: selectHeaderSection,
+		timeSection: selectTimeSection,
 		isContentFetching: selectIsFetching,
 	});
 

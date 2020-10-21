@@ -23,12 +23,12 @@ import {
 import aboutUsImage from '../../../../assets/about-us-screenshot.png';
 
 const AboutUsSection = ({
-	currentContent,
+	aboutUsSection,
 	fetchAboutUsStart,
 	clearAboutUs,
 	isEdit,
 }) => {
-	const { id, title, body } = currentContent.aboutUsSection;
+	const { id, title, body } = aboutUsSection;
 
 	return (
 		<Card>
