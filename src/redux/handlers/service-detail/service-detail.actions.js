@@ -13,6 +13,16 @@ export const fetchServiceStart = (serviceIndex, isAdminFetch) => ({
 	payload: { serviceIndex, isAdminFetch },
 });
 
+export const setServiceStart = (index, inputName, value) => ({
+	type: ServiceDetailTypes.SET_SERVICE_START,
+	payload: { index, inputName, value },
+});
+
+export const setOtherServiceStart = (inputName, value) => ({
+	type: ServiceDetailTypes.SET_OTHER_SERVICE,
+	payload: { inputName, value },
+});
+
 export const toggleEditStart = () => ({
 	type: ServiceDetailTypes.EDIT_SERVICE,
 });
@@ -29,6 +39,11 @@ export const createServicesSuccess = () => ({
 	type: ServiceDetailTypes.CREATE_SERVICE_SUCCESS,
 });
 
+export const setServiceSuccess = services => ({
+	type: ServiceDetailTypes.SET_SERVICE_SUCCESS,
+	payload: services,
+});
+
 export const fetchServiceSuccess = service => ({
 	type: ServiceDetailTypes.FETCH_SERVICE_SUCCESS,
 	payload: service,
@@ -40,6 +55,11 @@ export const fetchServiceSuccess = service => ({
 
 export const createServicesFailure = errorMessage => ({
 	type: ServiceDetailTypes.CREATE_SERVICE_FAILURE,
+	payload: errorMessage,
+});
+
+export const setServiceFailure = errorMessage => ({
+	type: ServiceDetailTypes.SET_SERVICE_FAILURE,
 	payload: errorMessage,
 });
 

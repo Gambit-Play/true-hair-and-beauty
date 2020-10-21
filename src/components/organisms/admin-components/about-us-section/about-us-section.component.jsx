@@ -24,11 +24,13 @@ import aboutUsImage from '../../../../assets/about-us-screenshot.png';
 
 const AboutUsSection = ({
 	aboutUsSection,
+	aboutUsDetail,
 	fetchAboutUsStart,
+	setAboutUsStart,
 	clearAboutUs,
 	isEdit,
 }) => {
-	const { id, title, body } = aboutUsSection;
+	const { title, body } = aboutUsSection;
 
 	return (
 		<Card>
@@ -36,7 +38,18 @@ const AboutUsSection = ({
 			<CardContentWrapper>
 				<CardTitle>Title</CardTitle>
 				{isEdit ? (
-					<CardInput value={title} type='text' id={id} name='title' />
+					<CardInput
+						value={aboutUsDetail.title}
+						type='text'
+						id={aboutUsDetail.id}
+						name='title'
+						onChange={event => {
+							setAboutUsStart(
+								event.target.name,
+								event.target.value
+							);
+						}}
+					/>
 				) : (
 					<CardBody>{title}</CardBody>
 				)}
@@ -45,10 +58,16 @@ const AboutUsSection = ({
 				{isEdit ? (
 					<CardTextArea
 						height={200}
-						value={body}
+						value={aboutUsDetail.body}
 						type='text'
-						id={id}
+						id={aboutUsDetail.id}
 						name='body'
+						onChange={event => {
+							setAboutUsStart(
+								event.target.name,
+								event.target.value
+							);
+						}}
 					/>
 				) : (
 					<CardBody>{body}</CardBody>

@@ -4,8 +4,8 @@ import FooterDetailTypes from './footer-detail.types';
 /*  Process Start  	                                                */
 /* ================================================================ */
 
-export const createFooterStart = () => ({
-	type: FooterDetailTypes.CREATE_FOOTER_START,
+export const updateFooterStart = () => ({
+	type: FooterDetailTypes.UPDATE_FOOTER_START,
 });
 
 export const fetchFooterStart = () => ({
@@ -29,8 +29,8 @@ export const clearFooter = () => ({
 /*  Process Success	                                                */
 /* ================================================================ */
 
-export const createFooterSuccess = () => ({
-	type: FooterDetailTypes.CREATE_FOOTER_SUCCESS,
+export const updateFooterSuccess = () => ({
+	type: FooterDetailTypes.UPDATE_FOOTER_SUCCESS,
 });
 
 export const fetchFooterSuccess = footerSection => ({
@@ -42,8 +42,8 @@ export const fetchFooterSuccess = footerSection => ({
 /*  Process Failure	       	                                        */
 /* ================================================================ */
 
-export const createFooterFailure = errorMessage => ({
-	type: FooterDetailTypes.CREATE_FOOTER_FAILURE,
+export const updateFooterFailure = errorMessage => ({
+	type: FooterDetailTypes.UPDATE_FOOTER_FAILURE,
 	payload: errorMessage,
 });
 

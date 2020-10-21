@@ -11,6 +11,7 @@ import {
 // Redux: Actions
 import {
 	fetchHeaderStart,
+	setHeaderStart,
 	toggleEditStart,
 	clearHeader,
 } from '../../redux/handlers/header-detail/header-detail.actions';
@@ -29,6 +30,8 @@ const WithHeaderDetail = WrappedComponent => {
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
 		fetchHeaderStart: () => dispatch(fetchHeaderStart()),
+		setHeaderStart: (inputName, value) =>
+			dispatch(setHeaderStart(inputName, value)),
 		toggleEditStart: () => dispatch(toggleEditStart()),
 		clearHeader: () => dispatch(clearHeader()),
 	});

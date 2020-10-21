@@ -8,6 +8,12 @@ export const selectServiceDetail = createSelector(
 	serviceDetail => serviceDetail
 );
 
+// Selects serviceDetail.services from the state
+export const selectServices = createSelector(
+	[selectServiceDetailStore],
+	serviceDetail => serviceDetail.services
+);
+
 // Selects serviceDetail.isEdit from the state
 export const selectIsEdit = createSelector(
 	[selectServiceDetailStore],

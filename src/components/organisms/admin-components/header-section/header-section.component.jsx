@@ -23,11 +23,13 @@ import headerImage from '../../../../assets/header-screenshot.png';
 
 const HeaderSection = ({
 	headerSection,
+	headerDetail,
 	fetchHeaderStart,
+	setHeaderStart,
 	clearHeader,
 	isEdit,
 }) => {
-	const { id, topText, bottomText } = headerSection;
+	const { topText, bottomText } = headerSection;
 
 	return (
 		<Card>
@@ -36,10 +38,16 @@ const HeaderSection = ({
 				<CardTitle>Top Title</CardTitle>
 				{isEdit ? (
 					<CardInput
-						value={topText}
+						value={headerDetail.topText}
 						type='text'
-						id={id}
+						id={headerDetail.id}
 						name='topText'
+						onChange={event => {
+							setHeaderStart(
+								event.target.name,
+								event.target.value
+							);
+						}}
 					/>
 				) : (
 					<CardBody>{topText}</CardBody>
@@ -48,10 +56,16 @@ const HeaderSection = ({
 				<CardTitle>Bottom Title</CardTitle>
 				{isEdit ? (
 					<CardInput
-						value={bottomText}
+						value={headerDetail.bottomText}
 						type='text'
-						id={id}
+						id={headerDetail.id}
 						name='bottomText'
+						onChange={event => {
+							setHeaderStart(
+								event.target.name,
+								event.target.value
+							);
+						}}
 					/>
 				) : (
 					<CardBody>{bottomText}</CardBody>

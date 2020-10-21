@@ -11,6 +11,7 @@ import {
 // Redux: Actions
 import {
 	fetchAboutUsStart,
+	setAboutUsStart,
 	toggleEditStart,
 	clearAboutUs,
 } from '../../redux/handlers/about-us-detail/about-us-detail.actions';
@@ -29,6 +30,8 @@ const WithAboutUsDetail = WrappedComponent => {
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
 		fetchAboutUsStart: () => dispatch(fetchAboutUsStart()),
+		setAboutUsStart: (inputName, value) =>
+			dispatch(setAboutUsStart(inputName, value)),
 		toggleEditStart: () => dispatch(toggleEditStart()),
 		clearAboutUs: () => dispatch(clearAboutUs()),
 	});

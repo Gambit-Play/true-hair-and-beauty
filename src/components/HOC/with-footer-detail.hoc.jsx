@@ -12,6 +12,7 @@ import {
 import {
 	fetchFooterStart,
 	toggleEditStart,
+	setFooterStart,
 	clearFooter,
 } from '../../redux/handlers/footer-detail/footer-detail.actions';
 
@@ -29,6 +30,8 @@ const WithFooterDetail = WrappedComponent => {
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
 		fetchFooterStart: () => dispatch(fetchFooterStart()),
+		setFooterStart: (inputName, value) =>
+			dispatch(setFooterStart(inputName, value)),
 		toggleEditStart: () => dispatch(toggleEditStart()),
 		clearFooter: () => dispatch(clearFooter()),
 	});

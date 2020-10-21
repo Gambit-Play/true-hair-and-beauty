@@ -11,6 +11,8 @@ import ServiceDetailTypes from './service-detail.types';
 import {
 	createServicesSuccess,
 	createServicesFailure,
+	setServiceSuccess,
+	setServiceFailure,
 	fetchServiceSuccess,
 	fetchServiceFailure,
 	toggleEditStart,
@@ -19,6 +21,7 @@ import { toggleModal } from '../../ui/ui.actions';
 
 // Selectors
 import { selectCurrenServices } from '../../services/services.selectors';
+import { selectServices } from './service-detail.selectors';
 
 /* ================================================================ */
 /*  Actions                                                         */
@@ -30,6 +33,19 @@ export function* createServicesStart() {
 	} catch (error) {
 		console.log(error);
 		yield put(createServicesFailure(error));
+	}
+}
+
+export function* setServicesStart({ payload: { index, inputName, value } }) {
+	try {
+		const services = yield select(selectServices);
+
+		services[index][inputName] = value;
+
+		yield put(setServiceSuccess(services));
+	} catch (error) {
+		console.log(error);
+		yield put(setServiceFailure(error));
 	}
 }
 
@@ -59,6 +75,10 @@ export function* onCreateServicesStart() {
 	);
 }
 
+export function* onSetServicesStart() {
+	yield takeLatest(ServiceDetailTypes.SET_SERVICE_START, setServicesStart);
+}
+
 export function* onFetchServiceStart() {
 	yield takeLatest(ServiceDetailTypes.FETCH_SERVICE_START, fetchServiceStart);
 }
@@ -68,5 +88,9 @@ export function* onFetchServiceStart() {
 /* ================================================================ */
 
 export default function* servicesDetailSagas() {
-	yield all([call(onCreateServicesStart), call(onFetchServiceStart)]);
+	yield all([
+		call(onCreateServicesStart),
+		call(onFetchServiceStart),
+		call(onSetServicesStart),
+	]);
 }

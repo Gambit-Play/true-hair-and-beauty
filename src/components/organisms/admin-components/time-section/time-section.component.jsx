@@ -27,6 +27,7 @@ const TimeSection = ({
 	isEdit,
 	clearTime,
 	fetchTimeStart,
+	setTimeStart,
 }) => {
 	const {
 		maandag,
@@ -49,6 +50,9 @@ const TimeSection = ({
 						id={zondag}
 						name='zondag'
 						value={timeDetail.zondag}
+						onChange={event => {
+							setTimeStart(event.target.name, event.target.value);
+						}}
 					/>
 				) : (
 					<CardBody>{zondag.time}</CardBody>
@@ -62,6 +66,9 @@ const TimeSection = ({
 						id={maandag}
 						name='maandag'
 						value={timeDetail.maandag}
+						onChange={event => {
+							setTimeStart(event.target.name, event.target.value);
+						}}
 					/>
 				) : (
 					<CardBody>{maandag.time}</CardBody>
@@ -74,6 +81,9 @@ const TimeSection = ({
 						id={dinsdag}
 						name='dinsdag'
 						value={timeDetail.dinsdag}
+						onChange={event => {
+							setTimeStart(event.target.name, event.target.value);
+						}}
 					/>
 				) : (
 					<CardBody>{dinsdag.time}</CardBody>
@@ -86,6 +96,9 @@ const TimeSection = ({
 						id={woensdag}
 						name='woensdag'
 						value={timeDetail.woensdag}
+						onChange={event => {
+							setTimeStart(event.target.name, event.target.value);
+						}}
 					/>
 				) : (
 					<CardBody>{woensdag.time}</CardBody>
@@ -99,6 +112,9 @@ const TimeSection = ({
 						id={donderdag}
 						name='donderdag'
 						value={timeDetail.donderdag}
+						onChange={event => {
+							setTimeStart(event.target.name, event.target.value);
+						}}
 					/>
 				) : (
 					<CardBody>{donderdag.time}</CardBody>
@@ -112,6 +128,9 @@ const TimeSection = ({
 						id={vrijdag}
 						name='vrijdag'
 						value={timeDetail.vrijdag}
+						onChange={event => {
+							setTimeStart(event.target.name, event.target.value);
+						}}
 					/>
 				) : (
 					<CardBody>{vrijdag.time}</CardBody>
@@ -125,6 +144,9 @@ const TimeSection = ({
 						id={zaterdag}
 						name='zaterdag'
 						value={timeDetail.zaterdag}
+						onChange={event => {
+							setTimeStart(event.target.name, event.target.value);
+						}}
 					/>
 				) : (
 					<CardBody>{zaterdag.time}</CardBody>

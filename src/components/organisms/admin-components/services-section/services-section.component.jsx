@@ -24,20 +24,31 @@ const ServicesSection = ({
 	currentServices,
 	serviceDetail,
 	fetchServiceStart,
+	setServiceStart,
+	setOtherServiceStart,
 	clearService,
 }) => {
-	const { id, image, services, typeOfService, isEdit } = serviceDetail;
+	const { image, services, typeOfService, isEdit } = serviceDetail;
 
 	return isEdit ? (
 		<Card>
 			<CardImage image={image} />
-			<CardInput value={image} type='text' id={id} name='image' />
+			<CardInput
+				value={image}
+				type='text'
+				name='image'
+				onChange={event =>
+					setOtherServiceStart(event.target.name, event.target.value)
+				}
+			/>
 			<CardInput
 				titleInput
 				value={typeOfService}
 				type='text'
-				id={id}
 				name='typeOfService'
+				onChange={event =>
+					setOtherServiceStart(event.target.name, event.target.value)
+				}
 			/>
 			<CardContentWrapper>
 				{services.map((service, serviceIndex) => (
@@ -45,15 +56,22 @@ const ServicesSection = ({
 						<CardInput
 							value={service.title}
 							type='text'
-							id={id}
 							name='title'
+							onChange={event =>
+								setServiceStart(
+									serviceIndex,
+									event.target.name,
+									event.target.value
+								)
+							}
 						/>
 						<CardNumberInput
 							value={service.price}
-							onValueChange={value => {
-								console.log(
-									'@@@@@ NumberFormat - value:',
-									value
+							onValueChange={({ floatValue }) => {
+								setServiceStart(
+									serviceIndex,
+									'price',
+									floatValue
 								);
 							}}
 						/>

@@ -22,6 +22,11 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 				...state,
 				isEdit: true,
 			};
+		case ServiceDetailTypes.SET_OTHER_SERVICE:
+			return {
+				...state,
+				[action.payload.inputName]: action.payload.value,
+			};
 		/* ================================================================ */
 		/*  Process Success                                                 */
 		/* ================================================================ */
@@ -35,6 +40,11 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 				image: action.payload.image,
 				typeOfService: action.payload.typeOfService,
 				services: action.payload.services,
+			};
+		case ServiceDetailTypes.SET_SERVICE_SUCCESS:
+			return {
+				...state,
+				services: action.payload,
 			};
 		/* ================================================================ */
 		/*  Process Failure                                                 */

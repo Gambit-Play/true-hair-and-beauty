@@ -26,6 +26,7 @@ const FooterSection = ({
 	footerSection,
 	footerDetail,
 	fetchFooterStart,
+	setFooterStart,
 	clearFooter,
 	isEdit,
 }) => {
@@ -42,6 +43,12 @@ const FooterSection = ({
 						id={footerDetail.id}
 						name='tel'
 						value={footerDetail.tel}
+						onChange={event => {
+							setFooterStart(
+								event.target.name,
+								event.target.value
+							);
+						}}
 					/>
 				) : (
 					<CardBody>{tel}</CardBody>
@@ -54,6 +61,12 @@ const FooterSection = ({
 						id={footerDetail.id}
 						name='email'
 						value={footerDetail.email}
+						onChange={event => {
+							setFooterStart(
+								event.target.name,
+								event.target.value
+							);
+						}}
 					/>
 				) : (
 					<CardBody>{email}</CardBody>
@@ -67,6 +80,12 @@ const FooterSection = ({
 						id={footerDetail.id}
 						name='adres'
 						value={footerDetail.adres}
+						onChange={event => {
+							setFooterStart(
+								event.target.name,
+								event.target.value
+							);
+						}}
 					/>
 				) : (
 					<CardBody>{adres}</CardBody>

@@ -11,6 +11,8 @@ import {
 // Redux: Actions
 import {
 	fetchServiceStart,
+	setServiceStart,
+	setOtherServiceStart,
 	createServicesStart,
 	toggleEditStart,
 	clearService,
@@ -33,6 +35,10 @@ const WithServiceDetail = WrappedComponent => {
 			dispatch(fetchServiceStart(serviceIndex, isAdminFetch)),
 		createServicesStart: serviceIndex =>
 			dispatch(createServicesStart(serviceIndex)),
+		setServiceStart: (index, inputName, value) =>
+			dispatch(setServiceStart(index, inputName, value)),
+		setOtherServiceStart: (inputName, value) =>
+			dispatch(setOtherServiceStart(inputName, value)),
 		toggleEditStart: () => dispatch(toggleEditStart()),
 		clearService: () => dispatch(clearService()),
 	});
