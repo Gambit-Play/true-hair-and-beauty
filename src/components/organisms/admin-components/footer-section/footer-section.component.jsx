@@ -26,6 +26,7 @@ const FooterSection = ({
 	footerSection,
 	footerDetail,
 	fetchFooterStart,
+	updateFooterStart,
 	setFooterStart,
 	clearFooter,
 	isEdit,
@@ -94,7 +95,9 @@ const FooterSection = ({
 			<CardButtonBlock>
 				{isEdit ? (
 					<Fragment>
-						<CardButton>Update</CardButton>
+						<CardButton onClick={updateFooterStart}>
+							Update
+						</CardButton>
 						<CardButton onClick={clearFooter} outline>
 							Cancel
 						</CardButton>

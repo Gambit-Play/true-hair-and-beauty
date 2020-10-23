@@ -11,6 +11,7 @@ import {
 // Redux: Actions
 import {
 	fetchFooterStart,
+	updateFooterStart,
 	toggleEditStart,
 	setFooterStart,
 	clearFooter,
@@ -30,6 +31,7 @@ const WithFooterDetail = WrappedComponent => {
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
 		fetchFooterStart: () => dispatch(fetchFooterStart()),
+		updateFooterStart: () => dispatch(updateFooterStart()),
 		setFooterStart: (inputName, value) =>
 			dispatch(setFooterStart(inputName, value)),
 		toggleEditStart: () => dispatch(toggleEditStart()),

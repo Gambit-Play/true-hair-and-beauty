@@ -35,7 +35,8 @@ const aboutUsDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Failure                                                 */
 		/* ================================================================ */
-		case AboutUsDetailTypes.CREATE_ABOUT_US_FAILURE:
+		case AboutUsDetailTypes.FETCH_ABOUT_US_FAILURE:
+		case AboutUsDetailTypes.UPDATE_ABOUT_US_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,

@@ -37,7 +37,8 @@ const footerDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Failure                                                 */
 		/* ================================================================ */
-		case FooterDetailTypes.CREATE_FOOTER_FAILURE:
+		case FooterDetailTypes.FETCH_FOOTER_FAILURE:
+		case FooterDetailTypes.UPDATE_FOOTER_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,
@@ -46,6 +47,7 @@ const footerDetailReducer = (state = INITIAL_STATE, action) => {
 		/*  Process Clear Data                                              */
 		/* ================================================================ */
 		case FooterDetailTypes.CLEAR_FOOTER:
+		case FooterDetailTypes.UPDATE_FOOTER_SUCCESS:
 			return {
 				...state,
 				id: '',
