@@ -70,6 +70,13 @@ export const getCollectionOrderBy = async (collectionId, orderBy, order) => {
 	return collectionRef;
 };
 
+export const updateDocument = async (collectionId, documentId, data) => {
+	if (!collectionId || !documentId)
+		console.error('Please provide all the inputs');
+
+	await firestore.collection(collectionId).doc(documentId).set(data);
+};
+
 /* ================================================================ */
 /*  Firestore & Auth                                                */
 /* ================================================================ */

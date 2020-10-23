@@ -25,6 +25,7 @@ const HeaderSection = ({
 	headerSection,
 	headerDetail,
 	fetchHeaderStart,
+	updateHeaderStart,
 	setHeaderStart,
 	clearHeader,
 	isEdit,
@@ -74,7 +75,7 @@ const HeaderSection = ({
 			<CardButtonBlock>
 				{isEdit ? (
 					<Fragment>
-						<CardButton>Update</CardButton>
+						<CardButton onClick={updateHeaderStart}>Update</CardButton>
 						<CardButton outline onClick={clearHeader}>
 							Cancel
 						</CardButton>

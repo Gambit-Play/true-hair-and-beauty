@@ -43,6 +43,7 @@ const headerDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Clear Data                                              */
 		/* ================================================================ */
+		case HeaderDetailTypes.UPDATE_HEADER_SUCCESS:
 		case HeaderDetailTypes.CLEAR_HEADER:
 			return {
 				...state,

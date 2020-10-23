@@ -4,8 +4,8 @@ import HeaderDetailTypes from './header-detail.types';
 /*  Process Start  	                                                */
 /* ================================================================ */
 
-export const createHeaderStart = () => ({
-	type: HeaderDetailTypes.CREATE_HEADER_START,
+export const updateHeaderStart = () => ({
+	type: HeaderDetailTypes.UPDATE_HEADER_START,
 });
 
 export const fetchHeaderStart = () => ({
@@ -29,8 +29,8 @@ export const clearHeader = () => ({
 /*  Process Success	                                                */
 /* ================================================================ */
 
-export const createHeaderSuccess = () => ({
-	type: HeaderDetailTypes.CREATE_HEADER_SUCCESS,
+export const updateHeaderSuccess = () => ({
+	type: HeaderDetailTypes.UPDATE_HEADER_SUCCESS,
 });
 
 export const fetchHeaderSuccess = headerContent => ({
@@ -42,8 +42,8 @@ export const fetchHeaderSuccess = headerContent => ({
 /*  Process Failure	       	                                        */
 /* ================================================================ */
 
-export const createHeaderFailure = errorMessage => ({
-	type: HeaderDetailTypes.CREATE_HEADER_FAILURE,
+export const updateHeaderFailure = errorMessage => ({
+	type: HeaderDetailTypes.UPDATE_HEADER_FAILURE,
 	payload: errorMessage,
 });
 
