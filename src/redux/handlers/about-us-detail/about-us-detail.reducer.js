@@ -44,6 +44,7 @@ const aboutUsDetailReducer = (state = INITIAL_STATE, action) => {
 		/*  Process Clear Data                                              */
 		/* ================================================================ */
 		case AboutUsDetailTypes.CLEAR_ABOUT_US:
+		case AboutUsDetailTypes.UPDATE_ABOUT_US_SUCCESS:
 			return {
 				...state,
 				id: '',

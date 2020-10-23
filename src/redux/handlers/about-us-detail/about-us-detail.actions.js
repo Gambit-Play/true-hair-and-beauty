@@ -4,8 +4,8 @@ import AboutUsDetailTypes from './about-us-detail.types';
 /*  Process Start  	                                                */
 /* ================================================================ */
 
-export const createAboutUsStart = () => ({
-	type: AboutUsDetailTypes.CREATE_ABOUT_US_START,
+export const updateAboutUsStart = () => ({
+	type: AboutUsDetailTypes.UPDATE_ABOUT_US_START,
 });
 
 export const fetchAboutUsStart = () => ({
@@ -29,8 +29,8 @@ export const clearAboutUs = () => ({
 /*  Process Success	                                                */
 /* ================================================================ */
 
-export const createAboutUsSuccess = () => ({
-	type: AboutUsDetailTypes.CREATE_ABOUT_US_SUCCESS,
+export const updateAboutUsSuccess = () => ({
+	type: AboutUsDetailTypes.UPDATE_ABOUT_US_SUCCESS,
 });
 
 export const fetchAboutUsSuccess = aboutUsSection => ({
@@ -42,8 +42,8 @@ export const fetchAboutUsSuccess = aboutUsSection => ({
 /*  Process Failure	       	                                        */
 /* ================================================================ */
 
-export const createAboutUsFailure = errorMessage => ({
-	type: AboutUsDetailTypes.CREATE_ABOUT_US_FAILURE,
+export const updateAboutUsFailure = errorMessage => ({
+	type: AboutUsDetailTypes.UPDATE_ABOUT_US_FAILURE,
 	payload: errorMessage,
 });
 

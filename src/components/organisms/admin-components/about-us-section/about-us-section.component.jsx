@@ -26,6 +26,7 @@ const AboutUsSection = ({
 	aboutUsSection,
 	aboutUsDetail,
 	fetchAboutUsStart,
+	updateAboutUsStart,
 	setAboutUsStart,
 	clearAboutUs,
 	isEdit,
@@ -41,7 +42,6 @@ const AboutUsSection = ({
 					<CardInput
 						value={aboutUsDetail.title}
 						type='text'
-						id={aboutUsDetail.id}
 						name='title'
 						onChange={event => {
 							setAboutUsStart(
@@ -60,7 +60,6 @@ const AboutUsSection = ({
 						height={200}
 						value={aboutUsDetail.body}
 						type='text'
-						id={aboutUsDetail.id}
 						name='body'
 						onChange={event => {
 							setAboutUsStart(
@@ -76,7 +75,9 @@ const AboutUsSection = ({
 			<CardButtonBlock>
 				{isEdit ? (
 					<Fragment>
-						<CardButton>Update</CardButton>
+						<CardButton onClick={updateAboutUsStart}>
+							Update
+						</CardButton>
 						<CardButton outline onClick={clearAboutUs}>
 							Cancel
 						</CardButton>
