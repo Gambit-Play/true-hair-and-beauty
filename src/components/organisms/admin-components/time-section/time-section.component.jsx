@@ -27,6 +27,7 @@ const TimeSection = ({
 	isEdit,
 	clearTime,
 	fetchTimeStart,
+	updateTimeStart,
 	setTimeStart,
 }) => {
 	const {
@@ -155,7 +156,9 @@ const TimeSection = ({
 			<CardButtonBlock>
 				{isEdit ? (
 					<Fragment>
-						<CardButton>Update</CardButton>
+						<CardButton onClick={updateTimeStart}>
+							Update
+						</CardButton>
 						<CardButton outline onClick={clearTime}>
 							Cancel
 						</CardButton>

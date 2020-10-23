@@ -11,6 +11,7 @@ import {
 // Redux: Actions
 import {
 	fetchTimeStart,
+	updateTimeStart,
 	setTimeStart,
 	toggleEditStart,
 	clearTime,
@@ -30,6 +31,7 @@ const WithTimeDetail = WrappedComponent => {
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
 		fetchTimeStart: () => dispatch(fetchTimeStart()),
+		updateTimeStart: () => dispatch(updateTimeStart()),
 		setTimeStart: (inputName, value) =>
 			dispatch(setTimeStart(inputName, value)),
 		toggleEditStart: () => dispatch(toggleEditStart()),

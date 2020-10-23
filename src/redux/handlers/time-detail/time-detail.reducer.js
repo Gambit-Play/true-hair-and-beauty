@@ -44,6 +44,7 @@ const timeDetailReducer = (state = INITIAL_STATE, action) => {
 		/*  Process Failure                                                 */
 		/* ================================================================ */
 		case TimeDetailTypes.FETCH_TIME_FAILURE:
+		case TimeDetailTypes.UPDATE_TIME_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,
@@ -52,6 +53,7 @@ const timeDetailReducer = (state = INITIAL_STATE, action) => {
 		/*  Process Clear Data                                              */
 		/* ================================================================ */
 		case TimeDetailTypes.CLEAR_TIME:
+		case TimeDetailTypes.UPDATE_TIME_SUCCESS:
 			return {
 				...state,
 				maandag: '',
