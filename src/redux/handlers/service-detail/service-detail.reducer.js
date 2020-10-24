@@ -6,6 +6,7 @@ const INITIAL_STATE = {
 	service2: '',
 	service3: '',
 	image: '',
+	order: 0,
 	typeOfService: '',
 	services: [],
 	errorMessage: '',
@@ -37,6 +38,7 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 				service1: action.payload.service1,
 				service2: action.payload.service2,
 				service3: action.payload.service3,
+				order: action.payload.order,
 				image: action.payload.image,
 				typeOfService: action.payload.typeOfService,
 				services: action.payload.services,
@@ -50,6 +52,7 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 		/*  Process Failure                                                 */
 		/* ================================================================ */
 		case ServiceDetailTypes.CREATE_SERVICE_FAILURE:
+		case ServiceDetailTypes.UPDATE_SERVICE_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,
@@ -58,6 +61,7 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 		/*  Process Clear Data                                              */
 		/* ================================================================ */
 		case ServiceDetailTypes.CLEAR_SERVICE:
+		case ServiceDetailTypes.UPDATE_SERVICE_SUCCESS:
 			return {
 				...state,
 				id: '',

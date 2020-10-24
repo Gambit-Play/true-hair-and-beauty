@@ -8,6 +8,10 @@ export const createServicesStart = () => ({
 	type: ServiceDetailTypes.CREATE_SERVICE_START,
 });
 
+export const updateServicesStart = () => ({
+	type: ServiceDetailTypes.UPDATE_SERVICE_START,
+});
+
 export const fetchServiceStart = (serviceIndex, isAdminFetch) => ({
 	type: ServiceDetailTypes.FETCH_SERVICE_START,
 	payload: { serviceIndex, isAdminFetch },
@@ -39,6 +43,10 @@ export const createServicesSuccess = () => ({
 	type: ServiceDetailTypes.CREATE_SERVICE_SUCCESS,
 });
 
+export const updateServicesSuccess = () => ({
+	type: ServiceDetailTypes.UPDATE_SERVICE_SUCCESS,
+});
+
 export const setServiceSuccess = services => ({
 	type: ServiceDetailTypes.SET_SERVICE_SUCCESS,
 	payload: services,
@@ -55,6 +63,11 @@ export const fetchServiceSuccess = service => ({
 
 export const createServicesFailure = errorMessage => ({
 	type: ServiceDetailTypes.CREATE_SERVICE_FAILURE,
+	payload: errorMessage,
+});
+
+export const updateServicesFailure = errorMessage => ({
+	type: ServiceDetailTypes.UPDATE_SERVICE_FAILURE,
 	payload: errorMessage,
 });
 

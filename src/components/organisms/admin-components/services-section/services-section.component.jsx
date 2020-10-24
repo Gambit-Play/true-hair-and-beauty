@@ -24,6 +24,7 @@ const ServicesSection = ({
 	currentServices,
 	serviceDetail,
 	fetchServiceStart,
+	updateServicesStart,
 	setServiceStart,
 	setOtherServiceStart,
 	clearService,
@@ -80,14 +81,14 @@ const ServicesSection = ({
 				))}
 			</CardContentWrapper>
 			<CardButtonBlock>
-				<CardButton>Update</CardButton>
+				<CardButton onClick={updateServicesStart}>Update</CardButton>
 				<CardButton outline onClick={clearService}>
 					Cancel
 				</CardButton>
 			</CardButtonBlock>
 		</Card>
 	) : (
-		currentServices.map(({ id, services, typeOfService, image }, index) => (
+		currentServices.map(({ services, typeOfService, image }, index) => (
 			<Card key={index}>
 				<CardImage image={image} />
 				<CardServiceTitle>{typeOfService}</CardServiceTitle>

@@ -1,8 +1,8 @@
 import { takeLatest, put, all, call, select } from 'redux-saga/effects';
 
 // Firebase
-// import { createCollectionAndDocuments } from '../../../firebase/firebase.utils';
-// import * as COLLECTION_IDS from '../../../firebase/collections.ids';
+import { updateDocument } from '../../../firebase/firebase.utils';
+import * as COLLECTION_IDS from '../../../firebase/collections.ids';
 
 // Types
 import ServiceDetailTypes from './service-detail.types';
@@ -11,6 +11,8 @@ import ServiceDetailTypes from './service-detail.types';
 import {
 	createServicesSuccess,
 	createServicesFailure,
+	updateServicesSuccess,
+	updateServicesFailure,
 	setServiceSuccess,
 	setServiceFailure,
 	fetchServiceSuccess,
@@ -21,7 +23,10 @@ import { toggleModal } from '../../ui/ui.actions';
 
 // Selectors
 import { selectCurrenServices } from '../../services/services.selectors';
-import { selectServices } from './service-detail.selectors';
+import {
+	selectServices,
+	selectServiceDetail,
+} from './service-detail.selectors';
 
 /* ================================================================ */
 /*  Actions                                                         */
@@ -33,6 +38,43 @@ export function* createServicesStart() {
 	} catch (error) {
 		console.log(error);
 		yield put(createServicesFailure(error));
+	}
+}
+
+export function* updateServicesStart() {
+	try {
+		const {
+			id,
+			service1,
+			service2,
+			service3,
+			image,
+			order,
+			typeOfService,
+			services,
+		} = yield select(selectServiceDetail);
+
+		const updatedServiceDetail = {
+			id,
+			service1,
+			service2,
+			service3,
+			image,
+			order,
+			typeOfService,
+			services,
+		};
+
+		yield call(
+			updateDocument,
+			COLLECTION_IDS.SERVICES,
+			id,
+			updatedServiceDetail
+		);
+		yield put(updateServicesSuccess());
+	} catch (error) {
+		console.log(error);
+		yield put(updateServicesFailure(error));
 	}
 }
 
@@ -75,6 +117,13 @@ export function* onCreateServicesStart() {
 	);
 }
 
+export function* onUpdateServicesStart() {
+	yield takeLatest(
+		ServiceDetailTypes.UPDATE_SERVICE_START,
+		updateServicesStart
+	);
+}
+
 export function* onSetServicesStart() {
 	yield takeLatest(ServiceDetailTypes.SET_SERVICE_START, setServicesStart);
 }
@@ -92,5 +141,6 @@ export default function* servicesDetailSagas() {
 		call(onCreateServicesStart),
 		call(onFetchServiceStart),
 		call(onSetServicesStart),
+		call(onUpdateServicesStart),
 	]);
 }
