@@ -11,6 +11,10 @@ const INITIAL_STATE = {
 	services: [],
 	errorMessage: '',
 	isEdit: false,
+
+	// New service
+	title: '',
+	price: 0,
 };
 
 const serviceDetailReducer = (state = INITIAL_STATE, action) => {
@@ -24,6 +28,7 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 				isEdit: true,
 			};
 		case ServiceDetailTypes.SET_OTHER_SERVICE:
+		case ServiceDetailTypes.SET_NEW_SERVICE:
 			return {
 				...state,
 				[action.payload.inputName]: action.payload.value,
@@ -47,6 +52,13 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 			return {
 				...state,
 				services: action.payload,
+			};
+		case ServiceDetailTypes.ADD_NEW_SERVICE_SUCCESS:
+			return {
+				...state,
+				services: action.payload,
+				title: '',
+				price: 0,
 			};
 		/* ================================================================ */
 		/*  Process Failure                                                 */

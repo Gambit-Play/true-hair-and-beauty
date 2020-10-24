@@ -13,6 +13,8 @@ import {
 	createServicesFailure,
 	updateServicesSuccess,
 	updateServicesFailure,
+	addNewServicesSuccess,
+	addNewServicesFailure,
 	setServiceSuccess,
 	setServiceFailure,
 	fetchServiceSuccess,
@@ -78,6 +80,19 @@ export function* updateServicesStart() {
 	}
 }
 
+export function* addNewServicesStart() {
+	try {
+		const { title, price, services } = yield select(selectServiceDetail);
+
+		services.push({ title, price });
+
+		yield put(addNewServicesSuccess(services));
+	} catch (error) {
+		console.log(error);
+		yield put(addNewServicesFailure(error));
+	}
+}
+
 export function* setServicesStart({ payload: { index, inputName, value } }) {
 	try {
 		const services = yield select(selectServices);
@@ -124,6 +139,13 @@ export function* onUpdateServicesStart() {
 	);
 }
 
+export function* onAddNewServicesStart() {
+	yield takeLatest(
+		ServiceDetailTypes.ADD_NEW_SERVICE_START,
+		addNewServicesStart
+	);
+}
+
 export function* onSetServicesStart() {
 	yield takeLatest(ServiceDetailTypes.SET_SERVICE_START, setServicesStart);
 }
@@ -142,5 +164,6 @@ export default function* servicesDetailSagas() {
 		call(onFetchServiceStart),
 		call(onSetServicesStart),
 		call(onUpdateServicesStart),
+		call(onAddNewServicesStart),
 	]);
 }

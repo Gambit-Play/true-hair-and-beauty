@@ -13,6 +13,12 @@ export const Card = styled.div`
 	border-radius: 24px;
 	background-color: #fff;
 	box-shadow: 0 0 30px 0 rgba(0, 0, 0, 0.1);
+
+	${props =>
+		props.padding &&
+		css`
+			padding: 20px;
+		`}
 `;
 
 export const CardContentWrapper = styled.div`
@@ -72,7 +78,39 @@ export const CardButton = styled.a`
 			color: #333;
 		`}
 
+	${props =>
+		props.noMargin &&
+		css`
+			margin-right: 0px;
+		`}
+
 	${globalStyles.animationScale}
+`;
+
+export const CardAddButton = styled.a`
+	display: flex;
+	padding: 12px 16px;
+	justify-content: center;
+	align-items: center;
+	border-radius: 8px;
+	background-color: #f76868;
+	box-shadow: 0 16px 24px 0 rgba(247, 104, 104, 0.3);
+	color: #fff;
+	font-weight: 700;
+	text-transform: uppercase;
+	transition: transform 100ms ease-in-out, background-color 100ms ease-in-out,
+		box-shadow 100ms ease-in-out;
+
+	${props =>
+		!props.isActive &&
+		css`
+			background-color: #ccc;
+			box-shadow: unset;
+		`}
+
+	&:active {
+		transform: scale(0.9);
+	}
 `;
 
 export const CardBody = styled.div`
