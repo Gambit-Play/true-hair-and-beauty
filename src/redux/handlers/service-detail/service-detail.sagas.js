@@ -80,7 +80,7 @@ export function* updateServicesStart() {
 	}
 }
 
-export function* addNewServicesStart() {
+export function* addNewServiceStart() {
 	try {
 		const { title, price, services } = yield select(selectServiceDetail);
 
@@ -142,7 +142,7 @@ export function* onUpdateServicesStart() {
 export function* onAddNewServicesStart() {
 	yield takeLatest(
 		ServiceDetailTypes.ADD_NEW_SERVICE_START,
-		addNewServicesStart
+		addNewServiceStart
 	);
 }
 

@@ -98,13 +98,14 @@ export const CardAddButton = styled.a`
 	color: #fff;
 	font-weight: 700;
 	text-transform: uppercase;
-	transition: transform 100ms ease-in-out, background-color 100ms ease-in-out,
-		box-shadow 100ms ease-in-out;
+	transition: transform 100ms ease-in-out, color 200ms ease-in-out,
+		background-color 200ms ease-in-out, box-shadow 200ms ease-in-out;
 
 	${props =>
 		!props.isActive &&
 		css`
 			background-color: #ccc;
+			color: #565656;
 			box-shadow: unset;
 		`}
 
