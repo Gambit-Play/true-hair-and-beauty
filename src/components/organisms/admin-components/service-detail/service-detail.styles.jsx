@@ -10,8 +10,7 @@ export const FormLayout = styled.div`
 	grid-row-gap: 16px;
 	grid-template-areas:
 		'image form'
-		'services services'
-		'buttons buttons';
+		'services services';
 	grid-template-columns: 0.3fr 1fr;
 	grid-template-rows: auto auto;
 `;
@@ -64,6 +63,7 @@ export const FormActionBlock = styled.div`
 	grid-area: button-block;
 	display: flex;
 	justify-content: flex-start;
+	margin-top: 20px;
 
 	.save-button {
 		margin-right: 20px;

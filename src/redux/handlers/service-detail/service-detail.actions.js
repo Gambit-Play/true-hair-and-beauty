@@ -12,8 +12,18 @@ export const updateServicesStart = () => ({
 	type: ServiceDetailTypes.UPDATE_SERVICE_START,
 });
 
-export const addNewServicesStart = () => ({
+export const deleteServicesStart = (serviceIndex, mainIndex) => ({
+	type: ServiceDetailTypes.DELETE_SERVICE_START,
+	payload: { serviceIndex, mainIndex },
+});
+
+export const addNewServicesStart = serviceIndex => ({
 	type: ServiceDetailTypes.ADD_NEW_SERVICE_START,
+	payload: serviceIndex,
+});
+
+export const pushNewServicesStart = () => ({
+	type: ServiceDetailTypes.PUSH_NEW_SERVICE_START,
 });
 
 export const fetchServiceStart = (serviceIndex, isAdminFetch) => ({
@@ -56,8 +66,18 @@ export const updateServicesSuccess = () => ({
 	type: ServiceDetailTypes.UPDATE_SERVICE_SUCCESS,
 });
 
+export const deleteServicesSuccess = (services) => ({
+	type: ServiceDetailTypes.DELETE_SERVICE_SUCCESS,
+	payload: services,
+});
+
 export const addNewServicesSuccess = services => ({
 	type: ServiceDetailTypes.ADD_NEW_SERVICE_SUCCESS,
+	payload: services,
+});
+
+export const pushNewServicesSuccess = services => ({
+	type: ServiceDetailTypes.PUSH_NEW_SERVICE_SUCCESS,
 	payload: services,
 });
 
@@ -85,8 +105,18 @@ export const updateServicesFailure = errorMessage => ({
 	payload: errorMessage,
 });
 
+export const deleteServicesFailure = errorMessage => ({
+	type: ServiceDetailTypes.DELETE_SERVICE_FAILURE,
+	payload: errorMessage,
+});
+
 export const addNewServicesFailure = errorMessage => ({
 	type: ServiceDetailTypes.ADD_NEW_SERVICE_FAILURE,
+	payload: errorMessage,
+});
+
+export const pushNewServicesFailure = errorMessage => ({
+	type: ServiceDetailTypes.PUSH_NEW_SERVICE_FAILURE,
 	payload: errorMessage,
 });
 

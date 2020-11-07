@@ -47,24 +47,37 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 				image: action.payload.image,
 				typeOfService: action.payload.typeOfService,
 				services: action.payload.services,
+				errorMessage: '',
 			};
 		case ServiceDetailTypes.SET_SERVICE_SUCCESS:
+		case ServiceDetailTypes.DELETE_SERVICE_SUCCESS:
 			return {
 				...state,
 				services: action.payload,
+				errorMessage: '',
 			};
-		case ServiceDetailTypes.ADD_NEW_SERVICE_SUCCESS:
+		case ServiceDetailTypes.PUSH_NEW_SERVICE_SUCCESS:
 			return {
 				...state,
 				services: action.payload,
 				title: '',
 				price: 0,
+				errorMessage: '',
+			};
+		case ServiceDetailTypes.ADD_NEW_SERVICE_SUCCESS:
+			return {
+				...state,
+				errorMessage: '',
 			};
 		/* ================================================================ */
 		/*  Process Failure                                                 */
 		/* ================================================================ */
 		case ServiceDetailTypes.CREATE_SERVICE_FAILURE:
 		case ServiceDetailTypes.UPDATE_SERVICE_FAILURE:
+		case ServiceDetailTypes.PUSH_NEW_SERVICE_FAILURE:
+		case ServiceDetailTypes.ADD_NEW_SERVICE_FAILURE:
+		case ServiceDetailTypes.SET_SERVICE_FAILURE:
+		case ServiceDetailTypes.FETCH_SERVICE_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,

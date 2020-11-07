@@ -17,9 +17,14 @@ import {
 	addNewServicesFailure,
 	setServiceSuccess,
 	setServiceFailure,
+	fetchServiceStart as updateReducer,
 	fetchServiceSuccess,
 	fetchServiceFailure,
 	toggleEditStart,
+	pushNewServicesSuccess,
+	pushNewServicesFailure,
+	deleteServicesSuccess,
+	deleteServicesFailure,
 } from './service-detail.actions';
 import { toggleModal } from '../../ui/ui.actions';
 
@@ -31,19 +36,10 @@ import {
 } from './service-detail.selectors';
 
 /* ================================================================ */
-/*  Actions                                                         */
+/*  Reusable Actions                                                */
 /* ================================================================ */
 
-export function* createServicesStart() {
-	try {
-		yield put(createServicesSuccess());
-	} catch (error) {
-		console.log(error);
-		yield put(createServicesFailure(error));
-	}
-}
-
-export function* updateServicesStart() {
+export function* updateService() {
 	try {
 		const {
 			id,
@@ -73,6 +69,27 @@ export function* updateServicesStart() {
 			id,
 			updatedServiceDetail
 		);
+	} catch (error) {
+		console.log(error);
+	}
+}
+
+/* ================================================================ */
+/*  Actions                                                         */
+/* ================================================================ */
+
+export function* createServicesStart() {
+	try {
+		yield put(createServicesSuccess());
+	} catch (error) {
+		console.log(error);
+		yield put(createServicesFailure(error));
+	}
+}
+
+export function* updateServicesStart() {
+	try {
+		yield call(updateService);
 		yield put(updateServicesSuccess());
 	} catch (error) {
 		console.log(error);
@@ -80,13 +97,40 @@ export function* updateServicesStart() {
 	}
 }
 
-export function* addNewServiceStart() {
+export function* pushNewServiceStart() {
 	try {
 		const { title, price, services } = yield select(selectServiceDetail);
 
 		services.push({ title, price });
 
-		yield put(addNewServicesSuccess(services));
+		yield put(pushNewServicesSuccess(services));
+	} catch (error) {
+		console.log(error);
+		yield put(pushNewServicesFailure(error));
+	}
+}
+
+export function* deleteServicesStart({ payload: { serviceIndex, mainIndex } }) {
+	try {
+		const { services } = yield select(selectServiceDetail);
+
+		services.splice(serviceIndex, 1);
+
+		yield put(deleteServicesSuccess(services));
+		yield call(updateService);
+		yield put(updateReducer(mainIndex, true));
+	} catch (error) {
+		console.log(error);
+		yield put(deleteServicesFailure(error));
+	}
+}
+
+export function* addNewServiceStart({ payload: serviceIndex }) {
+	try {
+		yield call(pushNewServiceStart);
+		yield call(updateService);
+		yield put(addNewServicesSuccess());
+		yield put(updateReducer(serviceIndex, true));
 	} catch (error) {
 		console.log(error);
 		yield put(addNewServicesFailure(error));
@@ -110,8 +154,8 @@ export function* fetchServiceStart({
 	payload: { serviceIndex, isAdminFetch },
 }) {
 	try {
-		const arr = yield select(selectCurrenServices);
-		const currentService = arr[serviceIndex];
+		const servicesArray = yield select(selectCurrenServices);
+		const currentService = servicesArray[serviceIndex];
 
 		yield put(fetchServiceSuccess(currentService));
 		yield isAdminFetch ? put(toggleEditStart()) : put(toggleModal());
@@ -139,6 +183,13 @@ export function* onUpdateServicesStart() {
 	);
 }
 
+export function* onDeleteServicesStart() {
+	yield takeLatest(
+		ServiceDetailTypes.DELETE_SERVICE_START,
+		deleteServicesStart
+	);
+}
+
 export function* onAddNewServicesStart() {
 	yield takeLatest(
 		ServiceDetailTypes.ADD_NEW_SERVICE_START,
@@ -161,9 +212,10 @@ export function* onFetchServiceStart() {
 export default function* servicesDetailSagas() {
 	yield all([
 		call(onCreateServicesStart),
+		call(onUpdateServicesStart),
+		call(onDeleteServicesStart),
 		call(onFetchServiceStart),
 		call(onSetServicesStart),
-		call(onUpdateServicesStart),
 		call(onAddNewServicesStart),
 	]);
 }
