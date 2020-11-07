@@ -184,6 +184,10 @@ export const ListActionBlock = styled.div`
 	display: flex;
 	justify-content: flex-end;
 
+	.delete-text {
+		color: red;
+	}
+
 	.edit-button {
 		background-image: linear-gradient(45deg, #11998e, #38ef7d);
 		font-size: 14px;
@@ -192,6 +196,23 @@ export const ListActionBlock = styled.div`
 	.delete-button {
 		margin-left: 20px;
 		background-image: linear-gradient(45deg, #ff416c, #ff4b2b);
+		font-size: 14px;
+	}
+
+	.save-button {
+		background-image: linear-gradient(225deg, #1de9b8, #1ec6ea);
+		padding: 6px 16px;
+		font-size: 14px;
+	}
+
+	.cancel-button {
+		margin-left: 20px;
+		padding: 6px 16px;
+		border-style: solid;
+		border-width: 2px;
+		border-color: #1ec6ea;
+		background-image: none;
+		color: #1ec6ea;
 		font-size: 14px;
 	}
 `;

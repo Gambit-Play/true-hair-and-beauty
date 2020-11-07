@@ -41,6 +41,7 @@ const ServicesSection = ({
 	setOtherServiceStart,
 	setNewServiceStart,
 	clearService,
+	clearNewService
 }) => {
 	const {
 		id,
@@ -81,6 +82,7 @@ const ServicesSection = ({
 				setNewServiceStart={setNewServiceStart}
 				addNewServicesStart={addNewServicesStart}
 				deleteServicesStart={deleteServicesStart}
+				clearNewService={clearNewService}
 			/>
 		</FormLayout>
 	) : (

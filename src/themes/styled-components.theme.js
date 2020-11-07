@@ -24,11 +24,11 @@ const theme = {
 export const globalStyles = {
 	// Text styles.
 	titles1: css`
-		font-family: 'Lustria, serif';
+		font-family: 'Lustria', serif;
 		font-size: 50px;
 	`,
 	body1: css`
-		font-family: 'Raleway, sans-serif';
+		font-family: 'Raleway', sans-serif;
 		font-size: 14px;
 	`,
 

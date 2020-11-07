@@ -85,6 +85,12 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Clear Data                                              */
 		/* ================================================================ */
+		case ServiceDetailTypes.CLEAR_NEW_SERVICE:
+			return {
+				...state,
+				title: '',
+				price: 0,
+			};
 		case ServiceDetailTypes.CLEAR_SERVICE:
 		case ServiceDetailTypes.UPDATE_SERVICE_SUCCESS:
 			return {

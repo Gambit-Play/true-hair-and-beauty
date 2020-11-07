@@ -34,6 +34,8 @@ const ServiceDetailTypes = {
 	EDIT_SERVICE: 'EDIT_SERVICE',
 
 	CLEAR_SERVICE: 'CLEAR_SERVICE',
+
+	CLEAR_NEW_SERVICE: 'CLEAR_NEW_SERVICE',
 };
 
 export default ServiceDetailTypes;

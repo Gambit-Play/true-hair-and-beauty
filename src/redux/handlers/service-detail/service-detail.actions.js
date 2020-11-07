@@ -54,6 +54,10 @@ export const clearService = () => ({
 	type: ServiceDetailTypes.CLEAR_SERVICE,
 });
 
+export const clearNewService = () => ({
+	type: ServiceDetailTypes.CLEAR_NEW_SERVICE,
+});
+
 /* ================================================================ */
 /*  Process Success	                                                */
 /* ================================================================ */

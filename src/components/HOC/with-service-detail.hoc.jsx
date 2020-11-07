@@ -20,6 +20,7 @@ import {
 	createServicesStart,
 	toggleEditStart,
 	clearService,
+	clearNewService
 } from '../../redux/handlers/service-detail/service-detail.actions';
 
 const WithServiceDetail = WrappedComponent => {
@@ -47,6 +48,7 @@ const WithServiceDetail = WrappedComponent => {
 			dispatch(setNewServiceStart(inputName, value)),
 		toggleEditStart: () => dispatch(toggleEditStart()),
 		clearService: () => dispatch(clearService()),
+		clearNewService: () => dispatch(clearNewService()),
 		updateServicesStart: () => dispatch(updateServicesStart()),
 		deleteServicesStart: (serviceIndex, mainIndex) =>
 			dispatch(deleteServicesStart(serviceIndex, mainIndex)),
