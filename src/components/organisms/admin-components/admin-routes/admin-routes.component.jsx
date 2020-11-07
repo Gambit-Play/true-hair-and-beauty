@@ -11,6 +11,7 @@ import TimeSection from '../time-section/time-section.component';
 import ServicesSection from '../services-section/services-section.component';
 import AboutUsSection from '../about-us-section/about-us-section.component';
 import FooterSection from '../footer-section/footer-section.component';
+import ServiceDetail from '../service-detail/service-detail.component';
 
 const AdminRoutes = () => {
 	const { path } = useRouteMatch();
@@ -24,8 +25,14 @@ const AdminRoutes = () => {
 				<Route path={`${path}/${ROUTES.TIME_SECTION}`}>
 					<TimeSection />
 				</Route>
-				<Route path={`${path}/${ROUTES.SERVICES_SECTION}`}>
+				<Route exact path={`${path}/${ROUTES.SERVICES_SECTION}`}>
 					<ServicesSection />
+				</Route>
+				<Route
+					exact
+					path={`${path}/${ROUTES.SERVICES_SECTION}/:serviceId`}
+				>
+					<ServiceDetail />
 				</Route>
 				<Route path={`${path}/${ROUTES.ABOUT_US_SECTION}`}>
 					<AboutUsSection />

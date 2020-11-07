@@ -1,8 +1,5 @@
 import styled from 'styled-components';
 
-// Styles
-import { globalStyles } from '../../../../../themes/styled-components.theme';
-
 export const LinkBlock = styled.div`
 	display: flex;
 	margin-top: 40px;

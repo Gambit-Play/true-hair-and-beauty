@@ -1,4 +1,5 @@
 import React from 'react';
+import { useHistory } from 'react-router-dom';
 
 // Component
 import {
@@ -26,6 +27,8 @@ const FormCard = ({
 	setNewServiceStart,
 	clearService,
 }) => {
+	const history = useHistory();
+
 	return (
 		<Card>
 			<InputLayoutTop>
@@ -103,7 +106,13 @@ const FormCard = ({
 					>
 						save
 					</Button>
-					<Button outlined onClick={clearService}>
+					<Button
+						outlined
+						onClick={() => {
+							clearService();
+							history.goBack();
+						}}
+					>
 						cancel
 					</Button>
 				</FormActionBlock>

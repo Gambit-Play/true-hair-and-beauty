@@ -1,8 +1,4 @@
-import styled, { css } from 'styled-components';
-import NumberFormat from 'react-number-format';
-
-// Styles
-import { globalStyles } from '../../../../themes/styled-components.theme';
+import styled from 'styled-components';
 
 export const Card = styled.div`
 	position: relative;
