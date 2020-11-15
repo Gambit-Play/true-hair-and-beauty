@@ -19,3 +19,9 @@ export const selectIsEdit = createSelector(
 	[selectServiceDetailStore],
 	serviceDetail => serviceDetail.isEdit
 );
+
+// Selects serviceDetail.isNew from the state
+export const selectIsNew = createSelector(
+	[selectServiceDetailStore],
+	serviceDetail => serviceDetail.isNew
+);

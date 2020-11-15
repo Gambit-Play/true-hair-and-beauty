@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { compose } from 'redux';
 import { useHistory, useRouteMatch } from 'react-router-dom';
 
@@ -13,23 +13,47 @@ import {
 	CardRoundButton,
 	CardTitle,
 } from '../card/card.styles';
+import { RoundButton } from './services-section.styles';
 
-const ServicesSection = ({ currentServices, fetchServiceStart }) => {
+// Images
+import editIcon from '../../../../assets/edit.svg';
+import plusIcon from '../../../../assets/plus.svg';
+
+const ServicesSection = ({
+	currentServices,
+	fetchServiceStart,
+	clearService,
+	newServiceStart,
+}) => {
 	const history = useHistory();
 	const { url } = useRouteMatch();
 
-	return currentServices.map(({ typeOfService, image, id }, index) => (
-		<Card key={index}>
-			<CardImage image={image} />
-			<CardTitle> {typeOfService} </CardTitle>
-			<CardRoundButton
+	return (
+		<Fragment>
+			{currentServices.map(({ typeOfService, image, id }, index) => (
+				<Card key={id}>
+					<CardImage image={image} />
+					<CardTitle> {typeOfService} </CardTitle>
+					<CardRoundButton
+						onClick={() => {
+							fetchServiceStart(index, true);
+							history.push(`${url}/${id}`);
+						}}
+					>
+						<img src={editIcon} alt='' />
+					</CardRoundButton>
+				</Card>
+			))}
+			<RoundButton
 				onClick={() => {
-					fetchServiceStart(index, true);
-					history.push(`${url}/${id}`);
+					newServiceStart();
+					history.push(`${url}/new-service`);
 				}}
-			></CardRoundButton>
-		</Card>
-	));
+			>
+				<img src={plusIcon} alt='' />
+			</RoundButton>
+		</Fragment>
+	);
 };
 
 export default compose(WithServiceDetail, WithServices)(ServicesSection);

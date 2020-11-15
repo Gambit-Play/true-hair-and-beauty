@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { compose } from 'redux';
 
 //HOC
@@ -7,24 +7,25 @@ import WithTimeDetail from '../../../HOC/with-time-detail.hoc';
 
 // Component
 import {
-	Card,
-	CardImage,
-	CardContentWrapper,
-	CardTitle,
-	CardBody,
-	CardInput,
-	CardDivider,
-	CardButton,
-	CardButtonBlock,
-} from '../card-components/card.styles';
+	ContentCard,
+	ContentImage,
+	ContentLayout,
+	ContentTitle,
+	FormActionBlock,
+} from './time-section.styles';
+import {
+	InputBlock,
+	InputLabel,
+	TextInput,
+} from '../../../atoms/inputs/inputs.styles';
 
 // Images
-import headerImage from '../../../../assets/time-screenshot.png';
+import timeImage from '../../../../assets/time-screenshot.png';
+import { Button } from '../../../atoms/button/button.styles';
 
 const TimeSection = ({
 	timeSection,
 	timeDetail,
-	isEdit,
 	clearTime,
 	fetchTimeStart,
 	updateTimeStart,
@@ -40,13 +41,18 @@ const TimeSection = ({
 		zondag,
 	} = timeSection;
 
+	useEffect(() => {
+		fetchTimeStart();
+	}, [fetchTimeStart]);
+
 	return (
-		<Card>
-			<CardImage image={headerImage} />
-			<CardContentWrapper>
-				<CardTitle>Zondag</CardTitle>
-				{isEdit ? (
-					<CardInput
+		<ContentLayout>
+			<ContentTitle>Time Section</ContentTitle>
+			<ContentImage image={timeImage} />
+			<ContentCard>
+				<InputBlock gridArea='zondag' className='input-block'>
+					<InputLabel>Zondag:</InputLabel>
+					<TextInput
 						type='text'
 						id={zondag}
 						name='zondag'
@@ -55,14 +61,10 @@ const TimeSection = ({
 							setTimeStart(event.target.name, event.target.value);
 						}}
 					/>
-				) : (
-					<CardBody>{zondag.time}</CardBody>
-				)}
-
-				<CardDivider />
-				<CardTitle>Maandag</CardTitle>
-				{isEdit ? (
-					<CardInput
+				</InputBlock>
+				<InputBlock gridArea='maandag' className='input-block'>
+					<InputLabel>Maandag:</InputLabel>
+					<TextInput
 						type='text'
 						id={maandag}
 						name='maandag'
@@ -71,13 +73,10 @@ const TimeSection = ({
 							setTimeStart(event.target.name, event.target.value);
 						}}
 					/>
-				) : (
-					<CardBody>{maandag.time}</CardBody>
-				)}
-				<CardDivider />
-				<CardTitle>Dinsdag</CardTitle>
-				{isEdit ? (
-					<CardInput
+				</InputBlock>
+				<InputBlock gridArea='dinsdag' className='input-block'>
+					<InputLabel>Dinsdag:</InputLabel>
+					<TextInput
 						type='text'
 						id={dinsdag}
 						name='dinsdag'
@@ -86,13 +85,10 @@ const TimeSection = ({
 							setTimeStart(event.target.name, event.target.value);
 						}}
 					/>
-				) : (
-					<CardBody>{dinsdag.time}</CardBody>
-				)}
-				<CardDivider />
-				<CardTitle>Woensdag</CardTitle>
-				{isEdit ? (
-					<CardInput
+				</InputBlock>
+				<InputBlock gridArea='woensdag' className='input-block'>
+					<InputLabel>Woensdag:</InputLabel>
+					<TextInput
 						type='text'
 						id={woensdag}
 						name='woensdag'
@@ -101,14 +97,10 @@ const TimeSection = ({
 							setTimeStart(event.target.name, event.target.value);
 						}}
 					/>
-				) : (
-					<CardBody>{woensdag.time}</CardBody>
-				)}
-
-				<CardDivider />
-				<CardTitle>Donderdag</CardTitle>
-				{isEdit ? (
-					<CardInput
+				</InputBlock>
+				<InputBlock gridArea='donderdag' className='input-block'>
+					<InputLabel>Donderdag:</InputLabel>
+					<TextInput
 						type='text'
 						id={donderdag}
 						name='donderdag'
@@ -117,14 +109,10 @@ const TimeSection = ({
 							setTimeStart(event.target.name, event.target.value);
 						}}
 					/>
-				) : (
-					<CardBody>{donderdag.time}</CardBody>
-				)}
-
-				<CardDivider />
-				<CardTitle>Vrijdag</CardTitle>
-				{isEdit ? (
-					<CardInput
+				</InputBlock>
+				<InputBlock gridArea='vrijdag' className='input-block'>
+					<InputLabel>Vrijdag:</InputLabel>
+					<TextInput
 						type='text'
 						id={vrijdag}
 						name='vrijdag'
@@ -133,14 +121,10 @@ const TimeSection = ({
 							setTimeStart(event.target.name, event.target.value);
 						}}
 					/>
-				) : (
-					<CardBody>{vrijdag.time}</CardBody>
-				)}
-
-				<CardDivider />
-				<CardTitle>Zaterdag</CardTitle>
-				{isEdit ? (
-					<CardInput
+				</InputBlock>
+				<InputBlock gridArea='zaterdag' className='input-block'>
+					<InputLabel>Zaterdag:</InputLabel>
+					<TextInput
 						type='text'
 						id={zaterdag}
 						name='zaterdag'
@@ -149,25 +133,17 @@ const TimeSection = ({
 							setTimeStart(event.target.name, event.target.value);
 						}}
 					/>
-				) : (
-					<CardBody>{zaterdag.time}</CardBody>
-				)}
-			</CardContentWrapper>
-			<CardButtonBlock>
-				{isEdit ? (
-					<Fragment>
-						<CardButton onClick={updateTimeStart}>
-							Update
-						</CardButton>
-						<CardButton outline onClick={clearTime}>
-							Cancel
-						</CardButton>
-					</Fragment>
-				) : (
-					<CardButton onClick={fetchTimeStart}>Edit</CardButton>
-				)}
-			</CardButtonBlock>
-		</Card>
+				</InputBlock>
+				<FormActionBlock>
+					<Button className='save-button' onClick={updateTimeStart}>
+						Update
+					</Button>
+					<Button outlined onClick={clearTime}>
+						Cancel
+					</Button>
+				</FormActionBlock>
+			</ContentCard>
+		</ContentLayout>
 	);
 };
 

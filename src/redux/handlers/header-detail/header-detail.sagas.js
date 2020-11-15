@@ -9,6 +9,7 @@ import HeaderDetailTypes from './header-detail.types';
 
 // Actions
 import {
+	fetchHeaderStart as updateHeader,
 	fetchHeaderSuccess,
 	fetchHeaderFailure,
 	updateHeaderSuccess,
@@ -49,6 +50,7 @@ export function* updateHeaderStart() {
 			updatedHeaderDetail
 		);
 		yield put(updateHeaderSuccess());
+		yield put(updateHeader());
 	} catch (error) {
 		console.log(error);
 		yield put(updateHeaderFailure(error));

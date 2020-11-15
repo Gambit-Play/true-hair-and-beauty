@@ -12,6 +12,7 @@ import ServicesSection from '../services-section/services-section.component';
 import AboutUsSection from '../about-us-section/about-us-section.component';
 import FooterSection from '../footer-section/footer-section.component';
 import ServiceDetail from '../service-detail/service-detail.component';
+import { Divider } from '../../../atoms/divider/divider.styles';
 
 const AdminRoutes = () => {
 	const { path } = useRouteMatch();
@@ -19,11 +20,28 @@ const AdminRoutes = () => {
 	return (
 		<Switch>
 			<CardsWrapper>
-				<Route path={`${path}/${ROUTES.HEADER_SECTION}`}>
+				{
+					// <Route path={`${path}/${ROUTES.HEADER_SECTION}`}>
+					// 	<HeaderSection />
+					// </Route>
+					// <Route path={`${path}/${ROUTES.TIME_SECTION}`}>
+					// 	<TimeSection />
+					// </Route>
+					// <Route path={`${path}/${ROUTES.ABOUT_US_SECTION}`}>
+					// 	<AboutUsSection />
+					// </Route>
+					// <Route path={`${path}/${ROUTES.FOOTER_SECTION}`}>
+					// 	<FooterSection />
+					// </Route>
+				}
+				<Route exact path={`${path}/${ROUTES.CONTENT}`}>
 					<HeaderSection />
-				</Route>
-				<Route path={`${path}/${ROUTES.TIME_SECTION}`}>
+					<Divider />
 					<TimeSection />
+					{
+						// <AboutUsSection />
+						// <FooterSection />
+					}
 				</Route>
 				<Route exact path={`${path}/${ROUTES.SERVICES_SECTION}`}>
 					<ServicesSection />
@@ -33,12 +51,6 @@ const AdminRoutes = () => {
 					path={`${path}/${ROUTES.SERVICES_SECTION}/:serviceId`}
 				>
 					<ServiceDetail />
-				</Route>
-				<Route path={`${path}/${ROUTES.ABOUT_US_SECTION}`}>
-					<AboutUsSection />
-				</Route>
-				<Route path={`${path}/${ROUTES.FOOTER_SECTION}`}>
-					<FooterSection />
 				</Route>
 			</CardsWrapper>
 		</Switch>

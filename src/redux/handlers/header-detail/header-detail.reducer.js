@@ -20,7 +20,7 @@ const headerDetailReducer = (state = INITIAL_STATE, action) => {
 		case HeaderDetailTypes.EDIT_HEADER:
 			return {
 				...state,
-				isEdit: true,
+				isEdit: true, // FIXME: Remove isEdit and all that is related too
 			};
 		/* ================================================================ */
 		/*  Process Success                                                 */
@@ -31,6 +31,12 @@ const headerDetailReducer = (state = INITIAL_STATE, action) => {
 				id: action.payload.id,
 				bottomText: action.payload.bottomText,
 				topText: action.payload.topText,
+				errorMessage: '',
+			};
+		case HeaderDetailTypes.UPDATE_HEADER_SUCCESS:
+			return {
+				...state,
+				errorMessage: '',
 			};
 		/* ================================================================ */
 		/*  Process Failure                                                 */
@@ -44,14 +50,13 @@ const headerDetailReducer = (state = INITIAL_STATE, action) => {
 		/* ================================================================ */
 		/*  Process Clear Data                                              */
 		/* ================================================================ */
-		case HeaderDetailTypes.UPDATE_HEADER_SUCCESS:
 		case HeaderDetailTypes.CLEAR_HEADER:
 			return {
 				...state,
 				id: '',
 				bottomText: '',
 				topText: '',
-				isEdit: false,
+				isEdit: false, // FIXME: Remove isEdit and all that is related too
 			};
 		default:
 			return state;

@@ -2,7 +2,7 @@ import ServiceDetailTypes from './service-detail.types';
 
 const INITIAL_STATE = {
 	id: '',
-	service1: '0',
+	service1: '',
 	service2: '',
 	service3: '',
 	image: '',
@@ -11,6 +11,7 @@ const INITIAL_STATE = {
 	services: [],
 	errorMessage: '',
 	isEdit: false,
+	isNew: false,
 
 	// New service
 	title: '',
@@ -49,6 +50,20 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 				services: action.payload.services,
 				errorMessage: '',
 			};
+		case ServiceDetailTypes.NEW_SERVICE_SUCCESS:
+			return {
+				...state,
+				id: '',
+				service1: '',
+				service2: '',
+				service3: '',
+				order: action.payload,
+				image: '',
+				typeOfService: '',
+				services: [],
+				errorMessage: '',
+				isNew: true,
+			};
 		case ServiceDetailTypes.SET_SERVICE_SUCCESS:
 		case ServiceDetailTypes.DELETE_SERVICE_SUCCESS:
 			return {
@@ -78,6 +93,8 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 		case ServiceDetailTypes.ADD_NEW_SERVICE_FAILURE:
 		case ServiceDetailTypes.SET_SERVICE_FAILURE:
 		case ServiceDetailTypes.FETCH_SERVICE_FAILURE:
+		case ServiceDetailTypes.NEW_SERVICE_FAILURE:
+		case ServiceDetailTypes.DELETE_MAIN_SERVICE_FAILURE:
 			return {
 				...state,
 				errorMessage: action.payload,
@@ -93,10 +110,12 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 			};
 		case ServiceDetailTypes.CLEAR_SERVICE:
 		case ServiceDetailTypes.UPDATE_SERVICE_SUCCESS:
+		case ServiceDetailTypes.CREATE_SERVICE_SUCCESS:
+		case ServiceDetailTypes.DELETE_MAIN_SERVICE_SUCCESS:
 			return {
 				...state,
 				id: '',
-				service1: '0',
+				service1: '',
 				service2: '',
 				service3: '',
 				image: '',
@@ -104,6 +123,7 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 				services: [],
 				errorMessage: '',
 				isEdit: false,
+				isNew: false,
 			};
 		default:
 			return state;

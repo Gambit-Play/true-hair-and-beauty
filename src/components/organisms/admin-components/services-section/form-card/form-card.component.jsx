@@ -7,15 +7,18 @@ import {
 	Divider,
 	InputLayoutBottom,
 	InputLayoutTop,
+	FormActionBlock,
+} from '../../service-detail/service-detail.styles';
+import { Button } from '../../../../atoms/button/button.styles';
+import {
 	InputBlock,
 	TextInput,
 	InputLabel,
 	NumberInput,
-	FormActionBlock,
-} from '../../service-detail/service-detail.styles';
-import { Button } from '../../../../atoms/button/button.styles';
+} from '../../../../atoms/inputs/inputs.styles';
 
 const FormCard = ({
+	isNew,
 	image,
 	typeOfService,
 	order,
@@ -26,6 +29,8 @@ const FormCard = ({
 	setOtherServiceStart,
 	setNewServiceStart,
 	clearService,
+	createServicesStart,
+	deleteMainServicesStart,
 }) => {
 	const history = useHistory();
 
@@ -99,22 +104,52 @@ const FormCard = ({
 						}}
 					/>
 				</InputBlock>
-				<FormActionBlock>
-					<Button
-						className='save-button'
-						onClick={updateServicesStart}
-					>
-						save
-					</Button>
-					<Button
-						outlined
-						onClick={() => {
-							clearService();
-							history.goBack();
-						}}
-					>
-						cancel
-					</Button>
+				<FormActionBlock deleteButton>
+					<div className='button-block'>
+						{isNew ? (
+							<Button
+								className='save-button'
+								onClick={() => {
+									createServicesStart();
+									history.goBack();
+								}}
+							>
+								Create
+							</Button>
+						) : (
+							<Button
+								className='save-button'
+								onClick={() => {
+									updateServicesStart();
+									history.goBack();
+								}}
+							>
+								Update
+							</Button>
+						)}
+						<Button
+							outlined
+							onClick={() => {
+								clearService();
+								history.goBack();
+							}}
+						>
+							Cancel
+						</Button>
+					</div>
+					<div>
+						{!isNew && (
+							<Button
+								className='delete-button'
+								onClick={() => {
+									deleteMainServicesStart();
+									history.goBack();
+								}}
+							>
+								Delete
+							</Button>
+						)}
+					</div>
 				</FormActionBlock>
 			</InputLayoutBottom>
 		</Card>

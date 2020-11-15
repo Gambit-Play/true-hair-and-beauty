@@ -19,14 +19,16 @@ const ServiceCardPrice = ({
 			{isSmall ? (
 				// 3 items are shown if it's not a modal.
 				<Fragment>
-					<Card key='1' className='service-text-price'>
-						<div>
-							{services[service1].title} -{' '}
-							<span className='text-span'>
-								€{services[service1].price},-
-							</span>
-						</div>
-					</Card>
+					{service1 && (
+						<Card key='1' className='service-text-price'>
+							<div>
+								{services[service1].title} -{' '}
+								<span className='text-span'>
+									€{services[service1].price},-
+								</span>
+							</div>
+						</Card>
+					)}
 					{service2 && (
 						<Card key='2' className='service-text-price'>
 							<div>

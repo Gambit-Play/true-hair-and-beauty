@@ -1,7 +1,11 @@
 import { takeLatest, put, all, call, select } from 'redux-saga/effects';
 
 // Firebase
-import { updateDocument } from '../../../firebase/firebase.utils';
+import {
+	createCollectionAndDocuments,
+	deleteDocuments,
+	updateDocument,
+} from '../../../firebase/firebase.utils';
 import * as COLLECTION_IDS from '../../../firebase/collections.ids';
 
 // Types
@@ -25,6 +29,10 @@ import {
 	pushNewServicesFailure,
 	deleteServicesSuccess,
 	deleteServicesFailure,
+	newServiceFailure,
+	newServiceSuccess,
+	deleteMainServicesSuccess,
+	deleteMainServicesFailure,
 } from './service-detail.actions';
 import { toggleModal } from '../../ui/ui.actions';
 
@@ -80,6 +88,34 @@ export function* updateService() {
 
 export function* createServicesStart() {
 	try {
+		const {
+			service1,
+			service2,
+			service3,
+			image,
+			order,
+			typeOfService,
+			services,
+		} = yield select(selectServiceDetail);
+
+		const serviceDetail = [
+			{
+				service1,
+				service2,
+				service3,
+				image,
+				order,
+				typeOfService,
+				services,
+			},
+		];
+
+		yield call(
+			createCollectionAndDocuments,
+			COLLECTION_IDS.SERVICES,
+			serviceDetail
+		);
+
 		yield put(createServicesSuccess());
 	} catch (error) {
 		console.log(error);
@@ -94,6 +130,18 @@ export function* updateServicesStart() {
 	} catch (error) {
 		console.log(error);
 		yield put(updateServicesFailure(error));
+	}
+}
+
+export function* deleteMainServicesStart() {
+	try {
+		const { id } = yield select(selectServiceDetail);
+
+		yield call(deleteDocuments, COLLECTION_IDS.SERVICES, [id]);
+		yield put(deleteMainServicesSuccess());
+	} catch (error) {
+		console.log(error);
+		yield put(deleteMainServicesFailure(error));
 	}
 }
 
@@ -165,6 +213,19 @@ export function* fetchServiceStart({
 	}
 }
 
+export function* newServiceStart() {
+	try {
+		const currentServices = yield select(selectCurrenServices);
+
+		const order = currentServices.length + 1;
+
+		yield put(newServiceSuccess(order));
+	} catch (error) {
+		console.log(error);
+		yield put(newServiceFailure(error));
+	}
+}
+
 /* ================================================================ */
 /*  Listeners                                                       */
 /* ================================================================ */
@@ -180,6 +241,13 @@ export function* onUpdateServicesStart() {
 	yield takeLatest(
 		ServiceDetailTypes.UPDATE_SERVICE_START,
 		updateServicesStart
+	);
+}
+
+export function* onDeleteMainServicesStart() {
+	yield takeLatest(
+		ServiceDetailTypes.DELETE_MAIN_SERVICE_START,
+		deleteMainServicesStart
 	);
 }
 
@@ -205,6 +273,10 @@ export function* onFetchServiceStart() {
 	yield takeLatest(ServiceDetailTypes.FETCH_SERVICE_START, fetchServiceStart);
 }
 
+export function* onNewServiceStart() {
+	yield takeLatest(ServiceDetailTypes.NEW_SERVICE_START, newServiceStart);
+}
+
 /* ================================================================ */
 /*  Root Saga                                                       */
 /* ================================================================ */
@@ -212,9 +284,11 @@ export function* onFetchServiceStart() {
 export default function* servicesDetailSagas() {
 	yield all([
 		call(onCreateServicesStart),
+		call(onDeleteMainServicesStart),
 		call(onUpdateServicesStart),
 		call(onDeleteServicesStart),
 		call(onFetchServiceStart),
+		call(onNewServiceStart),
 		call(onSetServicesStart),
 		call(onAddNewServicesStart),
 	]);

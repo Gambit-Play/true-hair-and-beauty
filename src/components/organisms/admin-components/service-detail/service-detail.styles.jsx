@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import NumberFormat from 'react-number-format';
 
 export const FormLayout = styled.div`
 	display: grid;
@@ -51,10 +50,10 @@ export const InputLayoutBottom = styled.div`
 	grid-column-gap: 16px;
 	grid-row-gap: 24px;
 	grid-template-areas:
-		'service1'
-		'service2'
-		'service3'
-		'button-block';
+		'service1 .'
+		'service2 .'
+		'service3 .'
+		'button-block button-block';
 	grid-template-columns: 1fr 1fr;
 	grid-template-rows: auto auto auto;
 `;
@@ -62,68 +61,20 @@ export const InputLayoutBottom = styled.div`
 export const FormActionBlock = styled.div`
 	grid-area: button-block;
 	display: flex;
-	justify-content: flex-start;
+	justify-content: ${props =>
+		props.deleteButton ? 'space-between' : 'flex-start'};
 	margin-top: 20px;
+
+	.button-block {
+		display: flex;
+	}
 
 	.save-button {
 		margin-right: 20px;
 	}
-`;
 
-export const InputBlock = styled.div`
-	grid-area: ${props => props.gridArea};
-`;
-
-export const InputLabel = styled.div`
-	margin-bottom: 4px;
-	color: #888;
-	font-size: 12px;
-	line-height: 1.25;
-	font-weight: 700;
-	text-transform: uppercase;
-`;
-
-export const TextInput = styled.input`
-	width: 100%;
-	height: 32px;
-	padding: 0 8px;
-	border: 2px solid #888;
-	border-radius: 4px;
-	text-overflow: ellipsis;
-	transition: box-shadow 300ms cubic-bezier(0.25, 0.85, 0.25, 1),
-		border 300ms cubic-bezier(0.25, 0.85, 0.25, 1);
-
-	&:hover {
-		border-color: #1ec6ea;
-		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
-	}
-
-	&:focus {
-		outline-width: 0px;
-		border-color: #1ec6ea;
-		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
-	}
-`;
-
-export const NumberInput = styled(NumberFormat)`
-	width: 100%;
-	height: 32px;
-	padding: 0 8px;
-	border: 2px solid #888;
-	border-radius: 4px;
-	text-overflow: ellipsis;
-	transition: box-shadow 300ms cubic-bezier(0.25, 0.85, 0.25, 1),
-		border 300ms cubic-bezier(0.25, 0.85, 0.25, 1);
-
-	&:hover {
-		border-color: #1ec6ea;
-		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
-	}
-
-	&:focus {
-		outline-width: 0px;
-		border-color: #1ec6ea;
-		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+	.delete-button {
+		background-image: linear-gradient(45deg, #ff416c, #ff4b2b);
 	}
 `;
 
@@ -152,7 +103,7 @@ export const ListRowLabels = styled.div`
 	padding: 20px;
 	grid-auto-columns: 1fr;
 	grid-column-gap: 16px;
-	grid-template-columns: 0.5fr 1.5fr 1fr 1fr;
+	grid-template-columns: 0.3fr 1fr 0.3fr 1.2fr;
 	grid-template-rows: auto;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
@@ -168,7 +119,7 @@ export const ListItem = styled.div`
 	padding: 20px;
 	grid-auto-columns: 1fr;
 	grid-column-gap: 16px;
-	grid-template-columns: 0.5fr 1.5fr 1fr 1fr;
+	grid-template-columns: 0.3fr 1fr 0.3fr 1.2fr;
 	grid-template-rows: auto;
 	border-bottom: 1px solid #dedede;
 	font-size: 18px;

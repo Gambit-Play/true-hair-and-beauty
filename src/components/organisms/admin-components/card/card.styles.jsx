@@ -43,6 +43,12 @@ export const CardRoundButton = styled.div`
 	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
 	transition: box-shadow 300ms cubic-bezier(0.25, 0.85, 0.25, 1);
 
+	img {
+		max-width: 100%;
+		vertical-align: middle;
+		display: inline-block;
+	}
+
 	&:hover {
 		box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.23);
 	}

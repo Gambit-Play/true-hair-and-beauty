@@ -6,6 +6,7 @@ import { connect } from 'react-redux';
 import {
 	selectServiceDetail,
 	selectIsEdit,
+	selectIsNew,
 } from '../../redux/handlers/service-detail/service-detail.selectors';
 
 // Redux: Actions
@@ -18,9 +19,11 @@ import {
 	setOtherServiceStart,
 	setNewServiceStart,
 	createServicesStart,
+	deleteMainServicesStart,
 	toggleEditStart,
 	clearService,
-	clearNewService
+	clearNewService,
+	newServiceStart,
 } from '../../redux/handlers/service-detail/service-detail.actions';
 
 const WithServiceDetail = WrappedComponent => {
@@ -32,14 +35,14 @@ const WithServiceDetail = WrappedComponent => {
 	const mapStateToProps = createStructuredSelector({
 		serviceDetail: selectServiceDetail,
 		isEdit: selectIsEdit,
+		isNew: selectIsNew,
 	});
 
 	// Redux: Actions
 	const mapDispatchToProps = dispatch => ({
 		fetchServiceStart: (serviceIndex, isAdminFetch) =>
 			dispatch(fetchServiceStart(serviceIndex, isAdminFetch)),
-		createServicesStart: serviceIndex =>
-			dispatch(createServicesStart(serviceIndex)),
+		createServicesStart: () => dispatch(createServicesStart()),
 		setServiceStart: (index, inputName, value) =>
 			dispatch(setServiceStart(index, inputName, value)),
 		setOtherServiceStart: (inputName, value) =>
@@ -50,6 +53,8 @@ const WithServiceDetail = WrappedComponent => {
 		clearService: () => dispatch(clearService()),
 		clearNewService: () => dispatch(clearNewService()),
 		updateServicesStart: () => dispatch(updateServicesStart()),
+		deleteMainServicesStart: () => dispatch(deleteMainServicesStart()),
+		newServiceStart: () => dispatch(newServiceStart()),
 		deleteServicesStart: (serviceIndex, mainIndex) =>
 			dispatch(deleteServicesStart(serviceIndex, mainIndex)),
 		addNewServicesStart: serviceIndex =>

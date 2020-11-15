@@ -77,6 +77,17 @@ export const updateDocument = async (collectionId, documentId, data) => {
 	await firestore.collection(collectionId).doc(documentId).set(data);
 };
 
+export const deleteDocuments = async (collectionId, documents) => {
+	const batch = firestore.batch();
+	documents.forEach(doc => {
+		const documentRef = firestore.collection(collectionId).doc(doc);
+
+		batch.delete(documentRef);
+	});
+
+	return await batch.commit();
+};
+
 /* ================================================================ */
 /*  Firestore & Auth                                                */
 /* ================================================================ */

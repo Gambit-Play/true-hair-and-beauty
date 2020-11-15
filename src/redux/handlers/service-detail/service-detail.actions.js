@@ -12,6 +12,10 @@ export const updateServicesStart = () => ({
 	type: ServiceDetailTypes.UPDATE_SERVICE_START,
 });
 
+export const deleteMainServicesStart = () => ({
+	type: ServiceDetailTypes.DELETE_MAIN_SERVICE_START,
+});
+
 export const deleteServicesStart = (serviceIndex, mainIndex) => ({
 	type: ServiceDetailTypes.DELETE_SERVICE_START,
 	payload: { serviceIndex, mainIndex },
@@ -29,6 +33,10 @@ export const pushNewServicesStart = () => ({
 export const fetchServiceStart = (serviceIndex, isAdminFetch) => ({
 	type: ServiceDetailTypes.FETCH_SERVICE_START,
 	payload: { serviceIndex, isAdminFetch },
+});
+
+export const newServiceStart = () => ({
+	type: ServiceDetailTypes.NEW_SERVICE_START,
 });
 
 export const setServiceStart = (index, inputName, value) => ({
@@ -70,7 +78,11 @@ export const updateServicesSuccess = () => ({
 	type: ServiceDetailTypes.UPDATE_SERVICE_SUCCESS,
 });
 
-export const deleteServicesSuccess = (services) => ({
+export const deleteMainServicesSuccess = () => ({
+	type: ServiceDetailTypes.DELETE_MAIN_SERVICE_SUCCESS,
+});
+
+export const deleteServicesSuccess = services => ({
 	type: ServiceDetailTypes.DELETE_SERVICE_SUCCESS,
 	payload: services,
 });
@@ -95,6 +107,11 @@ export const fetchServiceSuccess = service => ({
 	payload: service,
 });
 
+export const newServiceSuccess = order => ({
+	type: ServiceDetailTypes.NEW_SERVICE_SUCCESS,
+	payload: order,
+});
+
 /* ================================================================ */
 /*  Process Failure	       	                                        */
 /* ================================================================ */
@@ -106,6 +123,11 @@ export const createServicesFailure = errorMessage => ({
 
 export const updateServicesFailure = errorMessage => ({
 	type: ServiceDetailTypes.UPDATE_SERVICE_FAILURE,
+	payload: errorMessage,
+});
+
+export const deleteMainServicesFailure = errorMessage => ({
+	type: ServiceDetailTypes.DELETE_MAIN_SERVICE_FAILURE,
 	payload: errorMessage,
 });
 
@@ -131,5 +153,10 @@ export const setServiceFailure = errorMessage => ({
 
 export const fetchServiceFailure = errorMessage => ({
 	type: ServiceDetailTypes.FETCH_SERVICE_FAILURE,
+	payload: errorMessage,
+});
+
+export const newServiceFailure = errorMessage => ({
+	type: ServiceDetailTypes.NEW_SERVICE_FAILURE,
 	payload: errorMessage,
 });

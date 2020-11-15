@@ -2,8 +2,6 @@ import React, { useState } from 'react';
 
 // Component
 import {
-	TextInput,
-	NumberInput,
 	ListLayout,
 	ListTopBar,
 	ListRowLabels,
@@ -12,6 +10,7 @@ import {
 } from '../../service-detail/service-detail.styles';
 import ListItems from './list-items/list-items.componts';
 import { Button } from '../../../../atoms/button/button.styles';
+import { TextInput, NumberInput } from '../../../../atoms/inputs/inputs.styles';
 
 const ListCard = ({
 	services,

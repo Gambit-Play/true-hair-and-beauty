@@ -13,13 +13,16 @@ import { FormLayout, FormImage } from './service-detail.styles';
 const ServiceDetail = ({
 	currentServices,
 	serviceDetail,
+	createServicesStart,
 	updateServicesStart,
+	deleteMainServicesStart,
 	deleteServicesStart,
 	addNewServicesStart,
 	setOtherServiceStart,
 	setNewServiceStart,
 	clearService,
-	clearNewService
+	clearNewService,
+	isNew,
 }) => {
 	const {
 		id,
@@ -40,6 +43,7 @@ const ServiceDetail = ({
 		<FormLayout>
 			<FormImage image={image} />
 			<FormCard
+				isNew={isNew}
 				clearService={clearService}
 				image={image}
 				order={order}
@@ -50,17 +54,21 @@ const ServiceDetail = ({
 				setOtherServiceStart={setOtherServiceStart}
 				typeOfService={typeOfService}
 				updateServicesStart={updateServicesStart}
+				createServicesStart={createServicesStart}
+				deleteMainServicesStart={deleteMainServicesStart}
 			/>
-			<ListCard
-				mainIndex={mainIndex}
-				price={price}
-				services={services}
-				title={title}
-				setNewServiceStart={setNewServiceStart}
-				addNewServicesStart={addNewServicesStart}
-				deleteServicesStart={deleteServicesStart}
-				clearNewService={clearNewService}
-			/>
+			{!isNew && (
+				<ListCard
+					mainIndex={mainIndex}
+					price={price}
+					services={services}
+					title={title}
+					setNewServiceStart={setNewServiceStart}
+					addNewServicesStart={addNewServicesStart}
+					deleteServicesStart={deleteServicesStart}
+					clearNewService={clearNewService}
+				/>
+			)}
 		</FormLayout>
 	);
 };
