@@ -138,7 +138,13 @@ const TimeSection = ({
 					<Button className='save-button' onClick={updateTimeStart}>
 						Update
 					</Button>
-					<Button outlined onClick={clearTime}>
+					<Button
+						outlined
+						onClick={() => {
+							clearTime();
+							fetchTimeStart();
+						}}
+					>
 						Cancel
 					</Button>
 				</FormActionBlock>

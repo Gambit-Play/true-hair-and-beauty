@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { compose } from 'redux';
 
 //HOC
@@ -7,17 +7,16 @@ import WithAboutUsDetail from '../../../HOC/with-about-us-detail.hoc';
 
 // Component
 import {
-	Card,
-	CardImage,
-	CardContentWrapper,
-	CardTitle,
-	CardBody,
-	CardInput,
-	CardDivider,
-	CardButton,
-	CardButtonBlock,
 	CardTextArea,
-} from '../card-components/card.styles';
+	ContentLayout,
+	ContentCard,
+	ContentImage,
+	ContentTitle,
+	FormActionBlock,
+	TextInput,
+} from './about-us-section.styles';
+import { InputBlock, InputLabel } from '../../../atoms/inputs/inputs.styles';
+import { Button } from '../../../atoms/button/button.styles';
 
 // Images
 import aboutUsImage from '../../../../assets/about-us-screenshot.png';
@@ -31,62 +30,64 @@ const AboutUsSection = ({
 	clearAboutUs,
 	isEdit,
 }) => {
-	const { title, body } = aboutUsSection;
+	useEffect(() => {
+		fetchAboutUsStart();
+	}, [fetchAboutUsStart]);
 
 	return (
-		<Card>
-			<CardImage image={aboutUsImage} />
-			<CardContentWrapper>
-				<CardTitle>Title</CardTitle>
-				{isEdit ? (
-					<CardInput
-						value={aboutUsDetail.title}
-						type='text'
-						name='title'
-						onChange={event => {
-							setAboutUsStart(
-								event.target.name,
-								event.target.value
-							);
+		<ContentLayout>
+			<ContentTitle>About Us Section</ContentTitle>
+			<ContentImage image={aboutUsImage} />
+			<ContentCard>
+				<div>
+					<InputBlock className='input-block'>
+						<InputLabel>Title:</InputLabel>
+						<TextInput
+							value={aboutUsDetail.title}
+							type='text'
+							name='title'
+							onChange={event => {
+								setAboutUsStart(
+									event.target.name,
+									event.target.value
+								);
+							}}
+						/>
+					</InputBlock>
+					<InputBlock className='input-block'>
+						<InputLabel>Body:</InputLabel>
+						<CardTextArea
+							value={aboutUsDetail.body}
+							type='text'
+							name='body'
+							onChange={event => {
+								setAboutUsStart(
+									event.target.name,
+									event.target.value
+								);
+							}}
+						/>
+					</InputBlock>
+				</div>
+				<FormActionBlock>
+					<Button
+						className='save-button'
+						onClick={updateAboutUsStart}
+					>
+						Update
+					</Button>
+					<Button
+						outlined
+						onClick={() => {
+							clearAboutUs();
+							fetchAboutUsStart();
 						}}
-					/>
-				) : (
-					<CardBody>{title}</CardBody>
-				)}
-				<CardDivider />
-				<CardTitle>Body</CardTitle>
-				{isEdit ? (
-					<CardTextArea
-						height={200}
-						value={aboutUsDetail.body}
-						type='text'
-						name='body'
-						onChange={event => {
-							setAboutUsStart(
-								event.target.name,
-								event.target.value
-							);
-						}}
-					/>
-				) : (
-					<CardBody>{body}</CardBody>
-				)}
-			</CardContentWrapper>
-			<CardButtonBlock>
-				{isEdit ? (
-					<Fragment>
-						<CardButton onClick={updateAboutUsStart}>
-							Update
-						</CardButton>
-						<CardButton outline onClick={clearAboutUs}>
-							Cancel
-						</CardButton>
-					</Fragment>
-				) : (
-					<CardButton onClick={fetchAboutUsStart}>Edit</CardButton>
-				)}
-			</CardButtonBlock>
-		</Card>
+					>
+						Cancel
+					</Button>
+				</FormActionBlock>
+			</ContentCard>
+		</ContentLayout>
 	);
 };
 

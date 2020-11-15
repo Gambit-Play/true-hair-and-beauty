@@ -38,10 +38,10 @@ const AdminRoutes = () => {
 					<HeaderSection />
 					<Divider />
 					<TimeSection />
-					{
-						// <AboutUsSection />
-						// <FooterSection />
-					}
+					<Divider />
+					<AboutUsSection />
+					<Divider />
+					<FooterSection />
 				</Route>
 				<Route exact path={`${path}/${ROUTES.SERVICES_SECTION}`}>
 					<ServicesSection />

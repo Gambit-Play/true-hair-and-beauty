@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { useEffect } from 'react';
 import { compose } from 'redux';
 
 //HOC
@@ -7,106 +7,101 @@ import WithFooterDetail from '../../../HOC/with-footer-detail.hoc';
 
 // Component
 import {
-	Card,
-	CardImage,
-	CardContentWrapper,
-	CardTitle,
-	CardBody,
-	CardInput,
-	CardDivider,
-	CardButton,
-	CardButtonBlock,
-	CardTextArea,
-} from '../card-components/card.styles';
+	ContentImage,
+	ContentTitle,
+	ContentLayout,
+	ContentCard,
+	FormActionBlock,
+} from './footer-section.styles';
+import {
+	InputBlock,
+	InputLabel,
+	TextInput,
+} from '../../../atoms/inputs/inputs.styles';
+import { Button } from '../../../atoms/button/button.styles';
 
 // Images
 import footerImage from '../../../../assets/footer-screenshot.png';
 
 const FooterSection = ({
-	footerSection,
 	footerDetail,
 	fetchFooterStart,
 	updateFooterStart,
 	setFooterStart,
 	clearFooter,
-	isEdit,
 }) => {
-	const { adres, email, tel } = footerSection;
+	useEffect(() => {
+		fetchFooterStart();
+	}, [fetchFooterStart]);
 
 	return (
-		<Card>
-			<CardImage image={footerImage} />
-			<CardContentWrapper>
-				<CardTitle>Tel</CardTitle>
-				{isEdit ? (
-					<CardInput
-						type='text'
-						id={footerDetail.id}
-						name='tel'
-						value={footerDetail.tel}
-						onChange={event => {
-							setFooterStart(
-								event.target.name,
-								event.target.value
-							);
+		<ContentLayout>
+			<ContentTitle>Footer Section</ContentTitle>
+			<ContentImage image={footerImage} />
+			<ContentCard>
+				<div>
+					<InputBlock className='input-block'>
+						<InputLabel>Tel:</InputLabel>
+						<TextInput
+							type='text'
+							id={footerDetail.id}
+							name='tel'
+							value={footerDetail.tel}
+							onChange={event => {
+								setFooterStart(
+									event.target.name,
+									event.target.value
+								);
+							}}
+						/>
+					</InputBlock>
+					<InputBlock className='input-block'>
+						<InputLabel>Email:</InputLabel>
+						<TextInput
+							type='text'
+							id={footerDetail.id}
+							name='email'
+							value={footerDetail.email}
+							onChange={event => {
+								setFooterStart(
+									event.target.name,
+									event.target.value
+								);
+							}}
+						/>
+					</InputBlock>
+					<InputBlock className='input-block'>
+						<InputLabel>Adres:</InputLabel>
+						<TextInput
+							type='text'
+							id={footerDetail.id}
+							name='adres'
+							value={footerDetail.adres}
+							onChange={event => {
+								setFooterStart(
+									event.target.name,
+									event.target.value
+								);
+							}}
+						/>
+					</InputBlock>
+				</div>
+				<FormActionBlock>
+					<Button className='save-button' onClick={updateFooterStart}>
+						Update
+					</Button>
+					<Button
+						outlined
+						onClick={() => {
+							clearFooter();
+							fetchFooterStart();
 						}}
-					/>
-				) : (
-					<CardBody>{tel}</CardBody>
-				)}
-				<CardDivider />
-				<CardTitle>Email</CardTitle>
-				{isEdit ? (
-					<CardInput
-						type='text'
-						id={footerDetail.id}
-						name='email'
-						value={footerDetail.email}
-						onChange={event => {
-							setFooterStart(
-								event.target.name,
-								event.target.value
-							);
-						}}
-					/>
-				) : (
-					<CardBody>{email}</CardBody>
-				)}
-				<CardDivider />
-				<CardTitle>Adres</CardTitle>
-				{isEdit ? (
-					<CardTextArea
-						height={100}
-						type='text'
-						id={footerDetail.id}
-						name='adres'
-						value={footerDetail.adres}
-						onChange={event => {
-							setFooterStart(
-								event.target.name,
-								event.target.value
-							);
-						}}
-					/>
-				) : (
-					<CardBody>{adres}</CardBody>
-				)}
-			</CardContentWrapper>
-			<CardButtonBlock>
-				{isEdit ? (
-					<Fragment>
-						<CardButton onClick={updateFooterStart}>
-							Update
-						</CardButton>
-						<CardButton onClick={clearFooter} outline>
-							Cancel
-						</CardButton>
-					</Fragment>
-				) : (
-					<CardButton onClick={fetchFooterStart}>Edit</CardButton>
-				)}
-			</CardButtonBlock>
-		</Card>
+					>
+						Cancel
+					</Button>
+				</FormActionBlock>
+			</ContentCard>
+		</ContentLayout>
 	);
 };
 
