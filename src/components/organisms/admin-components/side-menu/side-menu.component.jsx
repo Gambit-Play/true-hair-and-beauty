@@ -8,12 +8,13 @@ import { isCurrent } from '../../../../utils/utils';
 import * as ROUTES from '../../../../routes/routes';
 
 // Component
-import { MainWrapper } from './side-menu.styles';
+import { LogoBlock, LogOutButton, MainWrapper } from './side-menu.styles';
 import MenuLink from './menu-links/menu-links.component';
 
 // Images
 import section4ColorIcon from '../../../../assets/section-4-color-icon.svg';
 import section4LightIcon from '../../../../assets/section-4-light-icon.svg';
+import logoIcon from '../../../../assets/logo-light.svg';
 
 const SideMenu = () => {
 	const { push } = useHistory();
@@ -23,6 +24,9 @@ const SideMenu = () => {
 	return (
 		<MainWrapper>
 			<div className='links-wrapper'>
+				<LogoBlock>
+					<img src={logoIcon} alt='' />
+				</LogoBlock>
 				<MenuLink
 					linkText='Content'
 					activeImage={section4LightIcon}
@@ -39,6 +43,9 @@ const SideMenu = () => {
 					}
 					isActive={isCurrent(ROUTES.SERVICES_SECTION, pathname)}
 				/>
+			</div>
+			<div className='log-out'>
+				<LogOutButton>Log Out</LogOutButton>
 			</div>
 		</MainWrapper>
 	);

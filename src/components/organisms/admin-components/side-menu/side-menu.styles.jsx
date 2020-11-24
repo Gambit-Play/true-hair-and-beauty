@@ -2,49 +2,62 @@ import styled from 'styled-components';
 
 export const MainWrapper = styled.div`
 	display: flex;
-	padding-top: 56px;
-	padding-bottom: 56px;
+	width: 200px;
 	flex-direction: column;
 	justify-content: space-between;
-	align-items: center;
-	border-top-right-radius: 40px;
-	border-bottom-right-radius: 40px;
-	background-color: #fff;
-	box-shadow: 1px 0 30px 0 rgba(0, 0, 0, 0.1);
+	background-image: linear-gradient(180deg, #1de9b8, #1ec6ea);
 
 	.links-wrapper {
-		overflow-y: scroll;
 		height: 100%;
+	}
+
+	.log-out {
+		display: flex;
+		padding-right: 18px;
+		padding-bottom: 40px;
+		padding-left: 18px;
+		justify-content: center;
+		align-items: center;
 	}
 `;
 
-// export const LinkBlock = styled.div`
-// 	display: flex;
-// 	margin-top: 40px;
-// 	margin-right: 20px;
-// 	margin-left: 20px;
-// 	flex-direction: column;
-// 	align-items: center;
-// `;
+export const LogOutButton = styled.a`
+	display: flex;
+	width: 100%;
+	padding: 8px 16px;
+	justify-content: center;
+	align-items: center;
+	border-style: solid;
+	border-width: 2px;
+	border-color: #fff;
+	border-radius: 4px;
+	box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+	transition: box-shadow 300ms cubic-bezier(0.25, 0.8, 0.25, 1);
+	color: #fff;
+	line-height: 1.25;
+	font-weight: 500;
+	text-decoration: none;
+	text-transform: capitalize;
 
-// export const MenuLink = styled.div`
-// 	display: flex;
-// 	width: 70px;
-// 	height: 70px;
-// 	padding: 12px;
-// 	justify-content: center;
-// 	align-items: center;
-// 	border-radius: 20px;
-// 	background-color: rgba(247, 104, 104, 0.1);
-// 	transition: transform 100ms ease-in-out, box-shadow 200ms ease-in-out,
-// 		background-color 200ms ease-in-out;
+	&:hover {
+		box-shadow: 0 6px 6px 0 rgba(0, 0, 0, 0.23);
+	}
 
-// 	&:hover {
-// 		background-color: #f76868;
-// 		box-shadow: 0 15px 24px 0 rgba(247, 104, 104, 0.3);
-// 	}
+	&:active {
+		box-shadow: 0 3px 6px 0 rgba(0, 0, 0, 0.23);
+	}
+`;
 
-// 	&:active {
-// 		transform: scale(0.9);
-// 	}
-// `;
+export const LogoBlock = styled.div`
+	display: flex;
+	height: 120px;
+	padding-top: 20px;
+	flex-direction: column;
+	justify-content: flex-start;
+	align-items: center;
+	border-bottom: 1px solid rgba(0, 0, 0, 0.14);
+
+	img {
+		height: 48px;
+	}
+`;

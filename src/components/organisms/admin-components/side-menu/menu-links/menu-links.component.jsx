@@ -19,12 +19,8 @@ const MenuLinks = ({
 			inactiveImage={inactiveImage}
 			activeImage={activeImage}
 			onClick={handleClick}
+			isActive={isActive}
 		>
-			<div
-				className={
-					isHover || isActive ? 'menu-link on-hover' : 'menu-link'
-				}
-			></div>
 			<div
 				className={
 					isHover || isActive
