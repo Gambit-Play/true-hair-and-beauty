@@ -20,20 +20,6 @@ const AdminRoutes = () => {
 	return (
 		<Switch>
 			<CardsWrapper>
-				{
-					// <Route path={`${path}/${ROUTES.HEADER_SECTION}`}>
-					// 	<HeaderSection />
-					// </Route>
-					// <Route path={`${path}/${ROUTES.TIME_SECTION}`}>
-					// 	<TimeSection />
-					// </Route>
-					// <Route path={`${path}/${ROUTES.ABOUT_US_SECTION}`}>
-					// 	<AboutUsSection />
-					// </Route>
-					// <Route path={`${path}/${ROUTES.FOOTER_SECTION}`}>
-					// 	<FooterSection />
-					// </Route>
-				}
 				<Route exact path={`${path}/${ROUTES.CONTENT}`}>
 					<HeaderSection />
 					<Divider />

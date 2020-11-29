@@ -1,5 +1,9 @@
 import React from 'react';
 import { useHistory, useRouteMatch, useLocation } from 'react-router-dom';
+import { compose } from 'redux';
+
+// HOC
+import WithUser from '../../../HOC/with-user.hoc';
 
 // Utils
 import { isCurrent } from '../../../../utils/utils';
@@ -16,7 +20,7 @@ import section4ColorIcon from '../../../../assets/section-4-color-icon.svg';
 import section4LightIcon from '../../../../assets/section-4-light-icon.svg';
 import logoIcon from '../../../../assets/logo-light.svg';
 
-const SideMenu = () => {
+const SideMenu = ({ emailSignInStart }) => {
 	const { push } = useHistory();
 	const { path } = useRouteMatch();
 	const { pathname } = useLocation();
@@ -45,10 +49,10 @@ const SideMenu = () => {
 				/>
 			</div>
 			<div className='log-out'>
-				<LogOutButton>Log Out</LogOutButton>
+				<LogOutButton onClick={emailSignInStart}>Log Out</LogOutButton>
 			</div>
 		</MainWrapper>
 	);
 };
 
-export default SideMenu;
+export default compose(WithUser)(SideMenu);

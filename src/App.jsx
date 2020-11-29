@@ -5,6 +5,7 @@ import { compose } from 'redux';
 // HOC
 import WithServices from './components/HOC/with-services.hoc';
 import WithContent from './components/HOC/with-content.hoc';
+import WithUser from './components/HOC/with-user.hoc';
 
 // Routes
 import * as ROUTES from './routes/routes';
@@ -12,6 +13,7 @@ import * as ROUTES from './routes/routes';
 // Components
 import HomePage from './pages/home-page/home-page.component';
 import AdminPage from './pages/admin-page/admin-page.component';
+import LogInPage from './pages/login-page/login-page.component';
 import {
 	MainContainer,
 	MainWrapper,
@@ -27,7 +29,10 @@ function App({
 	fetchContentCollectionStart,
 	removeServicesCollectionListener,
 	removeContentCollectionListener,
+	currentUser,
 }) {
+	const isLoggedOut = currentUser === null;
+
 	useEffect(() => {
 		// Start collection listeners
 		fetchServicesCollectionStart();
@@ -52,9 +57,15 @@ function App({
 						<Route exact path={ROUTES.HOME}>
 							<HomePage />
 						</Route>
-						<Route path={ROUTES.ADMIN}>
-							<AdminPage />
-						</Route>
+						{isLoggedOut ? (
+							<Route path={ROUTES.ADMIN}>
+								<LogInPage />
+							</Route>
+						) : (
+							<Route path={ROUTES.ADMIN}>
+								<AdminPage />
+							</Route>
+						)}
 					</MainWrapper>
 				</MainContainer>
 			</StyledThemeProvider>
@@ -62,4 +73,4 @@ function App({
 	);
 }
 
-export default compose(WithContent, WithServices)(App);
+export default compose(WithUser, WithContent, WithServices)(App);

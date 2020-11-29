@@ -6,6 +6,7 @@ import storage from 'redux-persist/lib/storage';
 import servicesReducer from './services/services.reducer';
 import uiReducer from './ui/ui.reducer';
 import contentReducer from './content/content.reducer';
+import userReducer from './user/user.reducer';
 
 import serviceDetailReducer from './handlers/service-detail/service-detail.reducer';
 import headerDetailReducer from './handlers/header-detail/header-detail.reducer';
@@ -20,6 +21,7 @@ const persistConfig = {
 		'ui',
 		'services',
 		'content',
+		'user',
 		'serviceDetail',
 		'headerDetail',
 		'aboutUsDetail',
@@ -33,6 +35,7 @@ const rootReducer = combineReducers({
 	ui: uiReducer,
 	services: servicesReducer,
 	content: contentReducer,
+	user: userReducer,
 
 	// Handlers Reducers
 	serviceDetail: serviceDetailReducer,
