@@ -1,10 +1,20 @@
-import { takeLatest, put, all, call } from 'redux-saga/effects';
+import { takeLatest, put, all, call, select } from 'redux-saga/effects';
+
+// Firebase utils
+import { auth } from '../../firebase/firebase.utils';
 
 // Types
 import UserTypes from './user.types';
 
 // Actions
-import { emailSignInSuccess, emailSignInFailure } from './user.actions';
+import {
+	emailSignInSuccess,
+	emailSignInFailure,
+	clearLoginCredentials,
+} from './user.actions';
+
+// Selectors
+import { selectEmail, selectPassword } from './user.selectors';
 
 /* ================================================================ */
 /*  Actions                                                         */
@@ -12,7 +22,18 @@ import { emailSignInSuccess, emailSignInFailure } from './user.actions';
 
 export function* emailSignInStart() {
 	try {
-		console.log('@@@@@ emailSignInStart - Start is successful');
+		const email = yield select(selectEmail);
+		const password = yield select(selectPassword);
+
+		console.log('@@@@@ emailSignInStart - email:', email);
+		console.log('@@@@@ emailSignInStart - password:', password);
+
+		const { user } = yield auth.signInWithEmailAndPassword(email, password);
+
+		console.log('@@@@@ emailSignInStart - user.uid:', { uid: user.uid });
+
+		yield put(emailSignInSuccess({ uid: user.uid }));
+		yield put(clearLoginCredentials());
 	} catch (error) {
 		console.log(error);
 		yield put(emailSignInFailure(error));

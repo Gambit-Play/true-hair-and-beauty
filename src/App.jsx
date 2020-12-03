@@ -30,6 +30,7 @@ function App({
 	removeServicesCollectionListener,
 	removeContentCollectionListener,
 	currentUser,
+	clearLoginCredentials,
 }) {
 	const isLoggedOut = currentUser === null;
 
@@ -41,12 +42,14 @@ function App({
 			// Remove collection listeners
 			removeServicesCollectionListener();
 			removeContentCollectionListener();
+			clearLoginCredentials();
 		};
 	}, [
 		fetchServicesCollectionStart,
 		fetchContentCollectionStart,
 		removeServicesCollectionListener,
 		removeContentCollectionListener,
+		clearLoginCredentials,
 	]);
 
 	return (
