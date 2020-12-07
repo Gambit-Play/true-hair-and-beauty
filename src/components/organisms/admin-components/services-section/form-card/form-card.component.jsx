@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment, useState } from 'react';
 import { useHistory } from 'react-router-dom';
 
 // Component
@@ -8,8 +8,10 @@ import {
 	InputLayoutBottom,
 	InputLayoutTop,
 	FormActionBlock,
+	ListActionBlock,
 } from '../../service-detail/service-detail.styles';
 import { Button } from '../../../../atoms/button/button.styles';
+import { Body1 } from '../../../../atoms/text/text.styles';
 import {
 	InputBlock,
 	TextInput,
@@ -32,6 +34,7 @@ const FormCard = ({
 	createServicesStart,
 	deleteMainServicesStart,
 }) => {
+	const [isDelete, setIsDelete] = useState(false);
 	const history = useHistory();
 
 	return (
@@ -137,19 +140,38 @@ const FormCard = ({
 							Cancel
 						</Button>
 					</div>
-					<div>
-						{!isNew && (
-							<Button
-								className='delete-button'
-								onClick={() => {
-									deleteMainServicesStart();
-									history.goBack();
-								}}
-							>
-								Delete
-							</Button>
-						)}
-					</div>
+					<ListActionBlock>
+						{!isNew &&
+							(isDelete ? (
+								<Fragment>
+									<Body1 className='delete-text'>
+										Are you sure you want to delete?
+									</Body1>
+									<Button
+										className='delete-button'
+										onClick={() => {
+											deleteMainServicesStart();
+											history.goBack();
+										}}
+									>
+										delete
+									</Button>
+									<Button
+										className='cancel-button'
+										onClick={() => setIsDelete(false)}
+									>
+										cancel
+									</Button>
+								</Fragment>
+							) : (
+								<Button
+									className='delete-button'
+									onClick={() => setIsDelete(true)}
+								>
+									Delete
+								</Button>
+							))}
+					</ListActionBlock>
 				</FormActionBlock>
 			</InputLayoutBottom>
 		</Card>

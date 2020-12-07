@@ -76,6 +76,10 @@ export const FormActionBlock = styled.div`
 	.delete-button {
 		background-image: linear-gradient(45deg, #ff416c, #ff4b2b);
 	}
+
+	.delete-text {
+		color: red;
+	}
 `;
 
 export const Divider = styled.div`
@@ -134,6 +138,7 @@ export const ListTitle = styled.div`
 export const ListActionBlock = styled.div`
 	display: flex;
 	justify-content: flex-end;
+	align-items: center;
 
 	.delete-text {
 		color: red;
