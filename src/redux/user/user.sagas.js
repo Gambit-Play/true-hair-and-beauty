@@ -25,17 +25,12 @@ export function* emailSignInStart() {
 		const email = yield select(selectEmail);
 		const password = yield select(selectPassword);
 
-		console.log('@@@@@ emailSignInStart - email:', email);
-		console.log('@@@@@ emailSignInStart - password:', password);
-
 		const { user } = yield auth.signInWithEmailAndPassword(email, password);
-
-		console.log('@@@@@ emailSignInStart - user.uid:', { uid: user.uid });
 
 		yield put(emailSignInSuccess({ uid: user.uid }));
 		yield put(clearLoginCredentials());
 	} catch (error) {
-		console.log(error);
+		console.log('Login error: ', error.message);
 		yield put(emailSignInFailure(error));
 	}
 }

@@ -13,7 +13,6 @@ import { ButtonOutlinedLight } from '../../../atoms/button/button.styles';
 const Modal = ({ serviceDetail, toggleModal }) => {
 	const handleClick = event => {
 		event.persist();
-		console.log('@@@@@ handleClick - event:', event);
 	};
 	return (
 		<ModalContainer onClick={handleClick}>
