@@ -30,7 +30,7 @@ const ListItems = ({
 						className='new-input'
 						placeholder='Service Name'
 						name='title'
-						value={service.title}
+						defaultValue={service.title}
 						onChange={event =>
 							setNewServiceStart(
 								event.target.name,
@@ -40,7 +40,7 @@ const ListItems = ({
 					/>
 					<NumberInput
 						className='new-input'
-						value={service.price ? service.price : null}
+						defaultValue={service.price}
 						placeholder='Price'
 						onValueChange={({ floatValue }) => {
 							setNewServiceStart('price', floatValue);
@@ -48,16 +48,18 @@ const ListItems = ({
 					/>
 					<ListActionBlock>
 						<Button className='save-button' onClick={() => {}}>
-							Save
+							Update
 						</Button>
 						<Button
 							className='cancel-button'
-							onClick={() =>
+							onClick={() => {
 								setEdit({
 									isEdit: false,
 									index: null,
-								})
-							}
+								});
+								setNewServiceStart('title', '');
+								setNewServiceStart('price', 0);
+							}}
 						>
 							Cancel
 						</Button>
@@ -109,6 +111,14 @@ const ListItems = ({
 											isEdit: true,
 											index: serviceIndex,
 										});
+										setNewServiceStart(
+											'title',
+											service.title
+										);
+										setNewServiceStart(
+											'price',
+											service.price
+										);
 									}}
 								>
 									edit

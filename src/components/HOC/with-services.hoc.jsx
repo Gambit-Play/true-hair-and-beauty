@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 // Redux: Selectors
 import {
-	selectCurrenServices,
+	selectCurrentServices,
 	selectIsFetching,
 } from '../../redux/services/services.selectors';
 
@@ -21,7 +21,7 @@ const WithServices = WrappedComponent => {
 
 	// Redux: Selectors
 	const mapStateToProps = createStructuredSelector({
-		currentServices: selectCurrenServices,
+		currentServices: selectCurrentServices,
 		isServicesFetching: selectIsFetching,
 	});
 

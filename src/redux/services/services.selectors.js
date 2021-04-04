@@ -3,7 +3,7 @@ import { createSelector } from 'reselect';
 const selectServicesStore = state => state.services;
 
 // Selects services.currentServices from the state
-export const selectCurrenServices = createSelector(
+export const selectCurrentServices = createSelector(
 	[selectServicesStore],
 	services => services.currentServices
 );

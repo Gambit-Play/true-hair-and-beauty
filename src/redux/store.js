@@ -8,6 +8,7 @@ import rootReducer from './root.reducer';
 
 export const sagaMiddleware = createSagaMiddleware();
 
+const reduxDevTool = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__;
 const middlewares = [sagaMiddleware];
 
 let composeEnhancers = compose;
@@ -17,8 +18,8 @@ if (process.env.NODE_ENV === 'development') {
 
 	// Redux DevTool
 	composeEnhancers =
-		(window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ &&
-			window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({
+		(reduxDevTool &&
+			reduxDevTool({
 				trace: true,
 				traceLimit: 25,
 			})) ||

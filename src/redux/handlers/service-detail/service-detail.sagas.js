@@ -37,7 +37,7 @@ import {
 import { toggleModal } from '../../ui/ui.actions';
 
 // Selectors
-import { selectCurrenServices } from '../../services/services.selectors';
+import { selectCurrentServices } from '../../services/services.selectors';
 import {
 	selectServices,
 	selectServiceDetail,
@@ -202,7 +202,7 @@ export function* fetchServiceStart({
 	payload: { serviceIndex, isAdminFetch },
 }) {
 	try {
-		const servicesArray = yield select(selectCurrenServices);
+		const servicesArray = yield select(selectCurrentServices);
 		const currentService = servicesArray[serviceIndex];
 
 		yield put(fetchServiceSuccess(currentService));
@@ -215,7 +215,7 @@ export function* fetchServiceStart({
 
 export function* newServiceStart() {
 	try {
-		const currentServices = yield select(selectCurrenServices);
+		const currentServices = yield select(selectCurrentServices);
 
 		const order = currentServices.length + 1;
 
