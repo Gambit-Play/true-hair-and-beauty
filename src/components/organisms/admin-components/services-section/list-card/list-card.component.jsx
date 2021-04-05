@@ -19,7 +19,7 @@ const ListCard = ({
 	mainIndex,
 	addNewServicesStart,
 	setNewServiceStart,
-	deleteServicesStart,
+	deleteServiceStart,
 	clearNewService,
 }) => {
 	const [isNewService, setIsNewService] = useState(false);
@@ -81,7 +81,7 @@ const ListCard = ({
 				<div>Price</div>
 			</ListRowLabels>
 			<ListItems
-				deleteServicesStart={deleteServicesStart}
+				deleteServiceStart={deleteServiceStart}
 				mainIndex={mainIndex}
 				services={services}
 				setNewServiceStart={setNewServiceStart}

@@ -16,7 +16,7 @@ export const deleteMainServicesStart = () => ({
 	type: ServiceDetailTypes.DELETE_MAIN_SERVICE_START,
 });
 
-export const deleteServicesStart = (serviceIndex, mainIndex) => ({
+export const deleteServiceStart = (serviceIndex, mainIndex) => ({
 	type: ServiceDetailTypes.DELETE_SERVICE_START,
 	payload: { serviceIndex, mainIndex },
 });

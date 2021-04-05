@@ -158,7 +158,7 @@ export function* pushNewServiceStart() {
 	}
 }
 
-export function* deleteServicesStart({ payload: { serviceIndex, mainIndex } }) {
+export function* deleteServiceStart({ payload: { serviceIndex, mainIndex } }) {
 	try {
 		const { services } = yield select(selectServiceDetail);
 
@@ -202,10 +202,10 @@ export function* fetchServiceStart({
 	payload: { serviceIndex, isAdminFetch },
 }) {
 	try {
-		const servicesArray = yield select(selectCurrentServices);
-		const currentService = servicesArray[serviceIndex];
+		const services = yield select(selectCurrentServices);
+		const service = services[serviceIndex];
 
-		yield put(fetchServiceSuccess(currentService));
+		yield put(fetchServiceSuccess(service));
 		yield isAdminFetch ? put(toggleEditStart()) : put(toggleModal());
 	} catch (error) {
 		console.log(error);
@@ -216,7 +216,6 @@ export function* fetchServiceStart({
 export function* newServiceStart() {
 	try {
 		const currentServices = yield select(selectCurrentServices);
-
 		const order = currentServices.length + 1;
 
 		yield put(newServiceSuccess(order));
@@ -254,7 +253,7 @@ export function* onDeleteMainServicesStart() {
 export function* onDeleteServicesStart() {
 	yield takeLatest(
 		ServiceDetailTypes.DELETE_SERVICE_START,
-		deleteServicesStart
+		deleteServiceStart
 	);
 }
 

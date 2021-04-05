@@ -16,7 +16,7 @@ const ListItems = ({
 	services,
 	mainIndex,
 	setNewServiceStart,
-	deleteServicesStart,
+	deleteServiceStart,
 }) => {
 	const [edit, setEdit] = useState({ index: null, isEdit: false });
 	const [isDelete, setIsDelete] = useState({ index: null, isDelete: false });
@@ -78,7 +78,7 @@ const ListItems = ({
 								<Button
 									className='delete-button'
 									onClick={() => {
-										deleteServicesStart(
+										deleteServiceStart(
 											serviceIndex,
 											mainIndex
 										);

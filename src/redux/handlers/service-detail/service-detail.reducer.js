@@ -119,11 +119,14 @@ const serviceDetailReducer = (state = INITIAL_STATE, action) => {
 				service2: '',
 				service3: '',
 				image: '',
+				order: 0,
 				typeOfService: '',
 				services: [],
 				errorMessage: '',
 				isEdit: false,
 				isNew: false,
+				title: '',
+				price: 0,
 			};
 		default:
 			return state;

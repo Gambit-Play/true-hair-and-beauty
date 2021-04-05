@@ -13,7 +13,7 @@ import {
 import {
 	fetchServiceStart,
 	updateServicesStart,
-	deleteServicesStart,
+	deleteServiceStart,
 	addNewServicesStart,
 	setServiceStart,
 	setOtherServiceStart,
@@ -55,8 +55,8 @@ const WithServiceDetail = WrappedComponent => {
 		updateServicesStart: () => dispatch(updateServicesStart()),
 		deleteMainServicesStart: () => dispatch(deleteMainServicesStart()),
 		newServiceStart: () => dispatch(newServiceStart()),
-		deleteServicesStart: (serviceIndex, mainIndex) =>
-			dispatch(deleteServicesStart(serviceIndex, mainIndex)),
+		deleteServiceStart: (serviceIndex, mainIndex) =>
+			dispatch(deleteServiceStart(serviceIndex, mainIndex)),
 		addNewServicesStart: serviceIndex =>
 			dispatch(addNewServicesStart(serviceIndex)),
 	});
